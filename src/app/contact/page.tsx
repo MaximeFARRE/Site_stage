@@ -150,36 +150,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="card">
-            <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-[var(--muted)]">
-              Pourquoi me contacter
-            </p>
-            <h2 className="mb-4 text-2xl font-semibold">
-              Les sujets sur lesquels je peux échanger
-            </h2>
-            <p className="text-sm leading-7 text-[var(--muted)]">
-              Mon profil se situe entre analyse financière, finance
-              quantitative, structuration de données et développement d’outils.
-              Je suis particulièrement à l’aise dans les environnements où il
-              faut comprendre vite, formaliser proprement et produire un support
-              exploitable.
-            </p>
-          </div>
-
-          <div className="card">
-            <div className="space-y-4">
-              {reasons.map((reason) => (
-                <div
-                  key={reason}
-                  className="rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-4 text-sm leading-7 text-[var(--foreground)]"
-                >
-                  {reason}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <section className="card">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
