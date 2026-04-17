@@ -1,5 +1,9 @@
 export const socialLinks = {
+  email: "maxime.farre8@email.com",
+
   linkedin: "https://linkedin.com/in/maxime-farre",
-  github: "https://github.com/maxime-farre",
-  email: "maxime.farre@email.com",
+
+  github: "https://github.com/MaximeFARRE",
+
+  cv: "/files/cv-maxime-farre.pdf",
 };
