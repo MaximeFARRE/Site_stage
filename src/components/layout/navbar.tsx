@@ -1,31 +1,52 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import Container from "./container";
 import { navigation } from "@/data/navigation";
 import { personalInfo } from "@/data/personal-info";
 
 export default function Navbar() {
-  return (
-    <header className="border-b border-gray-200 bg-white/90 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between">
-        <Link
-          href="/"
-          className="text-lg font-semibold tracking-tight text-gray-900"
-        >
-          {personalInfo.fullName}
-        </Link>
+  const pathname = usePathname();
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {navigation.map((item) => (
+  return (
+    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur-md">
+      <Container>
+        <div className="flex h-16 items-center justify-between">
+          <Link
+            href="/"
+            className="text-base font-semibold tracking-tight text-[var(--foreground)] transition hover:opacity-70"
+          >
+            {personalInfo.fullName}
+          </Link>
+
+          <nav className="flex items-center gap-1">
+            {navigation.filter((item) => item.href !== "/").map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`rounded-lg px-3 py-1.5 text-sm font-medium transition ${
+                    active
+                      ? "bg-[var(--secondary)] text-[var(--foreground)]"
+                      : "text-[var(--muted)] hover:bg-[var(--secondary)] hover:text-[var(--foreground)]"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+
             <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-gray-600 transition hover:text-blue-700"
+              href="/contact"
+              className="button-primary ml-4 !py-2 !text-xs"
             >
-              {item.label}
+              Contact
             </Link>
-          ))}
-        </nav>
+          </nav>
+        </div>
       </Container>
     </header>
   );
