@@ -369,6 +369,151 @@ export const projects: Project[] = [
             },
         ],
     },
+    {
+        slug: "projet-machine-learning",
+        title: "Projet de machine learning appliqué à l’allocation",
+        category: "Finance quantitative · Data science · Machine Learning",
+        shortDescription:
+            "Pipeline Python de modélisation et backtest pour comparer des stratégies d’allocation (Equal Weight, Markowitz, Random Forest, Logistic Regression) sur des actifs financiers.",
+        longDescription:
+            "Ce projet est lié aux projets « Backtest et optimisation de portefeuille » et « Application de suivi de patrimoine »: il constitue la brique machine learning utilisée pour tester des signaux et comparer leur impact sur la performance portefeuille. Le repo structure un pipeline complet, de la préparation des données marché à la production de métriques test, avec une logique reproductible (scripts dédiés + orchestration run_all). L’approche combine des baselines classiques (Equal Weight, Markowitz Minimum Variance) et des modèles supervisés (Random Forest, Logistic Regression) pour prédire la direction des rendements journaliers et transformer ces probabilités en poids de portefeuille.",
+        technologies: ["Python", "Pandas", "NumPy", "scikit-learn", "Matplotlib", "Seaborn"],
+        image: "/images/projects/projection_montecarlo.png",
+        featured: true,
+
+        whatItShows:
+            "Capacité à transformer un sujet quantitatif en pipeline ML exploitable: ingénierie de features, sélection de variables, entraînement multi-modèles, comparaison à des baselines financières et restitution claire des résultats.",
+        context:
+            "L’objectif était de dépasser un simple notebook exploratoire pour produire une base de travail rigoureuse et collaborative: code modulaire, scripts dédiés, métriques exportées et graphes de comparaison directement utilisables.",
+        objective:
+            "Évaluer de manière structurée l’apport de modèles supervisés sur l’allocation de portefeuille, en conservant un point de référence financier robuste grâce aux baselines Equal Weight et Markowitz.",
+        role:
+            "Participation à la structuration du projet, à l’intégration des modules de comparaison de stratégies et à la formalisation d’un flux complet: préparation des données, entraînement, backtest et reporting.",
+
+        challenges: [
+            "Construire un pipeline temporel propre (train/test) pour limiter les biais de fuite d’information dans un contexte série temporelle.",
+            "Comparer des approches de nature différente (allocations statiques vs modèles supervisés) avec des métriques homogènes.",
+            "Maintenir une architecture lisible malgré la multiplication des briques (features, modèles, baselines, scripts d’orchestration).",
+        ],
+        outcomes: [
+            "Mise en place d’un enchaînement reproductible via scripts (`run_prepare.py`, `run_baselines.py`, `run_random_forest.py`, `run_logistic_regression.py`, `run_all.py`).",
+            "Production systématique de rapports de test (`metrics_test_*`) et de figures comparatives (`equity_*_vs_baselines_test.png`).",
+            "Intégration de Random Forest avec sélection ANOVA des variables et recherche d’hyperparamètres (`GridSearchCV`).",
+            "Ajout d’un benchmark supervisé Logistic Regression comparé aux stratégies financières classiques.",
+        ],
+        links: [
+            {
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Projet_final_ML",
+            },
+            {
+                label: "Projet lié: backtest portefeuille",
+                href: "/projets/backtest-optimisation-portefeuille",
+            },
+            {
+                label: "Projet lié: suivi de patrimoine",
+                href: "/projets/suivi-patrimoine",
+            },
+            {
+                label: "Commit Random Forest",
+                href: "https://github.com/MaximeFARRE/Projet_final_ML/commit/eba827df76afca95144b9db81a238e4d71ac0c1d",
+            },
+            {
+                label: "Commit Logistic Regression",
+                href: "https://github.com/MaximeFARRE/Projet_final_ML/commit/5c76815da29c2485d593eb278b7f08ccac8a9acf",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le projet suit une logique quant/ML complète: ingestion des prix, construction de features techniques, entraînement de modèles directionnels par actif, backtest de portefeuille, puis comparaison systématique aux baselines.",
+            scope: [
+                "Préparation des données et EDA (prix normalisés, distribution des rendements, corrélations, volatilité roulante).",
+                "Baselines financières: Equal Weight Buy & Hold et Markowitz Minimum Variance.",
+                "Modélisation supervisée par actif: Random Forest et Logistic Regression.",
+                "Backtest des stratégies ML sur la période test avec conversion des probabilités en poids portefeuille.",
+                "Export des métriques et figures pour lecture comparative.",
+            ],
+            architecture: [
+                {
+                    title: "Couche données",
+                    detail:
+                        "Modules `src/data/load_data.py` et `src/data/preprocess.py` pour charger les prix, calculer les rendements et séparer train/test de façon temporelle.",
+                },
+                {
+                    title: "Feature engineering",
+                    detail:
+                        "Construction d’indicateurs techniques (`src/features/technical_indicators.py`) et sélection ANOVA (`src/features/feature_selection.py`) sur les variables pertinentes.",
+                },
+                {
+                    title: "Modèles et stratégies",
+                    detail:
+                        "Implémentation de baselines financières (`src/baselines`) et modèles ML (`src/models/random_forest.py`, `src/models/logistic_regression.py`) avec logique de backtest.",
+                },
+                {
+                    title: "Orchestration et reporting",
+                    detail:
+                        "Scripts `scripts/run_*.py` + `run_all.py` pour exécuter le pipeline complet, générer les tables de métriques et les graphes d’equity curve.",
+                },
+            ],
+            dataFlow: [
+                "Chargement des séries de prix et calcul des rendements quotidiens.",
+                "Création des features techniques et sauvegarde de la table consolidée.",
+                "Séparation temporelle train/test et entraînement des modèles par actif.",
+                "Projection des signaux/probabilités en poids de portefeuille sur la période test.",
+                "Calcul des equity curves et des métriques de comparaison inter-stratégies.",
+                "Export des résultats (`reports/tables`, `reports/figures`) pour analyse décisionnelle.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Comparaison systématique aux baselines",
+                    detail:
+                        "Chaque stratégie ML est évaluée face à Equal Weight et Markowitz pour garder un référentiel financier stable, pas uniquement un score de classification.",
+                },
+                {
+                    title: "Découpage temporel explicite",
+                    detail:
+                        "Le split train/test suit la chronologie marché afin de limiter les biais de fuite d’information sur séries temporelles.",
+                },
+                {
+                    title: "Sélection ANOVA + GridSearchCV",
+                    detail:
+                        "Random Forest combine une réduction de dimension des features et un réglage d’hyperparamètres pour éviter une approche purement arbitraire.",
+                },
+                {
+                    title: "Modélisation par actif puis agrégation portefeuille",
+                    detail:
+                        "Les prédictions sont faites par ticker puis agrégées via une logique de pondération, ce qui rapproche le modèle du besoin allocation réel.",
+                },
+            ],
+            quality: [
+                "Scripts dédiés par étape pour reproductibilité et débogage ciblé.",
+                "Exports versionnables des métriques et visualisations de test.",
+                "Structure modulaire (`src/data`, `src/features`, `src/models`, `src/baselines`, `scripts`) compatible travail en équipe.",
+            ],
+            limitations: [
+                "Les performances restent dépendantes de la fenêtre historique et du régime de marché observé.",
+                "Les frictions de marché réelles sont simplifiées (coûts de transaction, liquidité, slippage avancé).",
+                "Validation encore perfectible (walk-forward robuste, stress tests plus systématiques).",
+            ],
+            nextSteps: [
+                "Ajouter une validation walk-forward et des protocoles de robustesse hors-échantillon plus stricts.",
+                "Étendre la bibliothèque de modèles (ex: gradient boosting) dans le même cadre de comparaison.",
+                "Relier automatiquement les sorties du pipeline ML aux modules de suivi patrimonial.",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/projection_montecarlo.png",
+                    alt: "Pipeline machine learning de comparaison de stratégies portefeuille",
+                    caption: "Vue synthétique du pipeline ML et des courbes de stratégies comparées.",
+                },
+                {
+                    src: "/images/projects/backtest_5ans.png",
+                    alt: "Comparaison Random Forest et baselines sur période test",
+                    caption: "Comparaison visuelle du modèle Random Forest face aux baselines financières.",
+                },
+            ],
+        },
+    },
 ];
 
 export function getFeaturedProjects() {
