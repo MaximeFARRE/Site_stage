@@ -1,58 +1,57 @@
-import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import Container from "@/components/layout/container";
 import { projects } from "@/data/projects";
 
-export default function ProjectsPage() {
+type ProjectPageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function ProjectPage({ params }: ProjectPageProps) {
+  const project = projects.find((item) => item.slug === params.slug);
+
+  if (!project) {
+    notFound();
+  }
+
   return (
     <section className="py-24">
-      <Container>
-        <div className="mb-14 max-w-3xl space-y-4">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-700">
-            Projets
-          </p>
+      <Container className="max-w-4xl">
+        <div className="space-y-8">
+          <div>
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-blue-700">
+              {project.category}
+            </p>
 
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Quelques projets que j’ai réalisés
-          </h1>
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              {project.title}
+            </h1>
+          </div>
 
-          <p className="text-lg leading-8 text-gray-600">
-            Une sélection de projets autour de la finance, de
-            l’entrepreneuriat et de la technologie.
-          </p>
-        </div>
+          <div className="rounded-3xl border border-gray-200 bg-white p-8 sm:p-10">
+            <p className="mb-8 whitespace-pre-line text-lg leading-8 text-gray-700">
+              {project.longDescription}
+            </p>
 
-        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => (
-            <Link
-              key={project.slug}
-              href={`/projets/${project.slug}`}
-              className="group rounded-3xl border border-gray-200 bg-white p-8 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
-            >
-              <div className="mb-4 inline-flex rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
-                {project.category}
-              </div>
-
-              <h2 className="mb-4 text-2xl font-semibold text-gray-900 transition group-hover:text-blue-700">
-                {project.title}
+            <div>
+              <h2 className="mb-4 text-lg font-semibold text-gray-900">
+                Technologies
               </h2>
 
-              <p className="mb-6 text-sm leading-7 text-gray-600">
-                {project.shortDescription}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {project.technologies.map((technology) => (
                   <span
                     key={technology}
-                    className="rounded-full border border-gray-200 px-3 py-1 text-xs text-gray-500"
+                    className="rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700"
                   >
                     {technology}
                   </span>
                 ))}
               </div>
-            </Link>
-          ))}
+            </div>
+          </div>
         </div>
       </Container>
     </section>
