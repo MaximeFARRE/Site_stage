@@ -32,7 +32,7 @@ export const projects: Project[] = [
             "Outil de suivi patrimonial multi-actifs pour centraliser, structurer et analyser un portefeuille personnel.",
         longDescription:
             "Ce projet consiste à concevoir une application capable de regrouper différentes classes d’actifs au sein d’un même environnement : actions cotées, private equity, immobilier, cash et autres positions patrimoniales. L’objectif est de disposer d’une vision claire, exploitable et évolutive d’un patrimoine global, avec une logique plus structurée qu’un simple tableur.",
-        technologies: ["Python", "SQL", "SQLite", "Streamlit"],
+        technologies: ["Python", "SQL", "SQLite", "React"],
         image: "/images/projects/patrimoine-app.jpg",
         featured: true,
 
