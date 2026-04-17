@@ -21,14 +21,14 @@ Je m’intéresse particulièrement à la gestion d’actifs, au private equity,
 Mon objectif est de construire une carrière à l’intersection de la finance, de l’entrepreneuriat et de la technologie.
   `,
 
-  location: "Toulouse, France",
+  location: "Paris, France",
 
   school: "ESILV – École Supérieure d’Ingénieurs Léonard de Vinci",
 
   degree: "Ingénierie financière",
 
   currentGoal:
-    "Je recherche des opportunités en finance, gestion d’actifs, private equity ou entrepreneuriat.",
+    "Je recherche des opportunités en finance, gestion d’actifs, private equity ou startup.",
 
   longTermGoal:
     "À long terme, mon objectif est de créer et gérer mon propre fonds d’investissement.",

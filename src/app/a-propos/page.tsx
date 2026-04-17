@@ -350,11 +350,11 @@ export default function AboutPage() {
           <div className="space-y-8">
             <div className="space-y-3">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
-                Qui je suis en dehors du travail ?
+                Ce qui me construit aussi au quotidien
               </p>
 
               <h2 className="section-title">
-                Ce qui me construit aussi au quotidien
+                Qui je suis en dehors du travail ?
               </h2>
 
               <p className="max-w-3xl text-[var(--muted)] leading-8">
@@ -514,12 +514,6 @@ export default function AboutPage() {
                     </div>
                   </div>
 
-                  <p className="leading-8 text-[var(--muted)]">
-                    Au fond, que ce soit dans le sport, la lecture ou l’investissement,
-                    c’est toujours la même logique qui m’intéresse : progresser dans la
-                    durée, réfléchir de manière structurée et construire quelque chose de
-                    solide.
-                  </p>
                 </div>
               </div>
             </div>
