@@ -1,279 +1,250 @@
-import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import Image from "next/image";
 
 import Container from "@/components/layout/container";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { projects } from "@/data/projects";
 
-type ProjectPageProps = {
-  params: {
-    slug: string;
-  };
-};
+const categories = [
+    "Tous",
+    "Finance",
+    "Data",
+    "Automatisation",
+    "Entrepreneuriat",
+];
 
-export function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
+export default function ProjectsPage() {
+    const featuredProjects = projects.filter((project) => project.featured);
 
-export default function ProjectDetailPage({ params }: ProjectPageProps) {
-  const project = getProjectBySlug(params.slug);
+    return (
+        <section className="section">
+            <Container className="container-custom max-w-6xl">
+                <div className="space-y-20">
+                    <div className="max-w-4xl space-y-6">
+                        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                            Projets
+                        </p>
 
-  if (!project) {
-    notFound();
-  }
+                        <div className="space-y-4">
+                            <h1>Des projets conçus pour apprendre, construire et démontrer.</h1>
 
-  const otherProjects = projects.filter((item) => item.slug !== project.slug).slice(0, 2);
+                            <p className="text-lg leading-8 text-[var(--muted)]">
+                                Cette page rassemble des projets qui croisent finance,
+                                structuration de données, outils d’analyse, automatisation et
+                                entrepreneuriat. L’objectif n’est pas seulement de montrer ce
+                                que j’ai fait, mais aussi ce que ces projets disent de ma façon
+                                de travailler : comprendre un besoin, construire une solution et
+                                progresser par l’exécution.
+                            </p>
+                        </div>
 
-  return (
-    <section className="section">
-      <Container className="container-custom max-w-6xl">
-        <div className="space-y-20">
-          <div className="space-y-8">
-            <Link
-              href="/projets"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)] transition-opacity hover:opacity-80"
-            >
-              <span aria-hidden="true">←</span>
-              Retour aux projets
-            </Link>
-
-            <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
-                    {project.category}
-                  </p>
-
-                  <h1>{project.title}</h1>
-
-                  <p className="max-w-3xl text-lg leading-8 text-[var(--muted)]">
-                    {project.longDescription}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1.5 text-sm text-[var(--muted)]"
-                    >
-                      {technology}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="card p-7">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
-                    Ce que ce projet démontre
-                  </p>
-
-                  <p className="mt-4 leading-8 text-[var(--foreground)]">
-                    {project.whatItShows}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-5">
-                <div className="overflow-hidden rounded-[28px] border border-[var(--border)] bg-[var(--card)]">
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                </div>
-
-                <div className="card p-7">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
-                    Mon rôle
-                  </p>
-
-                  <p className="mt-4 leading-8 text-[var(--muted)]">
-                    {project.role}
-                  </p>
-                </div>
-
-                {project.links && project.links.length > 0 && (
-                  <div className="card p-7">
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
-                      Liens
-                    </p>
-
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      {project.links.map((link) => (
-                        <a
-                          key={link.href}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="button-secondary"
-                        >
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            <div className="card p-8 lg:col-span-1">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
-                Contexte
-              </p>
-
-              <p className="mt-4 leading-8 text-[var(--muted)]">
-                {project.context}
-              </p>
-            </div>
-
-            <div className="card p-8 lg:col-span-2">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
-                Objectif
-              </p>
-
-              <p className="mt-4 leading-8 text-[var(--muted)]">
-                {project.objective}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="card p-8 sm:p-10">
-              <div className="space-y-5">
-                <div className="space-y-3">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
-                    Difficultés rencontrées
-                  </p>
-                  <h2 className="section-title">Les principaux enjeux du projet</h2>
-                </div>
-
-                <div className="space-y-4">
-                  {project.challenges.map((challenge) => (
-                    <div
-                      key={challenge}
-                      className="rounded-2xl border border-[var(--border)] bg-[var(--background)] p-5"
-                    >
-                      <p className="leading-7 text-[var(--muted)]">{challenge}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="card p-8 sm:p-10">
-              <div className="space-y-5">
-                <div className="space-y-3">
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
-                    Résultats et apprentissages
-                  </p>
-                  <h2 className="section-title">Ce que j’en retiens</h2>
-                </div>
-
-                <div className="space-y-4">
-                  {project.outcomes.map((outcome) => (
-                    <div
-                      key={outcome}
-                      className="rounded-2xl border border-[var(--border)] bg-[var(--background)] p-5"
-                    >
-                      <p className="leading-7 text-[var(--muted)]">{outcome}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {otherProjects.length > 0 && (
-            <div className="space-y-8">
-              <div className="space-y-3">
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
-                  Autres projets
-                </p>
-                <h2 className="section-title">Continuer la visite</h2>
-              </div>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                {otherProjects.map((item) => (
-                  <article key={item.slug} className="card overflow-hidden p-0">
-                    <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)] bg-[var(--secondary)]">
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover transition-transform duration-500 hover:scale-[1.03]"
-                      />
+                        <div className="flex flex-wrap gap-3">
+                            {categories.map((category) => (
+                                <span
+                                    key={category}
+                                    className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium text-[var(--muted)]"
+                                >
+                                    {category}
+                                </span>
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="space-y-4 p-7">
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
-                        {item.category}
-                      </p>
+                    <div className="space-y-8">
+                        <div className="space-y-3">
+                            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                                Projets mis en avant
+                            </p>
+                            <h2 className="section-title">
+                                Les projets les plus représentatifs de mon profil
+                            </h2>
+                        </div>
 
-                      <h3 className="text-xl font-semibold text-[var(--foreground)]">
-                        {item.title}
-                      </h3>
+                        <div className="grid gap-8 lg:grid-cols-2">
+                            {featuredProjects.map((project, index) => (
+                                <article key={project.slug} className="card overflow-hidden p-0">
+                                    <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)] bg-[var(--secondary)]">
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 hover:scale-[1.03]"
+                                        />
 
-                      <p className="leading-7 text-[var(--muted)]">
-                        {item.shortDescription}
-                      </p>
+                                        {index === 0 && (
+                                            <div className="absolute left-5 top-5 rounded-full bg-[var(--foreground)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+                                                Featured
+                                            </div>
+                                        )}
+                                    </div>
 
-                      <Link
-                        href={`/projets/${item.slug}`}
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)] transition-opacity hover:opacity-80"
-                      >
-                        Voir ce projet
-                        <span aria-hidden="true">→</span>
-                      </Link>
+                                    <div className="space-y-6 p-8">
+                                        <div className="space-y-3">
+                                            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
+                                                {project.category}
+                                            </p>
+
+                                            <h3 className="text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+                                                {project.title}
+                                            </h3>
+
+                                            <p className="leading-8 text-[var(--muted)]">
+                                                {project.shortDescription}
+                                            </p>
+                                        </div>
+
+                                        <div className="space-y-3">
+                                            <p className="text-sm font-medium text-[var(--muted)]">
+                                                Ce que ce projet démontre
+                                            </p>
+                                            <p className="text-base leading-7 text-[var(--foreground)]">
+                                                {project.whatItShows}
+                                            </p>
+                                        </div>
+
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.technologies.map((technology) => (
+                                                <span
+                                                    key={technology}
+                                                    className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-sm text-[var(--muted)]"
+                                                >
+                                                    {technology}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        <div className="flex items-center justify-between gap-4 pt-2">
+                                            <p className="text-sm text-[var(--muted)]">
+                                                Résumé rapide disponible ici, détail complet sur la page
+                                                projet.
+                                            </p>
+
+                                            <Link
+                                                href={`/projets/${project.slug}`}
+                                                className="button-primary whitespace-nowrap"
+                                            >
+                                                Voir le projet
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
                     </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
 
-          <div className="rounded-[32px] bg-[var(--foreground)] px-8 py-10 sm:px-10 sm:py-12">
-            <div className="max-w-3xl space-y-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/70">
-                Échanger
-              </p>
+                    <div className="space-y-8">
+                        <div className="space-y-3">
+                            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                                Tous les projets
+                            </p>
+                            <h2 className="section-title">
+                                Une sélection de projets construits avec une logique concrète
+                            </h2>
+                            <p className="max-w-3xl text-[var(--muted)]">
+                                Chaque projet répond à une logique simple : partir d’un besoin
+                                réel, structurer une solution utile et en tirer des
+                                apprentissages concrets. Certains sont plus orientés finance,
+                                d’autres davantage produit, data ou entrepreneuriat.
+                            </p>
+                        </div>
 
-              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Je peux détailler ce projet plus en profondeur en entretien.
-              </h2>
+                        <div className="grid gap-6 xl:grid-cols-3">
+                            {projects.map((project) => (
+                                <article key={project.slug} className="card overflow-hidden p-0">
+                                    <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)] bg-[var(--secondary)]">
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 hover:scale-[1.03]"
+                                        />
+                                    </div>
 
-              <p className="leading-8 text-white/80">
-                Si ce projet vous intéresse, je peux revenir plus précisément sur
-                le besoin initial, les choix de conception, les difficultés
-                rencontrées et ce qu’il dit de ma manière de travailler.
-              </p>
+                                    <div className="space-y-5 p-7">
+                                        <div className="space-y-3">
+                                            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
+                                                {project.category}
+                                            </p>
 
-              <div className="flex flex-wrap gap-4 pt-2">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--foreground)] transition-transform duration-200 hover:-translate-y-0.5"
-                >
-                  Me contacter
-                </Link>
+                                            <h3 className="text-xl font-semibold text-[var(--foreground)]">
+                                                {project.title}
+                                            </h3>
 
-                <Link
-                  href="/projets"
-                  className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-80"
-                >
-                  Voir tous les projets
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
+                                            <p className="leading-7 text-[var(--muted)]">
+                                                {project.shortDescription}
+                                            </p>
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <p className="text-sm font-medium text-[var(--muted)]">
+                                                Ce que cela montre
+                                            </p>
+                                            <p className="text-sm leading-7 text-[var(--foreground)]">
+                                                {project.whatItShows}
+                                            </p>
+                                        </div>
+
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.technologies.slice(0, 4).map((technology) => (
+                                                <span
+                                                    key={technology}
+                                                    className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1 text-xs text-[var(--muted)]"
+                                                >
+                                                    {technology}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        <div className="pt-2">
+                                            <Link
+                                                href={`/projets/${project.slug}`}
+                                                className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)] transition-opacity hover:opacity-80"
+                                            >
+                                                Voir le détail
+                                                <span aria-hidden="true">→</span>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="rounded-[32px] bg-[var(--foreground)] px-8 py-10 sm:px-10 sm:py-12">
+                        <div className="max-w-3xl space-y-5">
+                            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/70">
+                                Aller plus loin
+                            </p>
+
+                            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                                Chaque projet peut être détaillé davantage en entretien.
+                            </h2>
+
+                            <p className="leading-8 text-white/80">
+                                Cette sélection donne une vue synthétique de ma manière de
+                                travailler. En entretien, je peux revenir plus en détail sur les
+                                choix, les difficultés, les arbitrages et les apprentissages
+                                tirés de chaque projet.
+                            </p>
+
+                            <div className="flex flex-wrap gap-4 pt-2">
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--foreground)] transition-transform duration-200 hover:-translate-y-0.5"
+                                >
+                                    Me contacter
+                                </Link>
+
+                                <Link
+                                    href="/cv"
+                                    className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-80"
+                                >
+                                    Voir mon CV
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </section>
+    );
 }
