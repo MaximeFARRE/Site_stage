@@ -51,11 +51,20 @@ export const projects: Project[] = [
             "Préparer une base exploitable pour de futures projections, automatisations ou imports de données.",
         ],
         outcomes: [
-            "Mise en place d’un outil centralisé pour suivre des positions et des indicateurs clés.",
-            "Meilleure lecture de l’allocation patrimoniale, des expositions et de l’évolution du portefeuille.",
-            "Renforcement de mes compétences en structuration de données financières et en logique produit.",
+            "Tableau de bord centralisé couvrant actions, private equity, immobilier, cash et autres positions patrimoniales.",
+            "Suivi consolidé de l’allocation, des expositions et des flux avec une lecture par poche d’actifs.",
+            "Base de données SQLite prête pour des imports automatiques et des modules de projection.",
         ],
-        links: [],
+        links: [
+            {
+                label: "GitHub (profil)",
+                href: "https://github.com/MaximeFARRE",
+            },
+            {
+                label: "Capture KPI",
+                href: "/images/projects/patrimoine_kpi.png",
+            },
+        ],
     },
     {
         slug: "backtest-optimisation-portefeuille",
@@ -84,11 +93,20 @@ export const projects: Project[] = [
             "Garder un cadre lisible, reproductible et utile pour l’analyse.",
         ],
         outcomes: [
-            "Mise en place d’un environnement de backtest personnel en Python.",
-            "Comparaison plus rigoureuse entre stratégies simples, actifs et portefeuille agrégé.",
-            "Approfondissement de mes réflexes en analyse quantitative, gestion du risque et lecture des métriques.",
+            "Backtests reproductibles sur un horizon de 5 ans pour comparer stratégies et allocations.",
+            "Comparaison normalisée de métriques de risque/rendement: volatilité, drawdown, performance cumulée.",
+            "Visualisations exploitables pour arbitrer entre robustesse, rendement et diversification.",
         ],
-        links: [],
+        links: [
+            {
+                label: "GitHub (profil)",
+                href: "https://github.com/MaximeFARRE",
+            },
+            {
+                label: "Capture backtest",
+                href: "/images/projects/backtest_5ans.png",
+            },
+        ],
     },
     {
         slug: "occifloc",
@@ -117,11 +135,20 @@ export const projects: Project[] = [
             "Structurer progressivement l’activité sans perdre en réactivité opérationnelle.",
         ],
         outcomes: [
-            "Développement d’une activité réelle avec clients, commandes, coûts et flux de trésorerie.",
-            "Montée en compétence sur le pilotage par indicateurs, les marges et l’organisation.",
-            "Renforcement de ma capacité à passer d’une analyse à une décision opérationnelle.",
+            "Mise en place d’un suivi régulier des marges, des coûts et de la trésorerie pour piloter les arbitrages.",
+            "Structuration de process entre vente, production et livraison avec meilleure visibilité sur les délais.",
+            "Renforcement d’une logique de décision orientée indicateurs dans un contexte opérationnel réel.",
         ],
-        links: [],
+        links: [
+            {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/maxime-farre",
+            },
+            {
+                label: "Échanger sur le projet",
+                href: "/contact",
+            },
+        ],
     },
 ];
 

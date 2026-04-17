@@ -50,9 +50,19 @@ Pages prévues
 /projets → Liste des projets
 /projets/[slug] → Fiche projet détaillée
 /experiences → Parcours et expériences
-/competences → Compétences
 /cv → CV
 /contact → Contact
+
+Données principales (`src/data/`)
+- `personal-info.ts`
+- `navigation.ts`
+- `projects.ts`
+- `experiences.ts`
+- `skills.ts`
+- `contact.ts`
+- `cv.ts`
+- `social-links.ts`
+
 Règles importantes
 Ne jamais écrire de contenu important directement dans les composants.
 Toujours réutiliser les composants existants avant d’en créer un nouveau.

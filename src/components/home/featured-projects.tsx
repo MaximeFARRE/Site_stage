@@ -43,7 +43,7 @@ export default function FeaturedProjects() {
               <div className="relative h-40 w-full overflow-hidden rounded-lg bg-[var(--secondary)]">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - aperçu du projet`}
                   fill
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />

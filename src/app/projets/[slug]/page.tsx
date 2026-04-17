@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import Container from "@/components/layout/container";
@@ -15,6 +16,25 @@ export function generateStaticParams() {
   return projects.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export function generateMetadata({ params }: ProjectPageProps): Metadata {
+  const project = getProjectBySlug(params.slug);
+
+  if (!project) {
+    return {
+      title: "Projet introuvable",
+      description: "Le projet demandé n’existe pas ou n’est plus disponible.",
+    };
+  }
+
+  return {
+    title: project.title,
+    description: project.shortDescription,
+    alternates: {
+      canonical: `/projets/${project.slug}`,
+    },
+  };
 }
 
 export default function ProjectDetailPage({ params }: ProjectPageProps) {
@@ -80,7 +100,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                   <div className="relative aspect-[4/3]">
                     <Image
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} - vue détaillée`}
                       fill
                       className="object-cover"
                       priority
@@ -106,15 +126,25 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
 
                     <div className="mt-4 flex flex-wrap gap-3">
                       {project.links.map((link) => (
-                        <a
-                          key={link.href}
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="button-secondary"
-                        >
-                          {link.label}
-                        </a>
+                        link.href.startsWith("/") ? (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            className="button-secondary"
+                          >
+                            {link.label}
+                          </Link>
+                        ) : (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="button-secondary"
+                          >
+                            {link.label}
+                          </a>
+                        )
                       ))}
                     </div>
                   </div>
@@ -206,7 +236,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
                     <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)] bg-[var(--secondary)]">
                       <Image
                         src={item.image}
-                        alt={item.title}
+                        alt={`${item.title} - aperçu du projet`}
                         fill
                         className="object-cover transition-transform duration-500 hover:scale-[1.03]"
                       />

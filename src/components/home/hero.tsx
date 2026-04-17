@@ -36,6 +36,7 @@ export default function Hero() {
               <Link
                 href={socialLinks.cv}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="button-secondary"
               >
                 Télécharger mon CV
@@ -77,7 +78,7 @@ export default function Hero() {
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--secondary)]">
               <Image
                 src="/images/profile/photo de profil.jpeg"
-                alt={personalInfo.fullName}
+                alt={`Portrait de ${personalInfo.fullName}`}
                 fill
                 className="object-cover"
                 priority

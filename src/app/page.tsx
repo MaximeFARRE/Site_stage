@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Hero from "@/components/home/hero";
 import FeaturedProjects from "@/components/home/featured-projects";
 import Container from "@/components/layout/container";
@@ -23,6 +24,15 @@ const pillars = [
     href: "/projets",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Accueil",
+  description:
+    "Portfolio orienté finance quantitative et technologie: projets, expériences et outils d’analyse financière.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function HomePage() {
   return (

@@ -1,89 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { cvHighlights } from "@/data/cv";
+import { cvExperiences, educationEntries } from "@/data/experiences";
+import { cvSkills } from "@/data/skills";
 
-const experiences = [
-  {
-    period: "2022 - Aujourd’hui",
-    title: "Président · Occifloc",
-    description:
-      "Développement d’une activité de personnalisation textile, gestion du budget, suivi des marges, pilotage de la trésorerie, mise en place de KPI financiers et amélioration des process.",
+export const metadata: Metadata = {
+  title: "CV",
+  description:
+    "CV de Maxime Farré: formation en ingénierie financière, expériences, compétences en finance quantitative et outils data.",
+  alternates: {
+    canonical: "/cv",
   },
-  {
-    period: "2024 - Aujourd’hui",
-    title: "Membre investisseur · Blast Club",
-    description:
-      "Analyse de sociétés early-stage, étude de marché, lecture des business models, unit economics et première approche des logiques de valorisation.",
-  },
-  {
-    period: "2019 - 2025",
-    title: "Professeur particulier · Mathématiques / Physique",
-    description:
-      "Explication de sujets techniques, adaptation au niveau de l’élève et structuration d’un raisonnement mathématique étape par étape.",
-  },
-];
-
-const education = [
-  {
-    period: "2024 - 2027",
-    title: "ESILV · MSc / Master en finance de marché",
-    description:
-      "Parcours orienté ingénierie financière : market risk, equity derivatives, commodities markets, machine learning for finance.",
-  },
-  {
-    period: "2022 - 2024",
-    title: "Classe préparatoire PTSI / PT · Lycée Jean Dupuy",
-    description:
-      "Formation exigeante en mathématiques, physique et rigueur analytique.",
-  },
-];
-
-const skills = [
-  {
-    title: "Finance",
-    items: [
-      "Black-Scholes",
-      "Monte Carlo",
-      "VaR",
-      "Stress testing",
-      "Portfolio optimisation",
-      "Backtesting",
-      "Analyse d’entreprise",
-      "Bloomberg Terminal",
-    ],
-  },
-  {
-    title: "Data & développement",
-    items: [
-      "Python",
-      "Pandas / NumPy",
-      "SQL",
-      "Git",
-      "Linux",
-      "C++",
-      "VBA",
-      "SQLite",
-      "Streamlit",
-    ],
-  },
-  {
-    title: "Outils & exécution",
-    items: [
-      "Excel avancé",
-      "Automatisation de workflows",
-      "n8n",
-      "IA appliquée au code et à l’analyse",
-      "Rigueur",
-      "Autonomie",
-      "Documentation",
-    ],
-  },
-];
-
-const highlights = [
-  "Étudiant en ingénierie financière à l’ESILV",
-  "Recherche de stage en finance de marché, asset management ou analyse",
-  "Construction d’outils quantitatifs en Python sur environnement Linux",
-  "Compétences en SQL, Streamlit, backtesting et dashboards financiers",
-];
+};
 
 export default function CvPage() {
   return (
@@ -138,14 +66,14 @@ export default function CvPage() {
                 <br />
                 Stage de 4 à 6 mois
                 <br />
-                Disponible à partir d’avril
+                Disponible dès maintenant
               </p>
             </div>
 
             <div className="h-px w-full bg-[var(--border)]" />
 
             <div className="space-y-3">
-              {highlights.map((item) => (
+              {cvHighlights.map((item) => (
                 <div
                   key={item}
                   className="rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm text-[var(--foreground)]"
@@ -175,7 +103,7 @@ export default function CvPage() {
             <embed
               src="/files/cv_maxime_farre.pdf"
               type="application/pdf"
-              className="h-[900px] w-full"
+              className="h-[70vh] min-h-[480px] w-full md:h-[900px]"
             />
           </div>
         </section>
@@ -246,7 +174,7 @@ export default function CvPage() {
           </div>
 
           <div className="space-y-4">
-            {experiences.map((item) => (
+            {cvExperiences.map((item) => (
               <article key={item.title} className="card">
                 <div className="grid gap-4 md:grid-cols-[180px_1fr] md:gap-8">
                   <div className="text-sm font-medium text-[var(--primary)]">
@@ -274,7 +202,7 @@ export default function CvPage() {
           </div>
 
           <div className="space-y-4">
-            {education.map((item) => (
+            {educationEntries.map((item) => (
               <article key={item.title} className="card">
                 <div className="grid gap-4 md:grid-cols-[180px_1fr] md:gap-8">
                   <div className="text-sm font-medium text-[var(--primary)]">
@@ -302,7 +230,7 @@ export default function CvPage() {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
-            {skills.map((group) => (
+            {cvSkills.map((group) => (
               <div key={group.title} className="card">
                 <h3 className="mb-4 text-xl font-semibold">{group.title}</h3>
                 <div className="flex flex-wrap gap-2">

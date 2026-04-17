@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useMemo, useState } from "react";
 
 import Container from "@/components/layout/container";
 import { projects } from "@/data/projects";
@@ -13,7 +16,20 @@ const categories = [
 ];
 
 export default function ProjectsPage() {
-    const featuredProjects = projects.filter((project) => project.featured);
+    const [activeCategory, setActiveCategory] = useState("Tous");
+
+    const filteredProjects = useMemo(() => {
+        if (activeCategory === "Tous") {
+            return projects;
+        }
+
+        const category = activeCategory.toLowerCase();
+        return projects.filter((project) =>
+            project.category.toLowerCase().includes(category),
+        );
+    }, [activeCategory]);
+
+    const featuredProjects = filteredProjects.filter((project) => project.featured);
 
     return (
         <section className="section">
@@ -38,12 +54,18 @@ export default function ProjectsPage() {
 
                         <div className="flex flex-wrap gap-3">
                             {categories.map((category) => (
-                                <span
+                                <button
+                                    type="button"
                                     key={category}
-                                    className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium text-[var(--muted)]"
+                                    onClick={() => setActiveCategory(category)}
+                                    className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+                                        activeCategory === category
+                                            ? "border-[var(--primary)] bg-[var(--primary)] text-white"
+                                            : "border-[var(--border)] bg-[var(--card)] text-[var(--muted)] hover:border-[var(--primary)] hover:text-[var(--foreground)]"
+                                    }`}
                                 >
                                     {category}
-                                </span>
+                                </button>
                             ))}
                         </div>
                     </div>
@@ -64,7 +86,7 @@ export default function ProjectsPage() {
                                     <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)] bg-[var(--secondary)]">
                                         <Image
                                             src={project.image}
-                                            alt={project.title}
+                                            alt={`${project.title} - aperçu du projet`}
                                             fill
                                             className="object-cover transition-transform duration-500 hover:scale-[1.03]"
                                         />
@@ -113,8 +135,7 @@ export default function ProjectsPage() {
 
                                         <div className="flex items-center justify-between gap-4 pt-2">
                                             <p className="text-sm text-[var(--muted)]">
-                                                Résumé rapide ici, avec le détail technique sur la page
-                                                projet.
+                                                Résultat clé: {project.outcomes[0] ?? "détail complet sur la page projet."}
                                             </p>
 
                                             <Link
@@ -128,6 +149,12 @@ export default function ProjectsPage() {
                                 </article>
                             ))}
                         </div>
+
+                        {featuredProjects.length === 0 && (
+                            <p className="rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-4 text-sm text-[var(--muted)]">
+                                Aucun projet mis en avant pour la catégorie « {activeCategory} ».
+                            </p>
+                        )}
                     </div>
 
                     <div className="space-y-8">
@@ -147,12 +174,12 @@ export default function ProjectsPage() {
                         </div>
 
                         <div className="grid gap-6 xl:grid-cols-3">
-                            {projects.map((project) => (
+                            {filteredProjects.map((project) => (
                                 <article key={project.slug} className="card overflow-hidden p-0">
                                     <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)] bg-[var(--secondary)]">
                                         <Image
                                             src={project.image}
-                                            alt={project.title}
+                                            alt={`${project.title} - aperçu du projet`}
                                             fill
                                             className="object-cover transition-transform duration-500 hover:scale-[1.03]"
                                         />
@@ -206,6 +233,12 @@ export default function ProjectsPage() {
                                 </article>
                             ))}
                         </div>
+
+                        {filteredProjects.length === 0 && (
+                            <p className="rounded-xl border border-[var(--border)] bg-[var(--card)] px-5 py-4 text-sm text-[var(--muted)]">
+                                Aucun projet trouvé pour la catégorie « {activeCategory} ».
+                            </p>
+                        )}
                     </div>
 
                     <div className="rounded-[32px] bg-[var(--foreground)] px-8 py-10 sm:px-10 sm:py-12">

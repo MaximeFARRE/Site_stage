@@ -1,34 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { contactMethods } from "@/data/contact";
 
-const contactMethods = [
-  {
-    title: "Email",
-    value: "maxime.farre8@gmail.com",
-    href: "mailto:maxime.farre8@gmail.com",
-    description:
-      "Le moyen le plus direct pour échanger autour d’un stage, d’une opportunité ou d’un sujet d’analyse.",
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contacter Maxime Farré pour une opportunité en finance de marché, analyse financière, private equity ou outils quantitatifs.",
+  alternates: {
+    canonical: "/contact",
   },
-  {
-    title: "LinkedIn",
-    value: "linkedin.com/in/maxime-farre",
-    href: "https://www.linkedin.com/in/maxime-farre",
-    description:
-      "Pour découvrir mon parcours, mes expériences et prendre contact dans un cadre professionnel.",
-  },
-  {
-    title: "GitHub",
-    value: "https://github.com/MaximeFARRE",
-    href: "https://github.com/MaximeFARRE",
-    description:
-      "Pour consulter mes projets, mes outils et ma manière de structurer du code orienté analyse.",
-  },
-];
-
-const reasons = [
-  "Stage en finance de marché, asset management, private equity, analyse financière ou recherche quantitative",
-  "Développement d’outil financier, dashboard, automatisation, backtest ou structuration de données",
-  "Échange autour de mon parcours, de mes projets ou d’un besoin analytique concret",
-];
+};
 
 export default function ContactPage() {
   return (
