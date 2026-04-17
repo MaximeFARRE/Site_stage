@@ -19,6 +19,25 @@ const pillars = [
   },
 ];
 
+const toolsGroups = [
+  {
+    title: "Finance & analyse",
+    items: ["Bloomberg Terminal", "Excel avancé", "SQL", "Python", "Backtesting"],
+  },
+  {
+    title: "Développement",
+    items: ["VS Code", "Git", "Linux", "Streamlit", "SQLite"],
+  },
+  {
+    title: "IA & productivité",
+    items: ["Codex", "Claude Code", "agents IA", "automatisation", "RAG"],
+  },
+  {
+    title: "Exécution & workflows",
+    items: ["n8n", "structuration de process", "workflows assistés par IA", "outils no-code / low-code"],
+  },
+];
+
 const highlights = [
   {
     label: "Formation",
@@ -204,6 +223,43 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                Outils maîtrisés
+              </p>
+              <h2 className="section-title">Les outils que j’utilise pour apprendre, analyser et exécuter</h2>
+              <p className="max-w-3xl text-[var(--muted)]">
+                J’accorde beaucoup d’importance aux outils, non pas comme une fin en soi,
+                mais comme des leviers de vitesse, de clarté et de qualité d’exécution.
+                J’utilise à la fois des outils classiques de finance et de développement,
+                mais aussi des outils plus récents liés à l’IA, à l’automatisation et à la
+                structuration de workflows.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              {toolsGroups.map((group) => (
+                <div key={group.title} className="card p-7">
+                  <h3 className="text-lg font-semibold text-[var(--foreground)]">
+                    {group.title}
+                  </h3>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-sm text-[var(--muted)]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

@@ -50,6 +50,20 @@ const featuredExperiences = [
     ],
   },
 ];
+const workflowTools = [
+  "Bloomberg Terminal",
+  "Python",
+  "SQL",
+  "Git",
+  "Linux",
+  "Excel avancé",
+  "Codex",
+  "Claude Code",
+  "agents IA",
+  "automatisation",
+  "RAG",
+  "n8n",
+];
 
 const timelineExperiences = [
   {
@@ -266,7 +280,36 @@ export default function ExperiencesPage() {
               </div>
             </div>
           </div>
+          <div className="card p-8 sm:p-10">
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                  Outils et méthodes de travail
+                </p>
+                <h2 className="section-title">Les outils que je mobilise dans mes projets</h2>
+              </div>
 
+              <p className="leading-8 text-[var(--muted)]">
+                Au-delà des outils académiques plus classiques, j’accorde une place
+                croissante aux outils d’exécution modernes : développement assisté,
+                automatisation, structuration de workflows, agents IA et logiques de RAG.
+                Je les utilise comme des accélérateurs de productivité, mais aussi comme
+                des outils de qualité, pour mieux organiser, mieux analyser et exécuter
+                plus proprement.
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {workflowTools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-sm text-[var(--muted)]"
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
           <div className="space-y-8">
             <div className="space-y-3">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
