@@ -172,10 +172,10 @@ export default function CvPage() {
             </a>
           </div>
           <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--secondary)]">
-            <iframe
-              src="/files/cv_maxime_farre.pdf"
+            <embed
+              src="/files/cv_maxime_farre.pdf#view=FitH"
+              type="application/pdf"
               className="h-[800px] w-full"
-              title="CV Maxime Farré"
             />
           </div>
         </section>
