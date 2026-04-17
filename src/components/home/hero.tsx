@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/layout/container";
@@ -72,8 +73,16 @@ export default function Hero() {
 
           {/* Right column — currently block + placeholder photo */}
           <div className="flex flex-col gap-4">
-            {/* Photo placeholder */}
-            <div className="aspect-square w-full rounded-2xl border border-[var(--border)] bg-[var(--secondary)]" />
+            {/* Photo de profil */}
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--secondary)]">
+              <Image
+                src="/images/profile/photo de profil.jpeg"
+                alt={personalInfo.fullName}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
 
             {/* Currently */}
             <div className="card flex flex-col gap-3">

@@ -17,8 +17,8 @@ const contactMethods = [
   },
   {
     title: "GitHub",
-    value: "github.com/",
-    href: "https://github.com/",
+    value: "https://github.com/MaximeFARRE",
+    href: "https://github.com/MaximeFARRE",
     description:
       "Pour consulter mes projets, ma manière de construire et mon approche technique.",
   },

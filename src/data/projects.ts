@@ -33,7 +33,7 @@ export const projects: Project[] = [
         longDescription:
             "Ce projet consiste à concevoir une application capable de regrouper différentes classes d’actifs au sein d’un même environnement : actions cotées, private equity, immobilier, cash et autres positions patrimoniales. L’objectif est de disposer d’une vision claire, exploitable et évolutive d’un patrimoine global, avec une logique plus structurée qu’un simple tableur.",
         technologies: ["Python", "SQL", "SQLite", "React"],
-        image: "/images/projects/patrimoine-app.jpg",
+        image: "/images/projects/patrimoine_kpi.png",
         featured: true,
 
         whatItShows:
@@ -66,7 +66,7 @@ export const projects: Project[] = [
         longDescription:
             "Ce projet vise à construire un environnement d’analyse pour tester différentes approches d’investissement sur plusieurs actifs, comparer leurs performances et mieux comprendre la dynamique risque/rendement d’un portefeuille. Il s’inscrit dans une logique de finance quantitative appliquée, avec une approche volontairement concrète.",
         technologies: ["Python", "Pandas", "NumPy", "Backtesting"],
-        image: "/images/projects/backtest.jpg",
+        image: "/images/projects/backtest_5ans.png",
         featured: true,
 
         whatItShows:
@@ -99,7 +99,7 @@ export const projects: Project[] = [
         longDescription:
             "Occifloc est un projet entrepreneurial réel, construit sur le terrain, autour de la personnalisation textile, des objets publicitaires et de la production locale. C’est une expérience centrale dans mon parcours, car elle m’a confronté très tôt à la réalité du pilotage d’une activité : clients, prix, marges, délais, qualité, organisation et amélioration continue.",
         technologies: ["Gestion", "Process", "Automatisation", "Vente"],
-        image: "/images/projects/occifloc.jpg",
+        image: "/images/logos/logo occifloc couleur.png",
         featured: true,
 
         whatItShows:

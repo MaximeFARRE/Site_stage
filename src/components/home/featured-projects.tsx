@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/layout/container";
@@ -38,8 +39,15 @@ export default function FeaturedProjects() {
               href={`/projets/${project.slug}`}
               className="group card flex flex-col gap-5 no-underline"
             >
-              {/* Image placeholder */}
-              <div className="h-40 w-full rounded-lg bg-[var(--secondary)] transition group-hover:bg-[var(--border)]" />
+              {/* Image projet */}
+              <div className="relative h-40 w-full overflow-hidden rounded-lg bg-[var(--secondary)]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                />
+              </div>
 
               {/* Category */}
               <div className="flex items-center justify-between">
