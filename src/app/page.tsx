@@ -1,103 +1,250 @@
-import Hero from "@/components/home/hero";
-import FeaturedProjects from "@/components/home/featured-projects";
-import Container from "@/components/layout/container";
 import Link from "next/link";
+import Image from "next/image";
 
-const pillars = [
-  {
-    label: "Finance",
-    headline: "Gestion d'actifs & marchés",
-    body: "Analyse de portefeuille, private equity, family office et investissement long terme. Une vision structurée de la création de valeur.",
-    href: "/experiences",
-  },
-  {
-    label: "Entrepreneuriat",
-    headline: "Créer, tester, opérer",
-    body: "Fondateur d'Occifloc en parallèle de mes études. De la relation client à la production, je gère l'ensemble de la chaîne de valeur.",
-    href: "/experiences",
-  },
-  {
-    label: "Technologie",
-    headline: "Outils & données",
-    body: "Développement d'applications en Python et Next.js autour de la finance quantitative, du backtest et de la visualisation de données.",
-    href: "/projets",
-  },
+import Container from "@/components/layout/container";
+import { projects } from "@/data/projects";
+
+const categories = [
+  "Tous",
+  "Finance",
+  "Data",
+  "Automatisation",
+  "Entrepreneuriat",
 ];
 
-export default function HomePage() {
+export default function ProjectsPage() {
+  const featuredProjects = projects.filter((project) => project.featured);
+
   return (
-    <>
-      <Hero />
-
-      {/* Pillars */}
-      <section className="section border-t border-[var(--border)]">
-        <Container>
-          <div className="mb-12 max-w-xl">
-            <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
-              Profil
-            </span>
-            <h2 className="mb-3">Un profil à l'intersection de trois mondes</h2>
-            <p className="text-base text-[var(--muted)]">
-              Finance, entrepreneuriat et technologie — trois compétences que je
-              cultive ensemble pour créer une valeur distinctive.
+    <section className="section">
+      <Container className="container-custom max-w-6xl">
+        <div className="space-y-20">
+          <div className="max-w-4xl space-y-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+              Projets
             </p>
-          </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
-            {pillars.map((pillar) => (
-              <Link
-                key={pillar.label}
-                href={pillar.href}
-                className="card group flex flex-col gap-4 no-underline"
-              >
-                <span className="w-fit rounded-full border border-[var(--border)] px-3 py-1 text-xs font-semibold text-[var(--primary)]">
-                  {pillar.label}
+            <div className="space-y-4">
+              <h1>Des projets conçus pour apprendre, construire et démontrer.</h1>
+
+              <p className="text-lg leading-8 text-[var(--muted)]">
+                Cette page rassemble des projets qui croisent finance,
+                structuration de données, outils d’analyse, automatisation et
+                entrepreneuriat. L’objectif n’est pas seulement de montrer ce
+                que j’ai fait, mais aussi ce que ces projets disent de ma façon
+                de travailler : comprendre un besoin, construire une solution et
+                progresser par l’exécution.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              {categories.map((category) => (
+                <span
+                  key={category}
+                  className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium text-[var(--muted)]"
+                >
+                  {category}
                 </span>
-                <div className="flex flex-col gap-2">
-                  <h3 className="text-base font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
-                    {pillar.headline}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[var(--muted)]">
-                    {pillar.body}
-                  </p>
-                </div>
-                <span className="mt-auto text-xs font-medium text-[var(--primary)] opacity-0 transition group-hover:opacity-100">
-                  En savoir plus →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <FeaturedProjects />
-
-      {/* CTA final */}
-      <section className="section border-t border-[var(--border)]">
-        <Container>
-          <div className="rounded-2xl bg-[var(--foreground)] px-8 py-12 text-center sm:px-16">
-            <h2 className="mb-4 text-white">Vous souhaitez en savoir plus ?</h2>
-            <p className="mx-auto mb-8 max-w-lg text-sm leading-relaxed text-white/60">
-              Je suis disponible pour échanger sur des opportunités en finance,
-              gestion d'actifs ou entrepreneuriat.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/contact"
-                className="button-primary bg-white !text-[var(--foreground)] hover:bg-white/90"
-              >
-                Me contacter
-              </Link>
-              <Link
-                href="/a-propos"
-                className="button-secondary !border-white/20 !text-white hover:!bg-white/10"
-              >
-                En savoir plus
-              </Link>
+              ))}
             </div>
           </div>
-        </Container>
-      </section>
-    </>
+
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                Projets mis en avant
+              </p>
+              <h2 className="section-title">
+                Les projets les plus représentatifs de mon profil
+              </h2>
+            </div>
+
+            <div className="grid gap-8 lg:grid-cols-2">
+              {featuredProjects.map((project, index) => (
+                <article key={project.slug} className="card overflow-hidden p-0">
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)] bg-[var(--secondary)]">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-[1.03]"
+                    />
+
+                    {index === 0 && (
+                      <div className="absolute left-5 top-5 rounded-full bg-[var(--foreground)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
+                        Featured
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-6 p-8">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
+                        {project.category}
+                      </p>
+
+                      <h3 className="text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+                        {project.title}
+                      </h3>
+
+                      <p className="leading-8 text-[var(--muted)]">
+                        {project.shortDescription}
+                      </p>
+                    </div>
+
+                    <div className="space-y-3">
+                      <p className="text-sm font-medium text-[var(--muted)]">
+                        Ce que ce projet démontre
+                      </p>
+                      <p className="text-base leading-7 text-[var(--foreground)]">
+                        {project.whatItShows}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((technology) => (
+                        <span
+                          key={technology}
+                          className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5 text-sm text-[var(--muted)]"
+                        >
+                          {technology}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center justify-between gap-4 pt-2">
+                      <p className="text-sm text-[var(--muted)]">
+                        Résumé rapide disponible ici, détail complet sur la page
+                        projet.
+                      </p>
+
+                      <Link
+                        href={`/projets/${project.slug}`}
+                        className="button-primary whitespace-nowrap"
+                      >
+                        Voir le projet
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                Tous les projets
+              </p>
+              <h2 className="section-title">
+                Une sélection de projets construits avec une logique concrète
+              </h2>
+              <p className="max-w-3xl text-[var(--muted)]">
+                Chaque projet répond à une logique simple : partir d’un besoin
+                réel, structurer une solution utile et en tirer des
+                apprentissages concrets. Certains sont plus orientés finance,
+                d’autres davantage produit, data ou entrepreneuriat.
+              </p>
+            </div>
+
+            <div className="grid gap-6 xl:grid-cols-3">
+              {projects.map((project) => (
+                <article key={project.slug} className="card overflow-hidden p-0">
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--border)] bg-[var(--secondary)]">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-[1.03]"
+                    />
+                  </div>
+
+                  <div className="space-y-5 p-7">
+                    <div className="space-y-3">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--primary)]">
+                        {project.category}
+                      </p>
+
+                      <h3 className="text-xl font-semibold text-[var(--foreground)]">
+                        {project.title}
+                      </h3>
+
+                      <p className="leading-7 text-[var(--muted)]">
+                        {project.shortDescription}
+                      </p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <p className="text-sm font-medium text-[var(--muted)]">
+                        Ce que cela montre
+                      </p>
+                      <p className="text-sm leading-7 text-[var(--foreground)]">
+                        {project.whatItShows}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.slice(0, 4).map((technology) => (
+                        <span
+                          key={technology}
+                          className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1 text-xs text-[var(--muted)]"
+                        >
+                          {technology}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="pt-2">
+                      <Link
+                        href={`/projets/${project.slug}`}
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)] transition-opacity hover:opacity-80"
+                      >
+                        Voir le détail
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-[32px] bg-[var(--foreground)] px-8 py-10 sm:px-10 sm:py-12">
+            <div className="max-w-3xl space-y-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/70">
+                Aller plus loin
+              </p>
+
+              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Chaque projet peut être détaillé davantage en entretien.
+              </h2>
+
+              <p className="leading-8 text-white/80">
+                Cette sélection donne une vue synthétique de ma manière de
+                travailler. En entretien, je peux revenir plus en détail sur les
+                choix, les difficultés, les arbitrages et les apprentissages
+                tirés de chaque projet.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--foreground)] transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  Me contacter
+                </Link>
+
+                <Link
+                  href="/cv"
+                  className="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-80"
+                >
+                  Voir mon CV
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
