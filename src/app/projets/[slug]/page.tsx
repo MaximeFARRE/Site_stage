@@ -45,6 +45,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
   }
 
   const otherProjects = projects.filter((item) => item.slug !== project.slug).slice(0, 2);
+  const deepDive = project.deepDive;
 
   return (
     <section className="section">
@@ -174,6 +175,180 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </p>
             </div>
           </div>
+
+          {deepDive && (
+            <div className="space-y-10">
+              <div className="card p-8 sm:p-10">
+                <div className="space-y-5">
+                  <div className="space-y-3">
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                      Deep dive
+                    </p>
+                    <h2 className="section-title">Lecture technique du projet</h2>
+                  </div>
+
+                  <p className="leading-8 text-[var(--muted)]">{deepDive.summary}</p>
+
+                  <ul className="space-y-3 text-sm leading-7 text-[var(--muted)]">
+                    {deepDive.scope.map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {deepDive.gallery && deepDive.gallery.length > 0 && (
+                <div className="space-y-6">
+                  <div className="space-y-3">
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                      Captures
+                    </p>
+                    <h2 className="section-title">Écrans et visualisations clés</h2>
+                  </div>
+
+                  <div className="grid gap-6 md:grid-cols-2">
+                    {deepDive.gallery.map((item) => (
+                      <article
+                        key={item.src}
+                        className="overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card)]"
+                      >
+                        <div className="relative aspect-[16/10]">
+                          <Image
+                            src={item.src}
+                            alt={item.alt}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <p className="px-5 py-4 text-sm leading-7 text-[var(--muted)]">
+                          {item.caption}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="space-y-6">
+                <div className="space-y-3">
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                    Architecture
+                  </p>
+                  <h2 className="section-title">Organisation technique</h2>
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-2">
+                  {deepDive.architecture.map((block) => (
+                    <div key={block.title} className="card p-7">
+                      <h3 className="text-xl font-semibold text-[var(--foreground)]">
+                        {block.title}
+                      </h3>
+                      <p className="mt-4 leading-8 text-[var(--muted)]">{block.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid gap-6 lg:grid-cols-2">
+                <div className="card p-8 sm:p-10">
+                  <div className="space-y-5">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                        Pipeline
+                      </p>
+                      <h2 className="section-title">Flux de données</h2>
+                    </div>
+
+                    <ol className="space-y-3">
+                      {deepDive.dataFlow.map((step, index) => (
+                        <li key={step} className="flex gap-3 text-sm leading-7 text-[var(--muted)]">
+                          <span className="font-semibold text-[var(--primary)]">{index + 1}.</span>
+                          <span>{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+
+                <div className="card p-8 sm:p-10">
+                  <div className="space-y-5">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                        Choix techniques
+                      </p>
+                      <h2 className="section-title">Décisions structurantes</h2>
+                    </div>
+
+                    <div className="space-y-4">
+                      {deepDive.technicalChoices.map((choice) => (
+                        <div key={choice.title} className="border-t border-[var(--border)] pt-4 first:border-t-0 first:pt-0">
+                          <h3 className="text-base font-semibold text-[var(--foreground)]">
+                            {choice.title}
+                          </h3>
+                          <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
+                            {choice.detail}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-6 lg:grid-cols-2">
+                <div className="card p-8 sm:p-10">
+                  <div className="space-y-5">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                        Fiabilité
+                      </p>
+                      <h2 className="section-title">Qualité et contrôles</h2>
+                    </div>
+
+                    <ul className="space-y-3 text-sm leading-7 text-[var(--muted)]">
+                      {deepDive.quality.map((item) => (
+                        <li key={item}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="card p-8 sm:p-10">
+                  <div className="space-y-5">
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                        Limites
+                      </p>
+                      <h2 className="section-title">Points d’attention actuels</h2>
+                    </div>
+
+                    <ul className="space-y-3 text-sm leading-7 text-[var(--muted)]">
+                      {deepDive.limitations.map((item) => (
+                        <li key={item}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card p-8 sm:p-10">
+                <div className="space-y-5">
+                  <div className="space-y-3">
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                      Évolutions
+                    </p>
+                    <h2 className="section-title">Prochaines étapes</h2>
+                  </div>
+
+                  <ul className="space-y-3 text-sm leading-7 text-[var(--muted)]">
+                    {deepDive.nextSteps.map((item) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="card p-8 sm:p-10">

@@ -3,6 +3,29 @@ export type ProjectLink = {
     href: string;
 };
 
+export type ProjectGalleryItem = {
+    src: string;
+    alt: string;
+    caption: string;
+};
+
+export type ProjectDeepDiveBlock = {
+    title: string;
+    detail: string;
+};
+
+export type ProjectDeepDive = {
+    summary: string;
+    scope: string[];
+    architecture: ProjectDeepDiveBlock[];
+    dataFlow: string[];
+    technicalChoices: ProjectDeepDiveBlock[];
+    quality: string[];
+    limitations: string[];
+    nextSteps: string[];
+    gallery?: ProjectGalleryItem[];
+};
+
 export type Project = {
     slug: string;
     title: string;
@@ -21,50 +44,147 @@ export type Project = {
     challenges: string[];
     outcomes: string[];
     links?: ProjectLink[];
+    deepDive?: ProjectDeepDive;
 };
 
 export const projects: Project[] = [
     {
         slug: "suivi-patrimoine",
         title: "Application de suivi de patrimoine",
-        category: "Finance · Data · Produit",
+        category: "Finance personnelle · Python · PyQt6",
         shortDescription:
-            "Outil multi-actifs pour centraliser des positions, suivre l’allocation et analyser l’évolution d’un portefeuille personnel.",
+            "Application desktop PyQt6 + SQLite pour centraliser des comptes multi-actifs, reconstruire l’historique hebdomadaire et analyser la performance d’un portefeuille.",
         longDescription:
-            "Ce projet consiste à concevoir une application capable de regrouper plusieurs classes d’actifs dans un même environnement : actions cotées, private equity, immobilier, cash et autres positions patrimoniales. L’objectif est d’obtenir une lecture claire de l’allocation, de l’exposition et de l’évolution du portefeuille, avec une structure de données plus robuste qu’un tableur.",
-        technologies: ["Python", "SQL", "SQLite", "Streamlit"],
+            "Ce projet est une application Python orientée finance patrimoniale construite autour d’une architecture modulaire (couches services + interface Qt + base SQLite). Elle agrège des transactions de plusieurs comptes (banque, livret, PEA/CTO, private equity), normalise les données et produit des snapshots hebdomadaires pour suivre l’évolution du patrimoine dans le temps. Le module analytics calcule des métriques risque/rendement avec neutralisation des flux (achats/ventes) et prend en compte les effets de devise. L’application intègre aussi un import Trade Republic avec mapping d’alias (symboles/ISIN), des contrôles de qualité de données et une reconstruction complète de l’historique famille depuis la première transaction.",
+        technologies: ["Python", "PyQt6", "SQLite", "Pandas", "Plotly", "yfinance"],
         image: "/images/projects/patrimoine_kpi.png",
         featured: true,
 
         whatItShows:
-            "Structuration de données financières, modélisation d’un portefeuille multi-actifs et capacité à produire un outil de suivi exploitable.",
+            "Conception d’un outil financier complet: modélisation de données, ingestion/normalisation de transactions, analytics portefeuille avancée, interface utilisateur desktop et logique de test.",
         context:
-            "Je voulais disposer d’un outil plus fiable pour suivre un patrimoine hétérogène, avec centralisation des positions, historique des mouvements et lecture rapide des allocations. Les solutions existantes étaient souvent trop fermées ou peu adaptées à un suivi patrimonial global.",
+            "Le besoin initial était de remplacer un suivi fragmenté (tableurs + exports manuels) par un système unique et robuste, capable de gérer plusieurs classes d’actifs, plusieurs comptes et un historique long avec corrections rétroactives.",
         objective:
-            "Créer un outil clair et évolutif permettant de suivre l’allocation, les performances, les flux et la structure globale d’un patrimoine dans un seul environnement.",
+            "Construire une base fiable pour le suivi patrimonial et l’analyse de portefeuille: allocation, performance, flux nets, revenus passifs, reconstruction historique, et simulation/optimisation d’allocation via les modules d’analytics.",
         role:
-            "Conception fonctionnelle, structuration de la base de données, définition des indicateurs, développement de l’interface et amélioration continue.",
+            "J’ai conçu l’architecture, implémenté les services métiers et la base SQLite, développé les écrans Qt (dashboards, import, contrôle), et fait évoluer les métriques portefeuille avec une logique orientée qualité des données.",
 
         challenges: [
-            "Modéliser plusieurs classes d’actifs avec une structure cohérente et maintenable.",
-            "Conserver une interface lisible tout en gardant assez de profondeur pour l’analyse.",
-            "Préparer une base exploitable pour de futures projections, automatisations ou imports de données.",
+            "Modéliser des transactions hétérogènes (achat, vente, dividende, intérêts, dépôts, retraits) en gardant une cohérence comptable multi-comptes.",
+            "Calculer des rendements réellement exploitables en neutralisant les flux hebdomadaires (cashflow-adjusted returns) au lieu d’utiliser uniquement la variation de valorisation brute.",
+            "Gérer les imports réels Trade Republic (mapping ISIN/symboles, alias d’import, edge cases, token WAF) sans casser l’historique existant.",
+            "Permettre un rebuild complet des snapshots famille depuis la première transaction, avec progression, annulation et contrôles de qualité.",
         ],
         outcomes: [
-            "Tableau de bord centralisé couvrant actions, private equity, immobilier, cash et autres positions patrimoniales.",
-            "Suivi consolidé de l’allocation, des expositions et des flux avec une lecture par poche d’actifs.",
-            "Base de données SQLite prête pour des imports automatiques et des modules de projection.",
+            "Mise en place d’un moteur de snapshots hebdomadaires personne/famille, avec reconstruction complète de l’historique.",
+            "Ajout de métriques portefeuille avancées: performance annualisée, volatilité, Sharpe, beta vs URTH, max drawdown, avec calcul cashflow-adjusted.",
+            "Intégration d’un flux d’import robuste (Trade Republic) avec alias d’actifs, prévisualisation ticker live et validation avant insertion.",
+            "Couverture de tests sur les briques critiques (analytics, mappings d’alias, revenus passifs, transactions, nouveaux types de comptes).",
         ],
         links: [
             {
-                label: "GitHub (profil)",
-                href: "https://github.com/MaximeFARRE",
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Suivie-patrimoine",
             },
             {
-                label: "Capture KPI",
-                href: "/images/projects/patrimoine_kpi.png",
+                label: "Commit analytics portefeuille",
+                href: "https://github.com/MaximeFARRE/Suivie-patrimoine/commit/728d62a37934cf1e576418854d9357add62b29e0",
+            },
+            {
+                label: "Commit import & mapping actifs",
+                href: "https://github.com/MaximeFARRE/Suivie-patrimoine/commit/91d35ca87e5a29c2db1076602204f9890abdfddf",
             },
         ],
+        deepDive: {
+            summary:
+                "Le projet fonctionne comme un moteur de suivi patrimonial: ingestion de transactions, normalisation comptable, snapshots hebdomadaires et analytics portefeuille orientée décision.",
+            scope: [
+                "Suivi multi-comptes: banque, livret, PEA/CTO, private equity.",
+                "Historique hebdomadaire reconstruit depuis la première transaction.",
+                "Calcul de performance portefeuille avec neutralisation des flux.",
+                "Import Trade Republic avec mapping d’alias (symboles/ISIN).",
+                "Interface desktop PyQt6 pour pilotage, contrôle et visualisation.",
+            ],
+            architecture: [
+                {
+                    title: "Couche persistence",
+                    detail:
+                        "Base SQLite versionnée (migrations SQL), tables transactions/comptes/assets/prices/snapshots, plus tables d’alias d’import pour fiabiliser les rapprochements.",
+                },
+                {
+                    title: "Couche services métier",
+                    detail:
+                        "Modules dédiés pour repository CRUD, snapshots personne/famille, revenus consolidés, analytics bourse avancée, et conversions FX hebdomadaires.",
+                },
+                {
+                    title: "Couche import",
+                    detail:
+                        "Pipeline d’import CSV Trade Republic avec phase de preview, résolution ISIN/symboles, mapping canonique, validation puis insertion.",
+                },
+                {
+                    title: "Couche interface",
+                    detail:
+                        "Panels Qt orientés métier (patrimoine global, bourse, revenus, santé des données) avec rendu Plotly et actions de rebuild.",
+                },
+            ],
+            dataFlow: [
+                "Export des transactions broker et chargement dans le module d’import.",
+                "Parsing/normalisation des opérations (achat, vente, dividende, intérêts, flux cash).",
+                "Résolution actif canonique via ISIN/symbole et table d’alias.",
+                "Écriture en base puis reconstruction des snapshots hebdomadaires.",
+                "Calcul des métriques risque/rendement et production des graphes.",
+                "Contrôles de cohérence et ajustements manuels via l’interface.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Rendements cashflow-adjusted",
+                    detail:
+                        "Les rendements sont calculés en neutralisant les achats/ventes hebdomadaires pour éviter de confondre apports de capital et performance réelle.",
+                },
+                {
+                    title: "Métriques annualisées robustes",
+                    detail:
+                        "Volatilité annualisée, Sharpe, beta versus URTH et max drawdown calculés à partir d’une série hebdomadaire cohérente.",
+                },
+                {
+                    title: "Rebuild complet backdated-aware",
+                    detail:
+                        "Le moteur de snapshots permet une reconstruction historique complète, utile quand des transactions anciennes sont corrigées ou ajoutées.",
+                },
+                {
+                    title: "Preview ticker avant import",
+                    detail:
+                        "Une prévisualisation ticker/prix/devise réduit le risque d’erreur de mapping avant insertion en base.",
+                },
+            ],
+            quality: [
+                "Tests ciblés sur analytics portefeuille, alias d’import et règles de revenus consolidés.",
+                "Validation forte des relations personne/compte/transaction avant update/delete.",
+                "Séparation claire UI / services / base pour limiter les régressions.",
+            ],
+            limitations: [
+                "Dépendance aux exports externes broker et aux changements de mécanismes d’authentification.",
+                "Architecture desktop mono-utilisateur (pas encore d’usage collaboratif multi-comptes en ligne).",
+                "Couverture benchmark encore centrée sur un univers marché limité.",
+            ],
+            nextSteps: [
+                "Étendre le module simulation de portefeuille (scénarios, contraintes, stress tests).",
+                "Ajouter des connecteurs de données marché plus riches et plus résilients.",
+                "Produire des rapports automatisés (mensuels/trimestriels) orientés décision.",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/patrimoine_kpi.png",
+                    alt: "Tableau de bord KPI du suivi patrimonial",
+                    caption: "Vue KPI consolidée du patrimoine et des principales métriques.",
+                },
+                {
+                    src: "/images/projects/projection_montecarlo.png",
+                    alt: "Projection Monte Carlo de portefeuille",
+                    caption: "Projection de scénarios pour la simulation de trajectoires de portefeuille.",
+                },
+            ],
+        },
     },
     {
         slug: "backtest-optimisation-portefeuille",
