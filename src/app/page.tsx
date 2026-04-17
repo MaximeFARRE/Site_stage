@@ -6,20 +6,20 @@ import Link from "next/link";
 const pillars = [
   {
     label: "Finance",
-    headline: "Gestion d'actifs & marchés",
-    body: "Analyse de portefeuille, private equity, family office et investissement long terme. Une vision structurée de la création de valeur.",
+    headline: "Marchés & portefeuilles",
+    body: "Analyse de portefeuille, gestion d’actifs, private equity et lecture du risque. Une approche structurée des données financières et des décisions d’investissement.",
     href: "/experiences",
   },
   {
-    label: "Entrepreneuriat",
-    headline: "Créer, tester, opérer",
-    body: "Fondateur d'Occifloc en parallèle de mes études. De la relation client à la production, je gère l'ensemble de la chaîne de valeur.",
+    label: "Exécution",
+    headline: "Indicateurs & opérations",
+    body: "Avec Occifloc, j’ai travaillé sur le suivi des marges, la trésorerie, la relation client et l’organisation opérationnelle. Un cadre concret pour décider sous contrainte.",
     href: "/experiences",
   },
   {
     label: "Technologie",
-    headline: "Outils & données",
-    body: "Développement d'applications en Python et Next.js autour de la finance quantitative, du backtest et de la visualisation de données.",
+    headline: "Python, SQL & dashboards",
+    body: "Développement d’outils en Python, SQL et Streamlit pour structurer des données, backtester des stratégies et visualiser des indicateurs financiers.",
     href: "/projets",
   },
 ];
@@ -36,10 +36,10 @@ export default function HomePage() {
             <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
               Profil
             </span>
-            <h2 className="mb-3">Un profil à l'intersection de trois mondes</h2>
+            <h2 className="mb-3">Finance, données et exécution</h2>
             <p className="text-base text-[var(--muted)]">
-              Finance, entrepreneuriat et technologie — trois compétences que je
-              cultive ensemble pour créer une valeur distinctive.
+              Une formation en ingénierie financière, une pratique régulière des
+              outils data et une capacité à produire des analyses exploitables.
             </p>
           </div>
 
@@ -78,8 +78,9 @@ export default function HomePage() {
           <div className="rounded-2xl bg-[var(--foreground)] px-8 py-12 text-center sm:px-16">
             <h2 className="mb-4 text-white">Vous souhaitez en savoir plus ?</h2>
             <p className="mx-auto mb-8 max-w-lg text-sm leading-relaxed text-white/60">
-              Je suis disponible pour échanger sur des opportunités en finance,
-              gestion d'actifs ou entrepreneuriat.
+              Je suis disponible pour échanger sur des opportunités en finance
+              de marché, asset management, private equity, analyse ou outils
+              quantitatifs.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

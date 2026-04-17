@@ -246,13 +246,13 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </p>
 
               <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                Je peux détailler ce projet plus en profondeur en entretien.
+                Je peux détailler les choix techniques et les résultats en entretien.
               </h2>
 
               <p className="leading-8 text-white/80">
                 Si ce projet vous intéresse, je peux revenir plus précisément sur
-                le besoin initial, les choix de conception, les difficultés
-                rencontrées et ce qu’il dit de ma manière de travailler.
+                le besoin initial, la structure des données, les hypothèses, les
+                difficultés rencontrées et les limites de l’analyse.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">

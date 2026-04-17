@@ -5,17 +5,17 @@ const pillars = [
   {
     title: "Finance",
     description:
-      "Je m’intéresse à la finance de marché, à l’analyse d’entreprise et à la construction d’outils utiles pour mieux suivre, comparer et comprendre des actifs ou des portefeuilles.",
+      "Je travaille sur la finance de marché, l’analyse d’entreprise et le suivi de portefeuille avec une attention particulière aux données, aux métriques de risque et à la lecture des performances.",
   },
   {
-    title: "Entrepreneuriat",
+    title: "Pilotage",
     description:
-      "Avec Occifloc, j’ai appris à vendre, structurer, suivre des chiffres, piloter une petite organisation et faire avancer un projet concret avec des contraintes réelles.",
+      "Avec Occifloc, j’ai appris à suivre des marges, gérer une trésorerie, prioriser des commandes et prendre des décisions avec des contraintes de coûts, de délais et de qualité.",
   },
   {
     title: "Technique",
     description:
-      "J’aime transformer une idée en outil exploitable. J’utilise le code, l’automatisation et les outils data pour créer des solutions simples, utiles et fiables.",
+      "J’utilise Python, SQL, Linux, Git et Streamlit pour structurer des données, automatiser des tâches, construire des dashboards et rendre une analyse plus exploitable.",
   },
 ];
 
@@ -29,12 +29,12 @@ const toolsGroups = [
     items: ["VS Code", "Git", "Linux", "Streamlit", "SQLite"],
   },
   {
-    title: "IA & productivité",
+    title: "Automatisation & productivité",
     items: ["Codex", "Claude Code", "agents IA", "automatisation", "RAG"],
   },
   {
     title: "Exécution & workflows",
-    items: ["n8n", "structuration de process", "workflows assistés par IA", "outils no-code / low-code"],
+    items: ["n8n", "structuration de process", "workflows assistés", "outils no-code / low-code"],
   },
 ];
 
@@ -47,7 +47,7 @@ const highlights = [
   {
     label: "Localisation",
     value: personalInfo.location,
-    detail: "Disponible pour de nouvelles opportunités",
+    detail: "Disponible pour des opportunités en finance et analyse",
   },
   {
     label: "Objectif actuel",
@@ -55,9 +55,9 @@ const highlights = [
     detail: "Recherche d’expériences à forte courbe d’apprentissage",
   },
   {
-    label: "Vision long terme",
+    label: "Cap long terme",
     value: personalInfo.longTermGoal,
-    detail: "Construire des projets ambitieux dans la durée",
+    detail: "Approfondir finance quantitative, marchés et outils financiers",
   },
 ];
 
@@ -76,7 +76,7 @@ const keyNumbers = [
   },
   {
     value: "3",
-    label: "Axes forts : finance, entrepreneuriat, technique",
+    label: "Axes forts : finance, data, exécution",
   },
 ];
 
@@ -84,32 +84,32 @@ const faqItems = [
   {
     question: "Pourquoi la finance ?",
     answer:
-      "J’aime les environnements où il faut raisonner clairement, prendre du recul, analyser des données et comprendre ce qui crée réellement de la valeur. La finance rassemble tout cela, avec en plus une forte exigence intellectuelle.",
+      "La finance demande de raisonner avec des données imparfaites, de comparer des scénarios et de comprendre le lien entre risque, rendement et valeur. C’est un cadre exigeant où l’analyse doit rester claire, vérifiable et utile à la décision.",
   },
   {
     question: "Pourquoi entreprendre en parallèle de vos études ?",
     answer:
-      "Parce que j’aime construire. Entreprendre m’a apporté une expérience concrète de terrain : vente, organisation, suivi financier, prise de décision et sens des priorités. Cela complète très bien mon parcours académique.",
+      "Occifloc m’a surtout apporté une expérience de pilotage réel : prix, marge, trésorerie, production, relation client et arbitrages. Cette expérience complète mon parcours académique par une pratique concrète de la responsabilité.",
   },
   {
     question: "Qu’est-ce qui vous différencie d’un profil plus classique ?",
     answer:
-      "Je combine un socle académique en ingénierie financière, une vraie expérience entrepreneuriale et une forte appétence pour les outils techniques. J’aime autant comprendre un sujet que le transformer en action concrète.",
+      "Je combine un socle d’ingénierie financière avec une pratique concrète de Python, SQL, Linux, Streamlit, Bloomberg Terminal et des outils de suivi. Je cherche à produire des analyses propres, mais aussi des supports exploitables par d’autres.",
   },
   {
     question: "Quelle place occupe la technique dans votre profil ?",
     answer:
-      "La technique est un levier. Je m’en sers pour automatiser, structurer, analyser et gagner en qualité d’exécution. Je ne code pas pour coder : je code pour résoudre un problème utile.",
+      "La technique sert à fiabiliser le travail : automatiser une extraction, structurer une base, backtester une hypothèse, construire un dashboard ou réduire les tâches répétitives. Le code est un moyen d’améliorer l’analyse.",
   },
   {
     question: "Pourquoi parler du sport sur votre site ?",
     answer:
-      "Parce que le sport d’endurance a façonné ma manière de travailler. Il m’a appris la discipline, la constance, la gestion de l’effort, la lucidité sous fatigue et le goût des objectifs ambitieux construits sur le long terme.",
+      "Le sport d’endurance explique une partie de ma méthode de travail : régularité, gestion de l’effort, lucidité sous fatigue et préparation sur plusieurs mois. Je le mentionne comme un repère personnel, pas comme un argument principal.",
   },
   {
     question: "Que recherchez-vous aujourd’hui ?",
     answer:
-      "Je recherche des expériences exigeantes, formatrices et responsabilisantes, dans lesquelles je peux apprendre vite, produire un travail sérieux et apporter de la valeur dès le départ.",
+      "Je recherche un stage ou une opportunité en finance de marché, asset management, private equity, analyse financière ou recherche quantitative, avec des sujets concrets et une vraie exigence sur la qualité du travail.",
   },
 ];
 
@@ -127,21 +127,21 @@ export default function AboutPage() {
 
                 <div className="space-y-3">
                   <p className="text-sm font-medium uppercase tracking-[0.16em] text-[var(--muted)]">
-                    Étudiant en ingénierie financière · Entrepreneur · Builder
+                    Ingénierie financière · Python · Analyse de portefeuille
                   </p>
 
                   <h1 className="max-w-4xl">
-                    Un profil hybride entre finance, exécution terrain et
-                    construction d’outils.
+                    Un profil orienté finance quantitative, données et
+                    construction d’outils financiers.
                   </h1>
                 </div>
 
                 <p className="max-w-3xl text-lg leading-8 text-[var(--muted)]">
-                  Je m’appelle {personalInfo.fullName}. Je développe un profil à
-                  la croisée de la finance, de l’entrepreneuriat et de la
-                  technique. J’aime comprendre les mécanismes d’un projet,
-                  analyser ce qui crée de la valeur et construire des solutions
-                  concrètes, utiles et bien exécutées.
+                  Je m’appelle {personalInfo.fullName}. Je développe un profil
+                  centré sur la finance de marché, l’analyse de portefeuille et
+                  les outils data. J’aime cadrer un problème, structurer les
+                  données, produire une analyse lisible et construire un support
+                  utile à la décision.
                 </p>
               </div>
 
@@ -150,7 +150,7 @@ export default function AboutPage() {
                   Finance de marché
                 </span>
                 <span className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium text-[var(--foreground)]">
-                  Entrepreneuriat opérationnel
+                  Pilotage opérationnel
                 </span>
                 <span className="rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium text-[var(--foreground)]">
                   Data, automatisation et outils
@@ -169,10 +169,10 @@ export default function AboutPage() {
                 </div>
 
                 <p className="text-base leading-8 text-[var(--muted)]">
-                  Au-delà du cadre académique, je suis aussi quelqu’un de
-                  terrain. J’aime faire avancer des projets, assumer des
-                  responsabilités et progresser dans des environnements où la
-                  qualité du travail compte réellement.
+                  Au-delà du cadre académique, je garde une approche très
+                  opérationnelle. J’avance par itérations, avec des livrables
+                  concrets : base de données propre, dashboard exploitable,
+                  analyse documentée ou process mieux structuré.
                 </p>
               </div>
             </div>
@@ -201,9 +201,9 @@ export default function AboutPage() {
 
                 <ul className="mt-5 space-y-3 text-sm leading-7 text-[var(--muted)]">
                   <li>• Rigueur analytique et goût des sujets exigeants</li>
-                  <li>• Capacité à passer de l’idée à l’exécution</li>
-                  <li>• Appétence forte pour les projets concrets</li>
-                  <li>• Autonomie, intensité de travail et sens du progrès</li>
+                  <li>• Maîtrise progressive de Python, SQL, Linux et Git</li>
+                  <li>• Capacité à produire des outils lisibles et utilisables</li>
+                  <li>• Autonomie, organisation et attention aux détails</li>
                 </ul>
               </div>
 
@@ -217,9 +217,9 @@ export default function AboutPage() {
                     {personalInfo.currentGoal}
                   </p>
                   <p className="text-sm leading-7 text-[var(--muted)]">
-                    Je cherche à continuer à monter en niveau, à multiplier les
-                    expériences utiles et à construire un profil fort, crédible
-                    et différenciant sur le long terme.
+                    Je cherche à travailler sur des sujets exigeants en finance,
+                    analyse et outils quantitatifs, avec un niveau d’attente
+                    élevé sur la rigueur, la précision et la qualité d’exécution.
                   </p>
                 </div>
               </div>
@@ -231,13 +231,12 @@ export default function AboutPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
                 Outils maîtrisés
               </p>
-              <h2 className="section-title">Les outils que j’utilise pour apprendre, analyser et exécuter</h2>
+              <h2 className="section-title">Les outils que j’utilise pour analyser et produire</h2>
               <p className="max-w-3xl text-[var(--muted)]">
-                J’accorde beaucoup d’importance aux outils, non pas comme une fin en soi,
-                mais comme des leviers de vitesse, de clarté et de qualité d’exécution.
-                J’utilise à la fois des outils classiques de finance et de développement,
-                mais aussi des outils plus récents liés à l’IA, à l’automatisation et à la
-                structuration de workflows.
+                J’utilise les outils comme des supports de fiabilité : mieux
+                collecter les données, réduire les tâches répétitives, suivre des
+                indicateurs et rendre une analyse plus claire. L’objectif est
+                d’améliorer la qualité du raisonnement, pas d’empiler des outils.
               </p>
             </div>
 
@@ -266,14 +265,13 @@ export default function AboutPage() {
           <div className="space-y-8">
             <div className="space-y-3">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
-                Mon profil en 3 dimensions
+                Trois axes de travail
               </p>
-              <h2 className="section-title">Trois forces qui se complètent</h2>
+              <h2 className="section-title">Finance, data et exécution</h2>
               <p className="max-w-3xl text-[var(--muted)]">
-                Ce qui rend mon profil particulier, c’est l’association entre
-                une formation exigeante, une expérience entrepreneuriale réelle
-                et une envie forte de construire des outils et des systèmes
-                utiles.
+                Mon parcours repose sur une base d’ingénierie financière, une
+                pratique technique régulière et une expérience de pilotage réel.
+                Ces trois axes me servent à analyser, construire et livrer.
               </p>
             </div>
 
@@ -303,19 +301,17 @@ export default function AboutPage() {
                 </h2>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  Je suis attiré par les environnements dans lesquels il faut
-                  comprendre vite, prendre du recul et produire un travail
-                  propre. J’aime les sujets qui demandent à la fois de l’analyse,
-                  de la méthode et une vraie capacité d’exécution.
+                  Je suis attiré par les environnements où il faut comprendre
+                  vite, structurer l’information et produire un travail propre.
+                  Les sujets qui me motivent combinent analyse financière,
+                  données, méthode et exécution.
                 </p>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  À long terme, mon ambition est de continuer à développer un
-                  profil capable de relier compréhension financière, vision
-                  stratégique et construction opérationnelle. Je suis très
-                  sensible aux environnements où l’on apprend beaucoup, où
-                  l’exigence est réelle et où les responsabilités sont
-                  progressives mais concrètes.
+                  À long terme, je veux développer une expertise solide en
+                  gestion d’actifs, analyse quantitative et développement
+                  d’outils financiers. Je recherche des environnements où les
+                  responsabilités progressent avec le niveau de rigueur fourni.
                 </p>
               </div>
             </div>
@@ -332,9 +328,9 @@ export default function AboutPage() {
 
                 <p className="leading-8 text-[var(--muted)]">
                   Le sport occupe une place importante dans mon équilibre.
-                  Triathlon, course à pied, cyclisme ou projets plus exigeants
-                  en autonomie m’ont appris à aimer les objectifs construits
-                  dans le temps.
+                  Triathlon, course à pied, cyclisme ou projets en autonomie
+                  m’ont appris à préparer un effort, tenir un plan et rester
+                  lucide lorsque la fatigue s’installe.
                 </p>
 
                 <p className="leading-8 text-[var(--muted)]">
@@ -358,13 +354,11 @@ export default function AboutPage() {
               </h2>
 
               <p className="max-w-3xl text-[var(--muted)] leading-8">
-                En dehors de mes études et de mes projets, je consacre aussi beaucoup de
-                temps à des activités qui renforcent ma manière de penser et de travailler.
-                Le sport d’endurance, la lecture, l’investissement et les projets
-                personnels occupent une place importante dans mon équilibre. Ce sont
-                souvent des activités exigeantes, inscrites dans le temps long, qui
-                demandent discipline, régularité et capacité à avancer même lorsque les
-                résultats ne sont pas immédiats.
+                En dehors de mes études et de mes projets, je consacre du temps
+                à des activités qui renforcent ma méthode de travail. Le sport
+                d’endurance, la lecture financière, l’investissement personnel et
+                les projets autonomes demandent de la discipline, de la régularité
+                et une progression mesurée.
               </p>
             </div>
 
@@ -373,7 +367,7 @@ export default function AboutPage() {
                 <div className="space-y-5">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
-                      Endurance & défis
+                      Endurance & discipline
                     </p>
 
                     <h3 className="mt-2 text-2xl font-semibold text-[var(--foreground)]">
@@ -382,9 +376,9 @@ export default function AboutPage() {
                   </div>
 
                   <p className="leading-8 text-[var(--muted)]">
-                    Le sport d’endurance occupe une place importante dans ma vie. J’aime
-                    les projets qui demandent de la constance, une progression lente et la
-                    capacité à rester discipliné sur plusieurs mois.
+                    Le sport d’endurance occupe une place importante dans mon
+                    équilibre. Il demande de la constance, une progression
+                    mesurée et la capacité à rester discipliné sur plusieurs mois.
                   </p>
 
                   <div className="space-y-4 rounded-2xl border border-[var(--border)] bg-[var(--background)] p-5">
@@ -393,10 +387,10 @@ export default function AboutPage() {
                         Triathlon / Ironman
                       </p>
                       <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
-                        Je prépare actuellement un objectif Ironman avec l’ambition de
-                        passer sous les 11 heures. Ce projet me pousse à travailler la
-                        régularité, la gestion de l’effort et la capacité à tenir dans la
-                        durée.
+                        Je prépare actuellement un objectif Ironman avec une cible
+                        sous les 11 heures. Cette préparation impose un plan
+                        structuré, un suivi régulier et une gestion précise de
+                        l’effort.
                       </p>
                     </div>
 
@@ -406,9 +400,9 @@ export default function AboutPage() {
                       </p>
                       <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
                         Je pratique régulièrement la course à pied et le cyclisme, avec un
-                        nouveau trail prévu cet été. J’apprécie particulièrement les
-                        efforts longs, où la progression dépend surtout de la discipline et
-                        de la patience.
+                        nouveau trail prévu cet été. J’apprécie les efforts longs,
+                        où la progression dépend surtout de la discipline, de la
+                        patience et de la gestion du rythme.
                       </p>
                     </div>
                   </div>
@@ -428,8 +422,8 @@ export default function AboutPage() {
                   </div>
 
                   <p className="leading-8 text-[var(--muted)]">
-                    L’un des projets personnels qui m’a le plus marqué est la traversée du
-                    GR20 en Corse, réalisée en autonomie.
+                    L’un des projets personnels les plus exigeants que j’ai menés
+                    est la traversée du GR20 en Corse, réalisée en autonomie.
                   </p>
 
                   <div className="rounded-2xl border border-[var(--border)] bg-[var(--background)] p-5">
@@ -454,17 +448,17 @@ export default function AboutPage() {
                     </div>
 
                     <p className="mt-5 text-sm leading-7 text-[var(--muted)]">
-                      Nous sommes partis avec toute la nourriture, le matériel de couchage
-                      et l’équipement nécessaire, soit près de 20 kg sur le dos. Ce projet
-                      m’a appris la préparation, la gestion de l’effort, la résilience et
-                      la capacité à rester lucide dans des moments difficiles.
+                      Nous sommes partis avec la nourriture, le matériel de couchage
+                      et l’équipement nécessaire, soit près de 20 kg sur le dos. Ce
+                      projet m’a appris la préparation, la gestion de l’effort et
+                      la lucidité dans des conditions dégradées.
                     </p>
                   </div>
 
                   <p className="leading-8 text-[var(--muted)]">
-                    Ce type de défi me plaît parce qu’il demande exactement les qualités
-                    que j’essaie aussi de développer dans mes projets : méthode, constance,
-                    capacité d’adaptation et volonté d’aller au bout.
+                    Ce type d’expérience m’intéresse parce qu’il demande des
+                    qualités utiles dans le travail : méthode, constance,
+                    adaptation et exécution jusqu’au bout.
                   </p>
                 </div>
               </div>
@@ -482,9 +476,9 @@ export default function AboutPage() {
                   </div>
 
                   <p className="leading-8 text-[var(--muted)]">
-                    Je lis régulièrement pour approfondir des sujets qui m’intéressent au-delà
-                    de l’école : finance, investissement, entrepreneuriat et développement
-                    personnel.
+                    Je lis régulièrement pour approfondir des sujets utiles à mon
+                    parcours : finance de marché, investissement, analyse
+                    d’entreprise, gestion du risque et méthode de travail.
                   </p>
 
                   <div className="space-y-3 rounded-2xl border border-[var(--border)] bg-[var(--background)] p-5">
@@ -493,23 +487,23 @@ export default function AboutPage() {
                         Finance & investissement
                       </p>
                       <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
-                        Je m’intéresse particulièrement à la finance de marché, aux produits
-                        dérivés et à l’investissement. Je lis notamment des ouvrages de
-                        John Hull, comme <em>Options, Futures and Other Derivatives</em>,
-                        pour aller plus loin que le cadre académique.
+                        Je travaille notamment la finance de marché, les produits
+                        dérivés, la gestion de portefeuille et les métriques de
+                        risque. Je lis des ouvrages de John Hull, comme{" "}
+                        <em>Options, Futures and Other Derivatives</em>, pour
+                        consolider les bases académiques.
                       </p>
                     </div>
 
                     <div>
                       <p className="font-semibold text-[var(--foreground)]">
-                        Entrepreneuriat & développement personnel
+                        Méthode & prise de décision
                       </p>
                       <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
-                        Je lis aussi des livres autour de l’entrepreneuriat, de la
-                        progression personnelle et de la discipline. J’aime comprendre
-                        comment certaines personnes construisent sur le long terme, prennent
-                        de meilleures décisions et développent une vraie capacité
-                        d’exécution.
+                        Je lis aussi sur la prise de décision, l’organisation et
+                        la discipline de travail. Ces sujets m’aident à mieux
+                        prioriser, mieux documenter et mieux exécuter dans la
+                        durée.
                       </p>
                     </div>
                   </div>
@@ -574,12 +568,11 @@ export default function AboutPage() {
                 FAQ recruteur
               </p>
               <h2 className="section-title">
-                Quelques réponses aux questions que l’on peut se poser
+                Quelques réponses pour mieux situer mon profil
               </h2>
               <p className="max-w-3xl text-[var(--muted)]">
-                Cette section permet de donner rapidement plus de contexte sur
-                ma démarche, ma logique de parcours et la manière dont je
-                construis mon profil.
+                Cette section précise ma logique de parcours, la place de la
+                technique et le type d’opportunités que je recherche aujourd’hui.
               </p>
             </div>
 

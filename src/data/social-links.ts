@@ -1,5 +1,5 @@
 export const socialLinks = {
-  email: "maxime.farre8@email.com",
+  email: "maxime.farre8@gmail.com",
 
   linkedin: "https://linkedin.com/in/maxime-farre",
 

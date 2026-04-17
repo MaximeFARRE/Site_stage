@@ -87,13 +87,13 @@ export default function Hero() {
             {/* Currently */}
             <div className="card flex flex-col gap-3">
               <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
-                Currently
+                Actuellement
               </span>
               <p className="text-sm leading-relaxed text-[var(--muted)]">
                 {personalInfo.currentGoal}
               </p>
               <p className="text-xs text-[var(--muted)] opacity-60">
-                Vision · {personalInfo.longTermGoal}
+                Objectif · {personalInfo.longTermGoal}
               </p>
             </div>
           </div>

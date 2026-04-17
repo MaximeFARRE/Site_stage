@@ -6,7 +6,7 @@ const contactMethods = [
     value: "maxime.farre8@gmail.com",
     href: "mailto:maxime.farre8@gmail.com",
     description:
-      "Le moyen le plus direct pour échanger autour d’un stage, d’une opportunité ou d’un projet.",
+      "Le moyen le plus direct pour échanger autour d’un stage, d’une opportunité ou d’un sujet d’analyse.",
   },
   {
     title: "LinkedIn",
@@ -20,14 +20,14 @@ const contactMethods = [
     value: "https://github.com/MaximeFARRE",
     href: "https://github.com/MaximeFARRE",
     description:
-      "Pour consulter mes projets, ma manière de construire et mon approche technique.",
+      "Pour consulter mes projets, mes outils et ma manière de structurer du code orienté analyse.",
   },
 ];
 
 const reasons = [
-  "Stage en finance, asset management, fonds d’investissement ou environnement analytique exigeant",
-  "Projet entrepreneurial, produit, automatisation ou développement d’outil",
-  "Échange autour de mon parcours, de mes projets ou d’une collaboration future",
+  "Stage en finance de marché, asset management, private equity, analyse financière ou recherche quantitative",
+  "Développement d’outil financier, dashboard, automatisation, backtest ou structuration de données",
+  "Échange autour de mon parcours, de mes projets ou d’un besoin analytique concret",
 ];
 
 export default function ContactPage() {
@@ -42,16 +42,17 @@ export default function ContactPage() {
 
             <div className="space-y-4">
               <h1 className="section-title max-w-3xl">
-                Entrons en contact pour parler d’un stage, d’un projet ou d’une
-                opportunité.
+                Entrons en contact pour parler d’un stage ou d’une opportunité en
+                finance.
               </h1>
 
               <p className="max-w-2xl text-base leading-7 text-[var(--muted)] md:text-lg">
-                Je suis ouvert aux échanges avec des recruteurs, entrepreneurs,
-                investisseurs ou équipes à la recherche d’un profil capable
-                d’analyser, de construire et d’exécuter. Que ce soit pour un
-                stage, une mission, un projet ou simplement une prise de contact
-                professionnelle, vous pouvez m’écrire directement.
+                Je suis ouvert aux échanges avec des recruteurs, investisseurs,
+                gérants, analystes ou équipes techniques à la recherche d’un
+                profil capable d’analyser des données financières, structurer un
+                raisonnement et construire des outils utiles. Vous pouvez
+                m’écrire directement pour un stage, une mission ou une prise de
+                contact professionnelle.
               </p>
             </div>
 
@@ -77,9 +78,10 @@ export default function ContactPage() {
             <div className="space-y-3">
               <h2 className="text-2xl font-semibold">Disponible pour échanger</h2>
               <p className="text-sm leading-7 text-[var(--muted)]">
-                Je suis actuellement ouvert aux opportunités de stage, aux
-                échanges professionnels et aux discussions autour de projets
-                ambitieux en finance, entrepreneuriat ou technologie.
+                Je suis actuellement ouvert aux opportunités de stage et aux
+                échanges professionnels en finance de marché, asset management,
+                private equity, analyse financière, recherche quantitative ou
+                développement d’outils financiers.
               </p>
             </div>
 
@@ -96,13 +98,13 @@ export default function ContactPage() {
                 <span className="font-medium text-[var(--foreground)]">
                   Format :
                 </span>{" "}
-                stage, projet, échange professionnel
+                stage, mission, échange professionnel
               </p>
               <p>
                 <span className="font-medium text-[var(--foreground)]">
                   Domaines :
                 </span>{" "}
-                finance, entrepreneuriat, tech
+                finance, analyse, data, outils financiers
               </p>
             </div>
           </aside>
@@ -157,10 +159,11 @@ export default function ContactPage() {
               Les sujets sur lesquels je peux échanger
             </h2>
             <p className="text-sm leading-7 text-[var(--muted)]">
-              Mon profil se situe au croisement de l’analyse financière, de
-              l’exécution entrepreneuriale et de la construction d’outils. Je
-              suis particulièrement à l’aise dans les environnements où il faut
-              comprendre vite, structurer proprement et faire avancer les choses.
+              Mon profil se situe entre analyse financière, finance
+              quantitative, structuration de données et développement d’outils.
+              Je suis particulièrement à l’aise dans les environnements où il
+              faut comprendre vite, formaliser proprement et produire un support
+              exploitable.
             </p>
           </div>
 
@@ -212,8 +215,8 @@ export default function ContactPage() {
               Vous pouvez aussi consulter mon CV ou explorer mes projets.
             </h2>
             <p className="max-w-2xl text-sm leading-7 text-[var(--background)]/75 md:text-base">
-              Le site a été pensé pour donner une vue claire de mon parcours, de
-              mes expériences et de ma manière de travailler.
+              Le site présente mon parcours, mes expériences et les projets qui
+              illustrent ma manière d’analyser, structurer et construire.
             </p>
 
             <div className="flex flex-wrap gap-3">

@@ -3,7 +3,7 @@ import Link from "next/link";
 const experiences = [
   {
     period: "2022 - Aujourd’hui",
-    title: "Co-fondateur & dirigeant · Occifloc",
+    title: "Président · Occifloc",
     description:
       "Développement d’une activité de personnalisation textile, gestion du budget, suivi des marges, pilotage de la trésorerie, mise en place de KPI financiers et amélioration des process.",
   },
@@ -11,13 +11,13 @@ const experiences = [
     period: "2024 - Aujourd’hui",
     title: "Membre investisseur · Blast Club",
     description:
-      "Analyse de startups early-stage, étude du marché, compréhension des business models et première approche de la valorisation.",
+      "Analyse de sociétés early-stage, étude de marché, lecture des business models, unit economics et première approche des logiques de valorisation.",
   },
   {
     period: "2019 - 2025",
     title: "Professeur particulier · Mathématiques / Physique",
     description:
-      "Transmission, pédagogie, structuration des idées et capacité à simplifier des sujets techniques.",
+      "Explication de sujets techniques, adaptation au niveau de l’élève et structuration d’un raisonnement mathématique étape par étape.",
   },
 ];
 
@@ -47,6 +47,7 @@ const skills = [
       "Portfolio optimisation",
       "Backtesting",
       "Analyse d’entreprise",
+      "Bloomberg Terminal",
     ],
   },
   {
@@ -67,22 +68,21 @@ const skills = [
     title: "Outils & exécution",
     items: [
       "Excel avancé",
-      "Bloomberg Terminal",
       "Automatisation de workflows",
       "n8n",
       "IA appliquée au code et à l’analyse",
       "Rigueur",
       "Autonomie",
-      "Décision rapide",
+      "Documentation",
     ],
   },
 ];
 
 const highlights = [
   "Étudiant en ingénierie financière à l’ESILV",
-  "Entrepreneur opérationnel avec une vraie expérience terrain",
+  "Recherche de stage en finance de marché, asset management ou analyse",
   "Construction d’outils quantitatifs en Python sur environnement Linux",
-  "Profil hybride : finance, exécution business, technologie",
+  "Compétences en SQL, Streamlit, backtesting et dashboards financiers",
 ];
 
 export default function CvPage() {
@@ -97,17 +97,17 @@ export default function CvPage() {
 
             <div className="space-y-4">
               <h1 className="section-title max-w-3xl">
-                Un profil à l’intersection de la finance, de l’entrepreneuriat
-                et de la construction d’outils concrets.
+                Un profil orienté finance quantitative, analyse de portefeuille
+                et développement d’outils financiers.
               </h1>
 
               <p className="max-w-2xl text-base leading-7 text-[var(--muted)] md:text-lg">
                 Je suis étudiant à l’ESILV en ingénierie financière, avec un
-                intérêt fort pour l’analyse, les marchés, la recherche
-                quantitative et la création de solutions utiles. En parallèle de
-                mon parcours académique, je développe des projets concrets en
-                Python et je dirige Occifloc, une entreprise que je fais grandir
-                sur le terrain.
+                intérêt marqué pour les marchés, l’asset management, le private
+                equity, l’analyse financière et la recherche quantitative. Je
+                construis des outils en Python, SQL et Streamlit pour suivre des
+                portefeuilles, backtester des stratégies et structurer des
+                données exploitables.
               </p>
             </div>
 
@@ -190,9 +190,9 @@ export default function CvPage() {
             </h2>
             <p className="text-sm leading-7 text-[var(--muted)]">
               Une base académique sérieuse en finance, une vraie expérience
-              entrepreneuriale, et une capacité à transformer des idées en outils
-              ou en systèmes concrets. Je ne me limite pas à l’analyse : j’aime
-              aussi construire, tester et améliorer.
+              opérationnelle, et une capacité à construire des outils
+              exploitables. Je ne me limite pas à l’analyse : je cherche aussi à
+              produire des supports fiables, testables et utiles.
             </p>
           </div>
 
@@ -219,18 +219,18 @@ export default function CvPage() {
               </div>
 
               <div className="rounded-2xl border border-[var(--border)] p-5">
-                <h3 className="mb-2 text-lg font-semibold">Entrepreneuriat</h3>
+                <h3 className="mb-2 text-lg font-semibold">Pilotage</h3>
                 <p className="text-sm leading-7 text-[var(--muted)]">
-                  Pilotage d’activité, gestion de la marge, vision opérationnelle,
-                  prise de décision rapide et sens des responsabilités.
+                  Pilotage d’activité, suivi des marges, trésorerie, indicateurs,
+                  prise de décision sous contrainte et sens des responsabilités.
                 </p>
               </div>
 
               <div className="rounded-2xl border border-[var(--border)] p-5">
                 <h3 className="mb-2 text-lg font-semibold">Mentalité</h3>
                 <p className="text-sm leading-7 text-[var(--muted)]">
-                  Rigueur, autonomie, capacité d’adaptation, résilience et goût
-                  de l’effort dans les projets de long terme.
+                  Rigueur, autonomie, documentation, capacité d’adaptation et
+                  régularité dans les projets qui demandent de la précision.
                 </p>
               </div>
             </div>
@@ -357,8 +357,9 @@ export default function CvPage() {
               construire ?
             </h2>
             <p className="max-w-2xl text-sm leading-7 text-[var(--background)]/75 md:text-base">
-              Je suis ouvert aux échanges autour d’un stage, d’une opportunité ou
-              d’un projet ambitieux en finance, entrepreneuriat ou technologie.
+              Je suis ouvert aux échanges autour d’un stage ou d’une opportunité
+              en finance de marché, asset management, private equity, analyse
+              financière, recherche quantitative ou développement d’outils.
             </p>
 
             <div className="flex flex-wrap gap-3">

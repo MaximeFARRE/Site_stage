@@ -4,21 +4,21 @@ export const personalInfo = {
 
   fullName: "Maxime Farré",
 
-  title: "Étudiant en ingénierie financière, entrepreneur et créateur de projets",
+  title: "Étudiant en ingénierie financière à l’ESILV",
 
   headline:
-    "J’aide à relier finance, technologie et entrepreneuriat à travers des projets concrets.",
+    "Finance quantitative, analyse de portefeuille et développement d’outils financiers.",
 
   shortBio:
-    "Étudiant en ingénierie financière à l’ESILV, entrepreneur avec Occifloc et passionné par l’investissement, la gestion d’actifs et la création de projets ambitieux.",
+    "Étudiant en ingénierie financière à l’ESILV, orienté finance de marché, asset management et outils financiers. J’utilise Python, SQL, Linux et Streamlit pour analyser des données, backtester des stratégies et structurer des tableaux de bord.",
 
   longBio: `
-Je suis étudiant en ingénierie financière à l’ESILV et entrepreneur. 
-En parallèle de mes études, je développe Occifloc, une entreprise spécialisée dans la personnalisation textile, ainsi que plusieurs projets autour de la finance, de l’investissement et de la technologie.
+Je suis étudiant en ingénierie financière à l’ESILV, avec un intérêt marqué pour la finance de marché, l’asset management, le private equity et la recherche quantitative.
+Je travaille sur des projets qui combinent analyse financière, structuration de données et développement d’outils : backtests, suivi de portefeuille, dashboards, automatisation de workflows et exploitation de données financières.
 
-Je m’intéresse particulièrement à la gestion d’actifs, au private equity, aux family offices et à la création de projets à long terme.
+J’utilise principalement Python, SQL, Linux, Git, Streamlit, Excel avancé et Bloomberg Terminal pour construire des analyses lisibles, reproductibles et utiles à la décision.
 
-Mon objectif est de construire une carrière à l’intersection de la finance, de l’entrepreneuriat et de la technologie.
+Mon expérience avec Occifloc reste un marqueur d’exécution : suivi de marges, relation client, trésorerie, priorisation et organisation. Elle complète mon profil sans en être le centre.
   `,
 
   location: "Paris, France",
@@ -28,12 +28,12 @@ Mon objectif est de construire une carrière à l’intersection de la finance, 
   degree: "Ingénierie financière",
 
   currentGoal:
-    "Je recherche des opportunités en finance, gestion d’actifs, private equity ou startup.",
+    "Je recherche un stage ou une opportunité en finance de marché, asset management, private equity, analyse financière ou recherche quantitative.",
 
   longTermGoal:
-    "À long terme, mon objectif est de créer et gérer mon propre fonds d’investissement.",
+    "Construire une expertise solide en gestion d’actifs, analyse quantitative et développement d’outils financiers.",
 
   email: "maxime.farre8@gmail.com",
 
-  availability: "Disponible pour échanger et étudier de nouvelles opportunités.",
+  availability: "Disponible pour échanger sur des opportunités en finance, analyse ou développement d’outils financiers.",
 };

@@ -6,7 +6,7 @@ import Footer from "@/components/layout/footer";
 import { personalInfo } from "@/data/personal-info";
 
 export const metadata: Metadata = {
-  title: `${personalInfo.fullName} | Site carrière`,
+  title: `${personalInfo.fullName} | Finance quantitative & outils financiers`,
   description: personalInfo.shortBio,
 };
 

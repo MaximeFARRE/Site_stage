@@ -16,10 +16,10 @@ export default function FeaturedProjects() {
             <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
               Projets sélectionnés
             </span>
-            <h2 className="mb-3">Ce que je construis</h2>
+            <h2 className="mb-3">Outils et analyses construits</h2>
             <p className="text-base text-[var(--muted)]">
-              Des projets concrets à l'intersection de la finance, de la
-              technologie et de l'entrepreneuriat.
+              Des projets centrés sur la finance quantitative, la structuration
+              de données, le backtesting et le suivi d’indicateurs.
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export default function FeaturedProjects() {
                 </span>
                 {i === 0 && (
                   <span className="rounded-full bg-[var(--primary)] px-3 py-1 text-xs font-medium text-white">
-                    Featured
+                    Sélection
                   </span>
                 )}
               </div>

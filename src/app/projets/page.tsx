@@ -9,7 +9,7 @@ const categories = [
     "Finance",
     "Data",
     "Automatisation",
-    "Entrepreneuriat",
+    "Pilotage",
 ];
 
 export default function ProjectsPage() {
@@ -25,15 +25,14 @@ export default function ProjectsPage() {
                         </p>
 
                         <div className="space-y-4">
-                            <h1>Des projets conçus pour apprendre, construire et démontrer.</h1>
+                            <h1>Des projets orientés finance, données et outils d’analyse.</h1>
 
                             <p className="text-lg leading-8 text-[var(--muted)]">
-                                Cette page rassemble des projets qui croisent finance,
-                                structuration de données, outils d’analyse, automatisation et
-                                entrepreneuriat. L’objectif n’est pas seulement de montrer ce
-                                que j’ai fait, mais aussi ce que ces projets disent de ma façon
-                                de travailler : comprendre un besoin, construire une solution et
-                                progresser par l’exécution.
+                                Cette page rassemble des projets autour de la finance
+                                quantitative, de la structuration de données, du backtesting,
+                                des dashboards et de l’automatisation. Chaque projet montre une
+                                façon de travailler : cadrer un besoin, nettoyer les données,
+                                construire un outil lisible et interpréter les résultats.
                             </p>
                         </div>
 
@@ -72,7 +71,7 @@ export default function ProjectsPage() {
 
                                         {index === 0 && (
                                             <div className="absolute left-5 top-5 rounded-full bg-[var(--foreground)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white">
-                                                Featured
+                                                Sélection
                                             </div>
                                         )}
                                     </div>
@@ -114,7 +113,7 @@ export default function ProjectsPage() {
 
                                         <div className="flex items-center justify-between gap-4 pt-2">
                                             <p className="text-sm text-[var(--muted)]">
-                                                Résumé rapide disponible ici, détail complet sur la page
+                                                Résumé rapide ici, avec le détail technique sur la page
                                                 projet.
                                             </p>
 
@@ -137,13 +136,13 @@ export default function ProjectsPage() {
                                 Tous les projets
                             </p>
                             <h2 className="section-title">
-                                Une sélection de projets construits avec une logique concrète
+                                Une sélection de projets construits avec une logique d’analyse
                             </h2>
                             <p className="max-w-3xl text-[var(--muted)]">
-                                Chaque projet répond à une logique simple : partir d’un besoin
-                                réel, structurer une solution utile et en tirer des
-                                apprentissages concrets. Certains sont plus orientés finance,
-                                d’autres davantage produit, data ou entrepreneuriat.
+                                Chaque projet part d’un besoin précis : suivre un portefeuille,
+                                tester une stratégie, structurer des données ou piloter une
+                                activité. L’objectif est de produire un résultat exploitable,
+                                pas seulement une démonstration technique.
                             </p>
                         </div>
 
@@ -221,9 +220,9 @@ export default function ProjectsPage() {
 
                             <p className="leading-8 text-white/80">
                                 Cette sélection donne une vue synthétique de ma manière de
-                                travailler. En entretien, je peux revenir plus en détail sur les
-                                choix, les difficultés, les arbitrages et les apprentissages
-                                tirés de chaque projet.
+                                travailler. En entretien, je peux revenir sur les hypothèses,
+                                les choix de données, les limites, les arbitrages techniques et
+                                les résultats obtenus.
                             </p>
 
                             <div className="flex flex-wrap gap-4 pt-2">

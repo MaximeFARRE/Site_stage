@@ -6,31 +6,31 @@ const featuredExperiences = [
     title: "Président · Occifloc",
     subtitle: "Entreprise de personnalisation textile et objets",
     description: [
-      "Occifloc est mon expérience la plus structurante. En développant cette entreprise, j’ai appris à faire avancer un projet réel, avec des clients, des contraintes de marge, de production, de délais et de qualité.",
-      "Cette aventure m’a obligé à être concret : vendre, organiser, suivre les chiffres, améliorer les processus et prendre des décisions rapidement. C’est là que j’ai développé une vraie culture de l’exécution.",
-      "Au-delà de l’entrepreneuriat, Occifloc m’a appris des réflexes précieux pour la finance et le management : regarder les bons indicateurs, arbitrer, prioriser, piloter sous contrainte et garder une vision long terme.",
+      "Occifloc m’a donné une expérience directe du pilotage d’activité : clients, prix, marges, production, délais, qualité et trésorerie. Les décisions ont des effets immédiats, ce qui oblige à suivre les bons indicateurs.",
+      "Cette expérience m’a appris à vendre, organiser, suivre les chiffres, améliorer les processus et arbitrer rapidement. Elle m’a surtout donné une culture d’exécution et de responsabilité.",
+      "Ce cadre reste utile pour la finance : raisonner avec des contraintes, prioriser, mesurer les coûts, suivre le cash-flow et garder une lecture claire des risques opérationnels.",
     ],
     learnings: [
       "Pilotage opérationnel et sens des priorités",
       "Suivi de marge, cash-flow et logique économique",
       "Résolution de problèmes et amélioration continue",
-      "Management, relation client et sens du résultat",
+      "Relation client, qualité de service et responsabilité",
     ],
   },
   {
     period: "sept. 2025 - aujourd’hui",
     title: "Membre · Blast Club",
-    subtitle: "Club d’investissement orienté startups et private markets",
+    subtitle: "Club d’investissement orienté sociétés early-stage et private markets",
     description: [
-      "Blast Club s’inscrit naturellement dans mon intérêt pour l’investissement, l’analyse d’entreprise et la compréhension des modèles économiques.",
-      "Être membre me permet de me confronter à des logiques d’investissement concrètes, avec une approche plus orientée startup, croissance, potentiel de marché et qualité de l’exécution entrepreneuriale.",
-      "Cette expérience complète bien mon profil : elle nourrit ma curiosité pour l’investissement, affine mon regard sur la création de valeur et m’aide à mieux relier analyse financière, vision stratégique et lecture business.",
+      "Blast Club m’expose à des dossiers d’investissement early-stage et private markets. J’y travaille la lecture d’un marché, d’un modèle économique, d’une trajectoire de croissance et d’une équipe.",
+      "Cette expérience m’aide à analyser des sociétés non cotées avec un regard plus structuré : taille de marché, unit economics, qualité de l’exécution, risques et potentiel de sortie.",
+      "Elle complète mon intérêt pour l’asset management et le private equity en apportant une pratique concrète de l’analyse d’entreprise et du risque d’investissement.",
     ],
     learnings: [
-      "Analyse simplifiée de startups et de business models",
-      "Réflexion autour du risque, du potentiel et de l’exécution",
-      "Culture investissement et lecture entrepreneuriale",
-      "Vision plus large des private markets",
+      "Analyse de sociétés early-stage et de business models",
+      "Lecture du risque, du potentiel de marché et des unit economics",
+      "Culture investissement et premiers réflexes de due diligence",
+      "Meilleure compréhension des private markets",
     ],
   },
   {
@@ -38,15 +38,15 @@ const featuredExperiences = [
     title: "Responsable événement · Club Entrepreneurs",
     subtitle: "Animation, organisation et dynamisation d’un collectif étudiant",
     description: [
-      "Au sein du Club Entrepreneurs, j’ai pris un rôle d’organisation et de coordination. L’objectif n’est pas seulement de faire des événements, mais de créer une dynamique, de fédérer et d’apporter une vraie valeur aux membres.",
-      "Cette responsabilité m’a appris à mieux structurer, communiquer, anticiper les besoins et porter une énergie collective. C’est une expérience plus humaine, mais très formatrice.",
-      "Elle renforce aussi une dimension importante de mon profil : savoir prendre des initiatives, entraîner les autres et faire vivre un projet dans la durée.",
+      "Au sein du Club Entrepreneurs, j’ai pris un rôle d’organisation et de coordination. L’enjeu était de cadrer des événements utiles, gérer les intervenants, anticiper la logistique et maintenir une dynamique régulière.",
+      "Cette responsabilité m’a appris à structurer une initiative collective, communiquer clairement et transformer une intention en action organisée.",
+      "Je la présente comme une expérience d’exécution : tenir un calendrier, coordonner plusieurs parties prenantes et livrer un format propre aux membres.",
     ],
     learnings: [
       "Organisation et coordination d’événements",
-      "Communication, initiative et sens du collectif",
+      "Communication claire et gestion des parties prenantes",
       "Prise de responsabilité dans un cadre associatif",
-      "Capacité à fédérer et faire avancer un groupe",
+      "Capacité à tenir un calendrier et livrer un format utile",
     ],
   },
 ];
@@ -70,19 +70,19 @@ const timelineExperiences = [
     period: "2024 - aujourd’hui",
     title: "ESILV · Master en ingénierie financière",
     description:
-      "Formation exigeante en ingénierie financière, tournée vers la finance de marché, les outils quantitatifs, l’analyse et la technique. Elle structure mon socle académique et donne de la profondeur à mon intérêt pour les marchés et l’investissement.",
+      "Formation en ingénierie financière orientée finance de marché, produits dérivés, risque, outils quantitatifs et programmation. Elle structure mon socle académique et renforce mon approche des marchés, du portefeuille et de l’analyse de données.",
   },
   {
     period: "2022 - 2024",
     title: "Classe préparatoire PTSI / PT · Lycée Jean Dupuy",
     description:
-      "Une période fondatrice dans ma manière de travailler. La prépa m’a appris l’intensité, la rigueur, la discipline et l’humilité face à des sujets difficiles. J’y ai développé une vraie solidité analytique, notamment en sciences de l’ingénieur.",
+      "Une période fondatrice dans ma méthode de travail. La prépa m’a appris la rigueur, la discipline, la modélisation et la résolution de problèmes sous contrainte de temps, notamment en mathématiques, physique et sciences de l’ingénieur.",
   },
   {
     period: "2019 - 2025",
     title: "Professeur particulier · Mathématiques et physique",
     description:
-      "Donner des cours m’a appris à expliquer clairement, à m’adapter au niveau de l’autre et à structurer mon raisonnement. C’est une expérience discrète, mais très formatrice sur le plan pédagogique et humain.",
+      "Donner des cours m’a appris à expliquer clairement, adapter le niveau de détail et structurer un raisonnement étape par étape. Cette expérience renforce ma capacité à rendre un sujet technique compréhensible.",
   },
 ];
 
@@ -91,31 +91,31 @@ const earlyExperiences = [
     period: "juil. 2021 - août 2021",
     title: "Assistant production · PLASTISUD",
     description:
-      "Travail en environnement industriel avec des contraintes de rythme, de précision et de continuité. Une expérience utile pour comprendre concrètement ce que signifie produire, suivre une cadence et rester fiable dans l’exécution.",
+      "Travail en environnement industriel avec contraintes de rythme, précision et continuité. Une expérience utile pour comprendre ce que signifie produire, suivre une cadence et rester fiable sur une tâche répétée.",
   },
   {
     period: "juil. 2020 - août 2020",
     title: "Assistant production · PLASTISUD",
     description:
-      "Deuxième saison dans un cadre industriel, qui m’a permis de gagner en maturité, en discipline et en endurance au travail.",
+      "Deuxième saison dans un cadre industriel, avec davantage de maturité dans l’organisation, la discipline et la tenue d’un rythme de travail régulier.",
   },
   {
     period: "juil. 2019 - août 2019",
     title: "Chef d’équipe · Exploitation agricole Laurac",
     description:
-      "Une expérience de terrain très formatrice, avec une dimension pratique forte. Elle m’a appris le sens de l’effort, la responsabilité et le respect du travail concret.",
+      "Expérience de terrain avec responsabilité d’équipe, organisation des tâches et suivi du travail réalisé. Elle m’a appris l’effort, la fiabilité et la clarté dans les consignes.",
   },
   {
     period: "févr. 2019",
     title: "Stagiaire · O2SPOT",
     description:
-      "Première immersion professionnelle, utile pour découvrir un cadre de travail structuré et commencer à comprendre les attentes du monde professionnel.",
+      "Première immersion professionnelle, utile pour découvrir un cadre de travail structuré, des attentes précises et des échanges professionnels formalisés.",
   },
   {
     period: "juil. 2018 - août 2018",
     title: "Ouvrier agricole · Exploitation agricole Laurac",
     description:
-      "Une première expérience de travail exigeante, très terrain, qui m’a appris tôt la valeur de l’effort, de la régularité et du sérieux.",
+      "Première expérience de travail exigeante, très terrain, qui m’a appris tôt la régularité, le sérieux et la fiabilité dans l’exécution.",
   },
 ];
 
@@ -130,13 +130,13 @@ export default function ExperiencesPage() {
             </p>
 
             <div className="space-y-4">
-              <h1>Un parcours construit par l’action, la rigueur et la progression.</h1>
+              <h1>Un parcours construit par la rigueur, les données et l’exécution.</h1>
 
               <p className="text-lg leading-8 text-[var(--muted)]">
-                Mon parcours mêle entrepreneuriat, finance, responsabilités
-                associatives, expériences de terrain et formation exigeante.
-                J’essaie de construire un profil cohérent : comprendre, exécuter,
-                progresser et prendre des responsabilités de plus en plus fortes.
+                Mon parcours combine formation en ingénierie financière,
+                projets quantitatifs, analyse d’investissement, responsabilités
+                opérationnelles et expériences de terrain. Je cherche à
+                construire un profil capable d’analyser, structurer et livrer.
               </p>
             </div>
           </div>
@@ -146,10 +146,11 @@ export default function ExperiencesPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
                 Expériences clés
               </p>
-              <h2 className="section-title">Les expériences qui structurent le plus mon profil</h2>
+              <h2 className="section-title">Les expériences qui structurent le plus ma méthode</h2>
               <p className="max-w-3xl text-[var(--muted)]">
-                Ce sont les expériences qui ont le plus façonné ma manière de
-                travailler, de réfléchir et d’aborder la création de valeur.
+                Ce sont les expériences qui ont le plus renforcé ma manière de
+                travailler : suivre des indicateurs, analyser un dossier,
+                organiser une équipe et livrer avec régularité.
               </p>
             </div>
 
@@ -244,17 +245,16 @@ export default function ExperiencesPage() {
                 <h2 className="section-title">Une progression logique</h2>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  Quand je regarde mon parcours, je vois une continuité claire :
-                  j’ai commencé par des expériences très concrètes, parfois
-                  physiques, puis j’ai renforcé ma rigueur avec une formation
-                  exigeante, avant de prendre davantage d’initiatives dans
-                  l’entrepreneuriat, la finance et les projets collectifs.
+                  Quand je regarde mon parcours, je vois une progression claire :
+                  des expériences de terrain, une formation scientifique
+                  exigeante, puis des projets orientés finance, données et
+                  organisation. Chaque étape a renforcé ma méthode.
                 </p>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  Ce chemin m’a appris une chose simple : la valeur ne vient pas
-                  seulement des idées, mais de la capacité à exécuter avec
-                  méthode, à tenir dans le temps et à progresser avec constance.
+                  Ce chemin m’a appris qu’un bon résultat dépend surtout de la
+                  clarté du cadre, de la qualité des données, de la régularité
+                  d’exécution et de la capacité à corriger rapidement.
                 </p>
               </div>
             </div>
@@ -269,13 +269,14 @@ export default function ExperiencesPage() {
 
                 <p className="leading-8 text-[var(--muted)]">
                   À travers ces expériences, je cherche à construire un profil
-                  capable de combiner compréhension analytique, sens du terrain,
-                  intensité de travail et capacité à faire avancer un projet.
+                  capable de combiner analyse financière, maîtrise technique,
+                  sens opérationnel et capacité à produire des livrables utiles.
                 </p>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  C’est ce mélange qui m’intéresse : être à la fois sérieux dans
-                  l’analyse, crédible dans l’exécution et fiable dans la durée.
+                  L’objectif est simple : être précis dans l’analyse, fiable
+                  dans l’exécution et capable de transformer un besoin en outil
+                  ou en décision exploitable.
                 </p>
               </div>
             </div>
@@ -290,12 +291,11 @@ export default function ExperiencesPage() {
               </div>
 
               <p className="leading-8 text-[var(--muted)]">
-                Au-delà des outils académiques plus classiques, j’accorde une place
-                croissante aux outils d’exécution modernes : développement assisté,
-                automatisation, structuration de workflows, agents IA et logiques de RAG.
-                Je les utilise comme des accélérateurs de productivité, mais aussi comme
-                des outils de qualité, pour mieux organiser, mieux analyser et exécuter
-                plus proprement.
+                Au-delà des outils académiques, j’utilise des outils de
+                développement, d’automatisation et de structuration de workflows.
+                Ils me servent à accélérer les tâches répétitives, fiabiliser les
+                analyses, documenter les étapes et produire des supports plus
+                propres.
               </p>
 
               <div className="flex flex-wrap gap-2">
@@ -318,8 +318,8 @@ export default function ExperiencesPage() {
               <h2 className="section-title">Le terrain avant tout</h2>
               <p className="max-w-3xl text-[var(--muted)]">
                 Ces expériences sont plus anciennes, mais elles comptent. Elles
-                m’ont appris tôt la discipline, l’effort, la régularité et le
-                respect du travail concret.
+                m’ont appris tôt la discipline, la régularité, le respect des
+                consignes et la fiabilité dans l’exécution.
               </p>
             </div>
 

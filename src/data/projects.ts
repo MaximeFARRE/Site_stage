@@ -29,31 +29,31 @@ export const projects: Project[] = [
         title: "Application de suivi de patrimoine",
         category: "Finance · Data · Produit",
         shortDescription:
-            "Outil de suivi patrimonial multi-actifs pour centraliser, structurer et analyser un portefeuille personnel.",
+            "Outil multi-actifs pour centraliser des positions, suivre l’allocation et analyser l’évolution d’un portefeuille personnel.",
         longDescription:
-            "Ce projet consiste à concevoir une application capable de regrouper différentes classes d’actifs au sein d’un même environnement : actions cotées, private equity, immobilier, cash et autres positions patrimoniales. L’objectif est de disposer d’une vision claire, exploitable et évolutive d’un patrimoine global, avec une logique plus structurée qu’un simple tableur.",
-        technologies: ["Python", "SQL", "SQLite", "React"],
+            "Ce projet consiste à concevoir une application capable de regrouper plusieurs classes d’actifs dans un même environnement : actions cotées, private equity, immobilier, cash et autres positions patrimoniales. L’objectif est d’obtenir une lecture claire de l’allocation, de l’exposition et de l’évolution du portefeuille, avec une structure de données plus robuste qu’un tableur.",
+        technologies: ["Python", "SQL", "SQLite", "Streamlit"],
         image: "/images/projects/patrimoine_kpi.png",
         featured: true,
 
         whatItShows:
-            "Structuration de données, logique produit, vision patrimoniale et capacité à transformer un besoin personnel en outil concret.",
+            "Structuration de données financières, modélisation d’un portefeuille multi-actifs et capacité à produire un outil de suivi exploitable.",
         context:
-            "Je voulais disposer d’un outil personnel plus robuste pour suivre un patrimoine hétérogène, avec une logique de centralisation, d’historique et d’analyse. Les solutions classiques étaient souvent trop limitées, trop fermées ou peu adaptées à une vision patrimoniale plus large.",
+            "Je voulais disposer d’un outil plus fiable pour suivre un patrimoine hétérogène, avec centralisation des positions, historique des mouvements et lecture rapide des allocations. Les solutions existantes étaient souvent trop fermées ou peu adaptées à un suivi patrimonial global.",
         objective:
-            "Créer un outil clair, exploitable et évolutif permettant de suivre l’allocation, les performances et la structure globale d’un patrimoine dans un seul environnement.",
+            "Créer un outil clair et évolutif permettant de suivre l’allocation, les performances, les flux et la structure globale d’un patrimoine dans un seul environnement.",
         role:
-            "Conception du projet, structuration de la base de données, logique fonctionnelle, développement et amélioration continue.",
+            "Conception fonctionnelle, structuration de la base de données, définition des indicateurs, développement de l’interface et amélioration continue.",
 
         challenges: [
-            "Modéliser plusieurs classes d’actifs avec une structure cohérente.",
-            "Conserver une logique simple d’utilisation tout en gardant de la profondeur analytique.",
-            "Créer une base exploitable pour de futures analyses, projections ou automatisations.",
+            "Modéliser plusieurs classes d’actifs avec une structure cohérente et maintenable.",
+            "Conserver une interface lisible tout en gardant assez de profondeur pour l’analyse.",
+            "Préparer une base exploitable pour de futures projections, automatisations ou imports de données.",
         ],
         outcomes: [
-            "Création d’un outil personnel centralisé et évolutif.",
-            "Meilleure lecture de l’allocation patrimoniale et des performances.",
-            "Renforcement de mes compétences en structuration de données et en logique produit.",
+            "Mise en place d’un outil centralisé pour suivre des positions et des indicateurs clés.",
+            "Meilleure lecture de l’allocation patrimoniale, des expositions et de l’évolution du portefeuille.",
+            "Renforcement de mes compétences en structuration de données financières et en logique produit.",
         ],
         links: [],
     },
@@ -62,64 +62,64 @@ export const projects: Project[] = [
         title: "Backtest et optimisation de portefeuille",
         category: "Finance quantitative · Analyse · Python",
         shortDescription:
-            "Projet de recherche appliquée autour du backtesting, de la comparaison de stratégies et de l’analyse de portefeuille.",
+            "Environnement Python pour backtester des stratégies, comparer des métriques risque/rendement et analyser un portefeuille.",
         longDescription:
-            "Ce projet vise à construire un environnement d’analyse pour tester différentes approches d’investissement sur plusieurs actifs, comparer leurs performances et mieux comprendre la dynamique risque/rendement d’un portefeuille. Il s’inscrit dans une logique de finance quantitative appliquée, avec une approche volontairement concrète.",
-        technologies: ["Python", "Pandas", "NumPy", "Backtesting"],
+            "Ce projet vise à construire un environnement d’analyse pour tester différentes approches d’investissement sur plusieurs actifs, comparer leurs performances et étudier la dynamique risque/rendement d’un portefeuille. Il s’inscrit dans une logique de finance quantitative appliquée : données propres, hypothèses explicites, métriques comparables et visualisations lisibles.",
+        technologies: ["Python", "Pandas", "NumPy", "Backtesting", "Streamlit"],
         image: "/images/projects/backtest_5ans.png",
         featured: true,
 
         whatItShows:
-            "Capacité d’analyse quantitative, compréhension du risque, rigueur dans les comparaisons et intérêt réel pour la gestion d’actifs.",
+            "Capacité à structurer un backtest, calculer des métriques de risque et comparer des stratégies avec un cadre reproductible.",
         context:
-            "Je voulais aller plus loin que l’apprentissage théorique de la finance de marché en construisant mes propres outils d’analyse. L’idée était de tester concrètement des hypothèses, de comparer des résultats et de mieux comprendre ce que signifient vraiment performance, volatilité ou drawdown dans un cadre appliqué.",
+            "Je voulais compléter l’apprentissage académique de la finance de marché par un outil d’analyse construit de bout en bout. L’objectif était de tester des hypothèses d’investissement, comparer des résultats et interpréter concrètement performance, volatilité, drawdown et diversification.",
         objective:
-            "Développer un cadre d’analyse permettant de comparer plusieurs stratégies, de visualiser leurs résultats et d’évaluer la robustesse d’un portefeuille sous différents angles.",
+            "Développer un cadre d’analyse permettant de comparer plusieurs stratégies, visualiser leurs résultats et évaluer la robustesse d’un portefeuille selon plusieurs métriques.",
         role:
-            "Définition des hypothèses, récupération et traitement des données, développement des métriques, interprétation des résultats.",
+            "Définition des hypothèses, récupération et nettoyage des données, calcul des métriques, visualisation des résultats et interprétation financière.",
 
         challenges: [
-            "Construire une logique de comparaison claire entre actifs, stratégies et portefeuille global.",
-            "Choisir des métriques pertinentes sans surcharger l’analyse.",
-            "Garder un cadre lisible et utile, sans tomber dans une complexité inutile.",
+            "Construire une logique de comparaison claire entre actifs, stratégies et portefeuille agrégé.",
+            "Choisir des métriques pertinentes sans masquer les limites du backtest.",
+            "Garder un cadre lisible, reproductible et utile pour l’analyse.",
         ],
         outcomes: [
-            "Mise en place d’un environnement de backtest personnel.",
-            "Comparaison plus concrète entre stratégies simples et portefeuille agrégé.",
-            "Approfondissement de mes réflexes en analyse quantitative et en gestion du risque.",
+            "Mise en place d’un environnement de backtest personnel en Python.",
+            "Comparaison plus rigoureuse entre stratégies simples, actifs et portefeuille agrégé.",
+            "Approfondissement de mes réflexes en analyse quantitative, gestion du risque et lecture des métriques.",
         ],
         links: [],
     },
     {
         slug: "occifloc",
         title: "Occifloc",
-        category: "Entrepreneuriat · Opérations · Business",
+        category: "Opérations · Pilotage · Automatisation",
         shortDescription:
-            "Développement d’une entreprise de personnalisation textile avec production, vente, pilotage opérationnel et structuration progressive.",
+            "Pilotage d’une activité de personnalisation textile avec suivi des marges, trésorerie, production et amélioration des process.",
         longDescription:
-            "Occifloc est un projet entrepreneurial réel, construit sur le terrain, autour de la personnalisation textile, des objets publicitaires et de la production locale. C’est une expérience centrale dans mon parcours, car elle m’a confronté très tôt à la réalité du pilotage d’une activité : clients, prix, marges, délais, qualité, organisation et amélioration continue.",
-        technologies: ["Gestion", "Process", "Automatisation", "Vente"],
+            "Occifloc est une activité réelle de personnalisation textile et d’objets publicitaires. Je la présente ici pour ce qu’elle démontre concrètement : gestion de clients, calcul de prix, suivi des marges, trésorerie, qualité, délais, organisation de production et amélioration progressive des méthodes de travail.",
+        technologies: ["Gestion", "KPI", "Process", "Automatisation", "Vente"],
         image: "/images/logos/logo occifloc couleur.png",
         featured: true,
 
         whatItShows:
-            "Esprit entrepreneurial, sens de l’exécution, compréhension économique concrète et capacité à faire avancer un projet dans la réalité.",
+            "Capacité à piloter une activité réelle avec des indicateurs, des contraintes opérationnelles et des décisions concrètes.",
         context:
-            "Je voulais construire un projet concret, avec une vraie logique de création de valeur, de relation client et de pilotage opérationnel. Occifloc m’a donné un terrain réel pour apprendre, tester, ajuster et progresser au contact direct du marché.",
+            "Occifloc m’a donné un cadre concret pour travailler sur des sujets rarement théoriques : vendre, produire, livrer, gérer les délais, suivre les coûts et tenir une relation client. Cette expérience reste utile car elle relie chiffres, organisation et responsabilité.",
         objective:
-            "Développer une activité rentable, mieux structurée dans le temps, avec une logique de croissance, de qualité de service et d’amélioration continue des processus.",
+            "Structurer une activité rentable, suivre les marges et la trésorerie, améliorer les process et conserver un niveau de service fiable.",
         role:
-            "Développement commercial, pilotage global, réflexion sur les marges, suivi d’activité, structuration et amélioration des méthodes de travail.",
+            "Développement commercial, suivi d’activité, calcul des prix, pilotage des marges, organisation de la production et amélioration des méthodes de travail.",
 
         challenges: [
-            "Concilier développement commercial, production et organisation.",
-            "Prendre de bonnes décisions avec des contraintes concrètes de terrain.",
-            "Structurer progressivement l’activité sans perdre en réactivité.",
+            "Concilier développement commercial, production, qualité et délais.",
+            "Prendre des décisions avec des contraintes de marge, de trésorerie et de capacité.",
+            "Structurer progressivement l’activité sans perdre en réactivité opérationnelle.",
         ],
         outcomes: [
-            "Développement d’une entreprise réelle avec des clients et des flux concrets.",
-            "Montée en compétence sur les sujets business, opérationnels et financiers.",
-            "Construction d’un profil plus complet, entre analyse, action et responsabilité.",
+            "Développement d’une activité réelle avec clients, commandes, coûts et flux de trésorerie.",
+            "Montée en compétence sur le pilotage par indicateurs, les marges et l’organisation.",
+            "Renforcement de ma capacité à passer d’une analyse à une décision opérationnelle.",
         ],
         links: [],
     },
