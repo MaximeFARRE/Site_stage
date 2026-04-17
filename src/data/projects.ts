@@ -55,7 +55,7 @@ export const projects: Project[] = [
         shortDescription:
             "Application desktop PyQt6 + SQLite pour centraliser des comptes multi-actifs, reconstruire l’historique hebdomadaire et analyser la performance d’un portefeuille.",
         longDescription:
-            "Ce projet est une application Python orientée finance patrimoniale construite autour d’une architecture modulaire (couches services + interface Qt + base SQLite). Elle agrège des transactions de plusieurs comptes (banque, livret, PEA/CTO, private equity), normalise les données et produit des snapshots hebdomadaires pour suivre l’évolution du patrimoine dans le temps. Le module analytics calcule des métriques risque/rendement avec neutralisation des flux (achats/ventes) et prend en compte les effets de devise. L’application intègre aussi un import Trade Republic avec mapping d’alias (symboles/ISIN), des contrôles de qualité de données et une reconstruction complète de l’historique famille depuis la première transaction.",
+            "Ce projet est directement lié au projet « Backtest et optimisation de portefeuille »: le module de simulation/optimisation alimente ici l’analyse patrimoniale globale. C’est une application Python orientée finance patrimoniale construite autour d’une architecture modulaire (couches services + interface Qt + base SQLite). Elle agrège des transactions de plusieurs comptes (banque, livret, PEA/CTO, private equity), normalise les données et produit des snapshots hebdomadaires pour suivre l’évolution du patrimoine dans le temps. Le module analytics calcule des métriques risque/rendement avec neutralisation des flux (achats/ventes) et prend en compte les effets de devise. L’application intègre aussi un import Trade Republic avec mapping d’alias (symboles/ISIN), des contrôles de qualité de données et une reconstruction complète de l’historique famille depuis la première transaction.",
         technologies: ["Python", "PyQt6", "SQLite", "Pandas", "Plotly", "yfinance"],
         image: "/images/projects/patrimoine_kpi.png",
         featured: true,
@@ -193,40 +193,139 @@ export const projects: Project[] = [
         shortDescription:
             "Environnement Python pour backtester des stratégies, comparer des métriques risque/rendement et analyser un portefeuille.",
         longDescription:
-            "Ce projet vise à construire un environnement d’analyse pour tester différentes approches d’investissement sur plusieurs actifs, comparer leurs performances et étudier la dynamique risque/rendement d’un portefeuille. Il s’inscrit dans une logique de finance quantitative appliquée : données propres, hypothèses explicites, métriques comparables et visualisations lisibles.",
-        technologies: ["Python", "Pandas", "NumPy", "Backtesting", "Streamlit"],
+            "Ce projet est directement lié au projet « Application de suivi de patrimoine »: les résultats de backtests et de simulations sont utilisés pour piloter les décisions d’allocation du portefeuille suivi dans l’application principale. Il vise à construire un environnement d’analyse pour tester différentes approches d’investissement sur plusieurs actifs, comparer leurs performances et étudier la dynamique risque/rendement d’un portefeuille. Il s’inscrit dans une logique de finance quantitative appliquée : données propres, hypothèses explicites, métriques comparables et visualisations lisibles.",
+        technologies: ["Python", "Pandas", "NumPy", "Plotly", "Backtesting", "Monte Carlo"],
         image: "/images/projects/backtest_5ans.png",
         featured: true,
 
         whatItShows:
-            "Capacité à structurer un backtest, calculer des métriques de risque et comparer des stratégies avec un cadre reproductible.",
+            "Capacité à structurer un moteur de backtest, comparer plusieurs allocations et intégrer une simulation Monte Carlo pour estimer la distribution des trajectoires possibles.",
         context:
-            "Je voulais compléter l’apprentissage académique de la finance de marché par un outil d’analyse construit de bout en bout. L’objectif était de tester des hypothèses d’investissement, comparer des résultats et interpréter concrètement performance, volatilité, drawdown et diversification.",
+            "Je voulais compléter l’apprentissage académique de la finance de marché par un outil d’analyse construit de bout en bout. L’objectif était de tester des hypothèses d’investissement, comparer des résultats et interpréter concrètement performance, volatilité, drawdown, diversification et robustesse des trajectoires.",
         objective:
-            "Développer un cadre d’analyse permettant de comparer plusieurs stratégies, visualiser leurs résultats et évaluer la robustesse d’un portefeuille selon plusieurs métriques.",
+            "Développer un cadre d’analyse permettant de comparer plusieurs stratégies, visualiser leurs résultats, simuler des scénarios (Monte Carlo) et évaluer la robustesse d’un portefeuille selon plusieurs métriques.",
         role:
-            "Définition des hypothèses, récupération et nettoyage des données, calcul des métriques, visualisation des résultats et interprétation financière.",
+            "Définition des hypothèses, récupération et nettoyage des données, implémentation des backtests, simulation Monte Carlo, calcul des métriques, visualisation des résultats et interprétation financière.",
 
         challenges: [
-            "Construire une logique de comparaison claire entre actifs, stratégies et portefeuille agrégé.",
-            "Choisir des métriques pertinentes sans masquer les limites du backtest.",
-            "Garder un cadre lisible, reproductible et utile pour l’analyse.",
+            "Concevoir un cadre unique pour comparer plusieurs stratégies (buy & hold, allocations pondérées, rebalancing périodique) avec les mêmes hypothèses de départ.",
+            "Intégrer des simulations Monte Carlo lisibles pour estimer une distribution de scénarios, sans sur-vendre la capacité prédictive du modèle.",
+            "Conserver une séparation claire entre données brutes, logique de calcul, visualisations et interprétation afin de garder un pipeline maintenable.",
         ],
         outcomes: [
             "Backtests reproductibles sur un horizon de 5 ans pour comparer stratégies et allocations.",
-            "Comparaison normalisée de métriques de risque/rendement: volatilité, drawdown, performance cumulée.",
-            "Visualisations exploitables pour arbitrer entre robustesse, rendement et diversification.",
+            "Comparaison normalisée de métriques de risque/rendement: performance annualisée, volatilité, drawdown, Sharpe et stabilité relative.",
+            "Ajout d’un module de simulation Monte Carlo pour visualiser des trajectoires probables et quantifier l’incertitude autour des résultats historiques.",
+            "Base d’analyse réutilisée dans le projet de suivi de patrimoine pour relier suivi opérationnel et décision d’allocation.",
         ],
         links: [
             {
-                label: "GitHub (profil)",
-                href: "https://github.com/MaximeFARRE",
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Suivie-patrimoine",
+            },
+            {
+                label: "Projet lié: suivi de patrimoine",
+                href: "/projets/suivi-patrimoine",
             },
             {
                 label: "Capture backtest",
                 href: "/images/projects/backtest_5ans.png",
             },
+            {
+                label: "Capture Monte Carlo",
+                href: "/images/projects/projection_montecarlo.png",
+            },
         ],
+        deepDive: {
+            summary:
+                "Ce module constitue la brique quantitative du suivi patrimonial: il backteste des allocations, mesure leur risque/rendement et ajoute des simulations Monte Carlo pour estimer la robustesse des trajectoires.",
+            scope: [
+                "Backtests multi-stratégies sur un univers d’actifs homogénéisé.",
+                "Comparaison de scénarios d’allocation et de fréquences de rebalancing.",
+                "Calcul de métriques de risque/rendement annualisées et drawdowns.",
+                "Simulation Monte Carlo pour distribution de trajectoires de portefeuille.",
+                "Restitution des résultats via graphiques orientés décision.",
+            ],
+            architecture: [
+                {
+                    title: "Couche données",
+                    detail:
+                        "Préparation des séries de prix/rendements, nettoyage des trous de cotation et alignement temporel pour garantir des comparaisons cohérentes.",
+                },
+                {
+                    title: "Moteur de backtest",
+                    detail:
+                        "Exécution de stratégies paramétrées (allocation initiale, règles de rebalancing, horizon, contraintes) avec journalisation des valeurs de portefeuille.",
+                },
+                {
+                    title: "Moteur simulation",
+                    detail:
+                        "Génération de trajectoires Monte Carlo à partir des rendements historiques pour évaluer l’éventail de scénarios possibles.",
+                },
+                {
+                    title: "Couche reporting",
+                    detail:
+                        "Production de KPI et de visualisations comparatives (performance cumulée, drawdown, dispersion des trajectoires) exploitables pour l’arbitrage.",
+                },
+            ],
+            dataFlow: [
+                "Chargement des séries marché et normalisation des timestamps.",
+                "Application des règles de stratégie et exécution des backtests.",
+                "Calcul des métriques portefeuille (rendement, risque, drawdown).",
+                "Lancement des simulations Monte Carlo sur l’horizon défini.",
+                "Consolidation des résultats dans des graphiques comparables.",
+                "Utilisation des conclusions pour orienter les choix d’allocation du projet de suivi patrimonial.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Cadre de comparaison unifié",
+                    detail:
+                        "Les stratégies sont évaluées avec la même base de données, les mêmes périodes et les mêmes conventions de calcul pour limiter les biais de comparaison.",
+                },
+                {
+                    title: "Lecture risque/rendement multi-métriques",
+                    detail:
+                        "L’évaluation combine performance et risque (volatilité, drawdown, Sharpe) pour éviter des conclusions basées uniquement sur le rendement brut.",
+                },
+                {
+                    title: "Monte Carlo comme test de robustesse",
+                    detail:
+                        "Les simulations servent à mesurer l’incertitude et la dispersion des issues possibles, pas à prédire précisément le futur.",
+                },
+                {
+                    title: "Intégration au suivi patrimonial",
+                    detail:
+                        "Les scénarios les plus robustes sont réinjectés dans la logique d’allocation du projet de suivi de patrimoine.",
+                },
+            ],
+            quality: [
+                "Paramètres de tests explicités (horizon, règles, hypothèses de base).",
+                "Pipeline séparable entre préparation des données, calcul et visualisation.",
+                "Contrôles de cohérence sur l’alignement temporel des séries utilisées.",
+            ],
+            limitations: [
+                "Résultats sensibles à la période historique choisie et au régime de marché.",
+                "Les simulations Monte Carlo restent dépendantes des hypothèses de distribution et de volatilité.",
+                "Pas de prise en compte exhaustive des frictions réelles (frais détaillés, slippage avancé, fiscalité complète).",
+            ],
+            nextSteps: [
+                "Ajouter des contraintes d’optimisation plus fines (bornes par classe d’actifs, budgets de risque).",
+                "Étendre les analyses de stress test (chocs de corrélation, baisses extrêmes, scénarios macro).",
+                "Automatiser l’échange de résultats entre module backtest et application de suivi patrimonial.",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/backtest_5ans.png",
+                    alt: "Comparaison des backtests sur 5 ans",
+                    caption: "Comparaison des trajectoires de performance de plusieurs stratégies sur 5 ans.",
+                },
+                {
+                    src: "/images/projects/projection_montecarlo.png",
+                    alt: "Simulation Monte Carlo d’un portefeuille",
+                    caption: "Projection Monte Carlo pour visualiser la dispersion des scénarios de portefeuille.",
+                },
+            ],
+        },
     },
     {
         slug: "occifloc",
