@@ -157,26 +157,39 @@ export default function CvPage() {
           </aside>
         </section>
 
-        {/* PDF viewer */}
-        <section className="space-y-4">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--muted)]">
-              CV PDF
-            </p>
-            <a
-              href="/files/cv_maxime_farre.pdf"
-              download="CV_Maxime_Farre.pdf"
-              className="button-primary"
-            >
-              Télécharger
-            </a>
-          </div>
-          <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--secondary)]">
-            <embed
-              src="/files/cv_maxime_farre.pdf#view=FitH"
-              type="application/pdf"
-              className="h-[800px] w-full"
-            />
+        {/* CV PDF card */}
+        <section>
+          <div className="card flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--secondary)] text-2xl">
+                📄
+              </div>
+              <div>
+                <p className="font-semibold text-[var(--foreground)]">
+                  CV_Maxime_Farre.pdf
+                </p>
+                <p className="text-sm text-[var(--muted)]">
+                  Document PDF · Mis à jour en 2025
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="/files/cv_maxime_farre.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="button-secondary"
+              >
+                Ouvrir
+              </a>
+              <a
+                href="/files/cv_maxime_farre.pdf"
+                download="CV_Maxime_Farre.pdf"
+                className="button-primary"
+              >
+                Télécharger
+              </a>
+            </div>
           </div>
         </section>
 
