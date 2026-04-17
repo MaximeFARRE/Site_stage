@@ -39,12 +39,6 @@ export default function Navbar() {
               );
             })}
 
-            <Link
-              href="/contact"
-              className="button-primary ml-4 !py-2 !text-xs"
-            >
-              Contact
-            </Link>
           </nav>
         </div>
       </Container>
