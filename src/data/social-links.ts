@@ -5,5 +5,5 @@ export const socialLinks = {
 
   github: "https://github.com/MaximeFARRE",
 
-  cv: "/files/cv-maxime-farre.pdf",
+  cv: "/files/cv_maxime_farre.pdf",
 };

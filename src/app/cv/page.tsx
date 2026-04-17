@@ -113,7 +113,7 @@ export default function CvPage() {
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="/files/cv-maxime-farre.pdf"
+                href="/files/cv_maxime_farre.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="button-primary"
@@ -155,6 +155,29 @@ export default function CvPage() {
               ))}
             </div>
           </aside>
+        </section>
+
+        {/* PDF viewer */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--muted)]">
+              CV PDF
+            </p>
+            <a
+              href="/files/cv_maxime_farre.pdf"
+              download="CV_Maxime_Farre.pdf"
+              className="button-primary"
+            >
+              Télécharger
+            </a>
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--secondary)]">
+            <iframe
+              src="/files/cv_maxime_farre.pdf"
+              className="h-[800px] w-full"
+              title="CV Maxime Farré"
+            />
+          </div>
         </section>
 
         <section className="grid gap-6 lg:grid-cols-3">
@@ -314,7 +337,7 @@ export default function CvPage() {
             </div>
 
             <a
-              href="/files/cv-maxime-farre.pdf"
+              href="/files/cv_maxime_farre.pdf"
               target="_blank"
               rel="noreferrer"
               className="button-primary"
@@ -347,7 +370,7 @@ export default function CvPage() {
               </Link>
 
               <a
-                href="/files/cv-maxime-farre.pdf"
+                href="/files/cv_maxime_farre.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full border border-[var(--background)]/20 px-5 py-3 text-sm font-medium text-[var(--background)] transition hover:bg-[var(--background)]/10"
