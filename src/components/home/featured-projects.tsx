@@ -4,56 +4,92 @@ import Container from "@/components/layout/container";
 import { projects } from "@/data/projects";
 
 export default function FeaturedProjects() {
-    const featuredProjects = projects.filter((project) => project.featured);
+  const featured = projects.filter((p) => p.featured);
 
-    return (
-        <section className="pb-24">
-            <Container>
-                <div className="mb-10 flex items-end justify-between gap-6">
-                    <div className="max-w-2xl space-y-4">
-                        <p className="text-sm font-medium uppercase tracking-[0.2em] text-blue-700">
-                            Projets sélectionnés
-                        </p>
+  return (
+    <section className="section border-t border-[var(--border)]">
+      <Container>
+        {/* Header */}
+        <div className="mb-12 flex items-end justify-between gap-6">
+          <div className="max-w-xl">
+            <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
+              Projets sélectionnés
+            </span>
+            <h2 className="mb-3">Ce que je construis</h2>
+            <p className="text-base text-[var(--muted)]">
+              Des projets concrets à l'intersection de la finance, de la
+              technologie et de l'entrepreneuriat.
+            </p>
+          </div>
 
-                        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                            Quelques projets dont je suis particulièrement fier
-                        </h2>
-                    </div>
+          <Link
+            href="/projets"
+            className="hidden shrink-0 text-sm font-medium text-[var(--primary)] underline-offset-4 hover:underline md:block"
+          >
+            Tous les projets →
+          </Link>
+        </div>
 
-                    <Link
-                        href="/projets"
-                        className="hidden text-sm font-medium text-blue-700 hover:underline md:block"
-                    >
-                        Voir tous les projets
-                    </Link>
-                </div>
+        {/* Grid */}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((project, i) => (
+            <Link
+              key={project.slug}
+              href={`/projets/${project.slug}`}
+              className="group card flex flex-col gap-5 no-underline"
+            >
+              {/* Image placeholder */}
+              <div className="h-40 w-full rounded-lg bg-[var(--secondary)] transition group-hover:bg-[var(--border)]" />
 
-                <div className="grid gap-8 lg:grid-cols-3">
-                    {featuredProjects.map((project) => (
-                        <Link
-                            key={project.slug}
-                            href={`/projets/${project.slug}`}
-                            className="group rounded-3xl border border-gray-200 bg-white p-8 transition hover:-translate-y-1 hover:shadow-lg"
-                        >
-                            <div className="mb-4 inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
-                                {project.category}
-                            </div>
+              {/* Category */}
+              <div className="flex items-center justify-between">
+                <span className="rounded-full border border-[var(--border)] px-3 py-1 text-xs font-medium text-[var(--muted)]">
+                  {project.category}
+                </span>
+                {i === 0 && (
+                  <span className="rounded-full bg-[var(--primary)] px-3 py-1 text-xs font-medium text-white">
+                    Featured
+                  </span>
+                )}
+              </div>
 
-                            <h3 className="mb-4 text-2xl font-semibold text-gray-900 transition group-hover:text-blue-700">
-                                {project.title}
-                            </h3>
+              {/* Title + description */}
+              <div className="flex flex-col gap-2">
+                <h3 className="text-lg font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
+                  {project.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-[var(--muted)]">
+                  {project.shortDescription}
+                </p>
+              </div>
 
-                            <p className="mb-6 text-sm leading-7 text-gray-600">
-                                {project.shortDescription}
-                            </p>
+              {/* Stack */}
+              <div className="mt-auto flex flex-wrap gap-2 border-t border-[var(--border)] pt-4">
+                {project.technologies.slice(0, 3).map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-md bg-[var(--secondary)] px-2 py-1 text-xs font-medium text-[var(--muted)]"
+                  >
+                    {tech}
+                  </span>
+                ))}
+                {project.technologies.length > 3 && (
+                  <span className="rounded-md bg-[var(--secondary)] px-2 py-1 text-xs font-medium text-[var(--muted)]">
+                    +{project.technologies.length - 3}
+                  </span>
+                )}
+              </div>
+            </Link>
+          ))}
+        </div>
 
-                            <span className="text-sm font-medium text-blue-700">
-                                En savoir plus →
-                            </span>
-                        </Link>
-                    ))}
-                </div>
-            </Container>
-        </section>
-    );
+        {/* Mobile CTA */}
+        <div className="mt-8 text-center md:hidden">
+          <Link href="/projets" className="button-secondary">
+            Voir tous les projets
+          </Link>
+        </div>
+      </Container>
+    </section>
+  );
 }
