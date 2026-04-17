@@ -350,6 +350,184 @@ export default function AboutPage() {
           <div className="space-y-8">
             <div className="space-y-3">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                Qui je suis en dehors du travail ?
+              </p>
+
+              <h2 className="section-title">
+                Ce qui me construit aussi au quotidien
+              </h2>
+
+              <p className="max-w-3xl text-[var(--muted)] leading-8">
+                En dehors de mes études et de mes projets, je consacre aussi beaucoup de
+                temps à des activités qui renforcent ma manière de penser et de travailler.
+                Le sport d’endurance, la lecture, l’investissement et les projets
+                personnels occupent une place importante dans mon équilibre. Ce sont
+                souvent des activités exigeantes, inscrites dans le temps long, qui
+                demandent discipline, régularité et capacité à avancer même lorsque les
+                résultats ne sont pas immédiats.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-3">
+              <div className="card p-8">
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
+                      Endurance & défis
+                    </p>
+
+                    <h3 className="mt-2 text-2xl font-semibold text-[var(--foreground)]">
+                      Le sport comme école de discipline
+                    </h3>
+                  </div>
+
+                  <p className="leading-8 text-[var(--muted)]">
+                    Le sport d’endurance occupe une place importante dans ma vie. J’aime
+                    les projets qui demandent de la constance, une progression lente et la
+                    capacité à rester discipliné sur plusieurs mois.
+                  </p>
+
+                  <div className="space-y-4 rounded-2xl border border-[var(--border)] bg-[var(--background)] p-5">
+                    <div>
+                      <p className="font-semibold text-[var(--foreground)]">
+                        Triathlon / Ironman
+                      </p>
+                      <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
+                        Je prépare actuellement un objectif Ironman avec l’ambition de
+                        passer sous les 11 heures. Ce projet me pousse à travailler la
+                        régularité, la gestion de l’effort et la capacité à tenir dans la
+                        durée.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-semibold text-[var(--foreground)]">
+                        Trail, course à pied et cyclisme
+                      </p>
+                      <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
+                        Je pratique régulièrement la course à pied et le cyclisme, avec un
+                        nouveau trail prévu cet été. J’apprécie particulièrement les
+                        efforts longs, où la progression dépend surtout de la discipline et
+                        de la patience.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card p-8">
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
+                      Projet personnel
+                    </p>
+
+                    <h3 className="mt-2 text-2xl font-semibold text-[var(--foreground)]">
+                      Le GR20 en autonomie
+                    </h3>
+                  </div>
+
+                  <p className="leading-8 text-[var(--muted)]">
+                    L’un des projets personnels qui m’a le plus marqué est la traversée du
+                    GR20 en Corse, réalisée en autonomie.
+                  </p>
+
+                  <div className="rounded-2xl border border-[var(--border)] bg-[var(--background)] p-5">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-sm font-medium text-[var(--muted)]">
+                          Distance
+                        </p>
+                        <p className="mt-1 text-2xl font-semibold text-[var(--foreground)]">
+                          180 km
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="text-sm font-medium text-[var(--muted)]">
+                          Dénivelé positif
+                        </p>
+                        <p className="mt-1 text-2xl font-semibold text-[var(--foreground)]">
+                          14 000 m
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="mt-5 text-sm leading-7 text-[var(--muted)]">
+                      Nous sommes partis avec toute la nourriture, le matériel de couchage
+                      et l’équipement nécessaire, soit près de 20 kg sur le dos. Ce projet
+                      m’a appris la préparation, la gestion de l’effort, la résilience et
+                      la capacité à rester lucide dans des moments difficiles.
+                    </p>
+                  </div>
+
+                  <p className="leading-8 text-[var(--muted)]">
+                    Ce type de défi me plaît parce qu’il demande exactement les qualités
+                    que j’essaie aussi de développer dans mes projets : méthode, constance,
+                    capacité d’adaptation et volonté d’aller au bout.
+                  </p>
+                </div>
+              </div>
+
+              <div className="card p-8">
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
+                      Lecture & réflexion
+                    </p>
+
+                    <h3 className="mt-2 text-2xl font-semibold text-[var(--foreground)]">
+                      Comprendre avant d’agir
+                    </h3>
+                  </div>
+
+                  <p className="leading-8 text-[var(--muted)]">
+                    Je lis régulièrement pour approfondir des sujets qui m’intéressent au-delà
+                    de l’école : finance, investissement, entrepreneuriat et développement
+                    personnel.
+                  </p>
+
+                  <div className="space-y-3 rounded-2xl border border-[var(--border)] bg-[var(--background)] p-5">
+                    <div>
+                      <p className="font-semibold text-[var(--foreground)]">
+                        Finance & investissement
+                      </p>
+                      <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
+                        Je m’intéresse particulièrement à la finance de marché, aux produits
+                        dérivés et à l’investissement. Je lis notamment des ouvrages de
+                        John Hull, comme <em>Options, Futures and Other Derivatives</em>,
+                        pour aller plus loin que le cadre académique.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="font-semibold text-[var(--foreground)]">
+                        Entrepreneuriat & développement personnel
+                      </p>
+                      <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
+                        Je lis aussi des livres autour de l’entrepreneuriat, de la
+                        progression personnelle et de la discipline. J’aime comprendre
+                        comment certaines personnes construisent sur le long terme, prennent
+                        de meilleures décisions et développent une vraie capacité
+                        d’exécution.
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="leading-8 text-[var(--muted)]">
+                    Au fond, que ce soit dans le sport, la lecture ou l’investissement,
+                    c’est toujours la même logique qui m’intéresse : progresser dans la
+                    durée, réfléchir de manière structurée et construire quelque chose de
+                    solide.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
                 Repères clés
               </p>
               <h2 className="section-title">Quelques éléments concrets</h2>
