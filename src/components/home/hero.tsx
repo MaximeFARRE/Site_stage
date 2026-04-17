@@ -1,41 +1,92 @@
+import Link from "next/link";
+
 import Container from "@/components/layout/container";
 import { personalInfo } from "@/data/personal-info";
 import { socialLinks } from "@/data/social-links";
 
 export default function Hero() {
   return (
-    <section className="py-24 sm:py-32">
-      <Container className="max-w-4xl">
-        <div className="space-y-8">
-          <div className="inline-flex rounded-full border border-blue-100 bg-blue-50 px-4 py-1 text-sm font-medium text-blue-700">
-            {personalInfo.title}
+    <section className="section">
+      <Container>
+        <div className="grid gap-16 lg:grid-cols-[1fr_320px] lg:gap-24">
+          {/* Left column */}
+          <div className="flex flex-col gap-8">
+            {/* Badge */}
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-1.5 text-xs font-medium text-[var(--muted)]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--primary)]" />
+              {personalInfo.location} · {personalInfo.school}
+            </span>
+
+            {/* Heading */}
+            <div className="flex flex-col gap-4">
+              <h1 className="max-w-2xl">
+                {personalInfo.headline}
+              </h1>
+              <p className="max-w-xl text-lg leading-relaxed text-[var(--muted)]">
+                {personalInfo.shortBio}
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3">
+              <Link href="/projets" className="button-primary">
+                Voir mes projets
+              </Link>
+              <Link
+                href={socialLinks.cv}
+                target="_blank"
+                className="button-secondary"
+              >
+                Télécharger mon CV
+              </Link>
+            </div>
+
+            {/* Meta */}
+            <div className="flex flex-wrap gap-6 border-t border-[var(--border)] pt-6 text-sm text-[var(--muted)]">
+              <div>
+                <span className="block text-xs font-medium uppercase tracking-widest text-[var(--muted)] opacity-60">
+                  Formation
+                </span>
+                <span className="mt-1 block font-medium text-[var(--foreground)]">
+                  {personalInfo.degree}
+                </span>
+              </div>
+              <div>
+                <span className="block text-xs font-medium uppercase tracking-widest text-[var(--muted)] opacity-60">
+                  Localisation
+                </span>
+                <span className="mt-1 block font-medium text-[var(--foreground)]">
+                  {personalInfo.location}
+                </span>
+              </div>
+              <div>
+                <span className="block text-xs font-medium uppercase tracking-widest text-[var(--muted)] opacity-60">
+                  Disponibilité
+                </span>
+                <span className="mt-1 block font-medium text-[var(--foreground)]">
+                  Ouvert aux opportunités
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div className="space-y-6">
-            <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              {personalInfo.headline}
-            </h1>
+          {/* Right column — currently block + placeholder photo */}
+          <div className="flex flex-col gap-4">
+            {/* Photo placeholder */}
+            <div className="aspect-square w-full rounded-2xl border border-[var(--border)] bg-[var(--secondary)]" />
 
-            <p className="max-w-2xl text-lg leading-8 text-gray-600 sm:text-xl">
-              {personalInfo.shortBio}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="/projets"
-              className="rounded-xl bg-blue-700 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-800"
-            >
-              Voir mes projets
-            </a>
-
-            <a
-              href={socialLinks.cv}
-              target="_blank"
-              className="rounded-xl border border-gray-300 px-6 py-3 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-white"
-            >
-              Télécharger mon CV
-            </a>
+            {/* Currently */}
+            <div className="card flex flex-col gap-3">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
+                Currently
+              </span>
+              <p className="text-sm leading-relaxed text-[var(--muted)]">
+                {personalInfo.currentGoal}
+              </p>
+              <p className="text-xs text-[var(--muted)] opacity-60">
+                Vision · {personalInfo.longTermGoal}
+              </p>
+            </div>
           </div>
         </div>
       </Container>
