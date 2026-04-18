@@ -55,7 +55,7 @@ export const projects: Project[] = [
         shortDescription:
             "Application desktop PyQt6 + SQLite pour centraliser des comptes multi-actifs, reconstruire l’historique hebdomadaire et analyser la performance d’un portefeuille.",
         longDescription:
-            "Ce projet est une application Python orientée finance patrimoniale construite autour d’une architecture modulaire (couches services + interface Qt + base SQLite). Elle agrège des transactions de plusieurs comptes (banque, livret, PEA/CTO, private equity), normalise les données et produit des snapshots hebdomadaires pour suivre l’évolution du patrimoine dans le temps. Le module analytics calcule des métriques risque/rendement avec neutralisation des flux (achats/ventes) et prend en compte les effets de devise. L’application intègre aussi un import Trade Republic avec mapping d’alias (symboles/ISIN), des contrôles de qualité de données et une reconstruction complète de l’historique famille depuis la première transaction.",
+            "Ce projet est directement lié au projet « Backtest et optimisation de portefeuille »: le module de simulation/optimisation alimente ici l’analyse patrimoniale globale. C’est une application Python orientée finance patrimoniale construite autour d’une architecture modulaire (couches services + interface Qt + base SQLite). Elle agrège des transactions de plusieurs comptes (banque, livret, PEA/CTO, private equity), normalise les données et produit des snapshots hebdomadaires pour suivre l’évolution du patrimoine dans le temps. Le module analytics calcule des métriques risque/rendement avec neutralisation des flux (achats/ventes) et prend en compte les effets de devise. L’application intègre aussi un import Trade Republic avec mapping d’alias (symboles/ISIN), des contrôles de qualité de données et une reconstruction complète de l’historique famille depuis la première transaction.",
         technologies: ["Python", "PyQt6", "SQLite", "Pandas", "Plotly", "yfinance"],
         image: "/images/projects/patrimoine_kpi.png",
         featured: true,
@@ -193,40 +193,276 @@ export const projects: Project[] = [
         shortDescription:
             "Environnement Python pour backtester des stratégies, comparer des métriques risque/rendement et analyser un portefeuille.",
         longDescription:
-            "Ce projet vise à construire un environnement d’analyse pour tester différentes approches d’investissement sur plusieurs actifs, comparer leurs performances et étudier la dynamique risque/rendement d’un portefeuille. Il s’inscrit dans une logique de finance quantitative appliquée : données propres, hypothèses explicites, métriques comparables et visualisations lisibles.",
-        technologies: ["Python", "Pandas", "NumPy", "Backtesting", "Streamlit"],
+            "Ce projet est directement lié au projet « Application de suivi de patrimoine »: les résultats de backtests et de simulations sont utilisés pour piloter les décisions d’allocation du portefeuille suivi dans l’application principale. Il vise à construire un environnement d’analyse pour tester différentes approches d’investissement sur plusieurs actifs, comparer leurs performances et étudier la dynamique risque/rendement d’un portefeuille. Il s’inscrit dans une logique de finance quantitative appliquée : données propres, hypothèses explicites, métriques comparables et visualisations lisibles.",
+        technologies: ["Python", "Pandas", "NumPy", "Plotly", "Backtesting", "Monte Carlo"],
         image: "/images/projects/backtest_5ans.png",
         featured: true,
 
         whatItShows:
-            "Capacité à structurer un backtest, calculer des métriques de risque et comparer des stratégies avec un cadre reproductible.",
+            "Capacité à structurer un moteur de backtest, comparer plusieurs allocations et intégrer une simulation Monte Carlo pour estimer la distribution des trajectoires possibles.",
         context:
-            "Je voulais compléter l’apprentissage académique de la finance de marché par un outil d’analyse construit de bout en bout. L’objectif était de tester des hypothèses d’investissement, comparer des résultats et interpréter concrètement performance, volatilité, drawdown et diversification.",
+            "Je voulais compléter l’apprentissage académique de la finance de marché par un outil d’analyse construit de bout en bout. L’objectif était de tester des hypothèses d’investissement, comparer des résultats et interpréter concrètement performance, volatilité, drawdown, diversification et robustesse des trajectoires.",
         objective:
-            "Développer un cadre d’analyse permettant de comparer plusieurs stratégies, visualiser leurs résultats et évaluer la robustesse d’un portefeuille selon plusieurs métriques.",
+            "Développer un cadre d’analyse permettant de comparer plusieurs stratégies, visualiser leurs résultats, simuler des scénarios (Monte Carlo) et évaluer la robustesse d’un portefeuille selon plusieurs métriques.",
         role:
-            "Définition des hypothèses, récupération et nettoyage des données, calcul des métriques, visualisation des résultats et interprétation financière.",
+            "Définition des hypothèses, récupération et nettoyage des données, implémentation des backtests, simulation Monte Carlo, calcul des métriques, visualisation des résultats et interprétation financière.",
 
         challenges: [
-            "Construire une logique de comparaison claire entre actifs, stratégies et portefeuille agrégé.",
-            "Choisir des métriques pertinentes sans masquer les limites du backtest.",
-            "Garder un cadre lisible, reproductible et utile pour l’analyse.",
+            "Concevoir un cadre unique pour comparer plusieurs stratégies (buy & hold, allocations pondérées, rebalancing périodique) avec les mêmes hypothèses de départ.",
+            "Intégrer des simulations Monte Carlo lisibles pour estimer une distribution de scénarios, sans sur-vendre la capacité prédictive du modèle.",
+            "Conserver une séparation claire entre données brutes, logique de calcul, visualisations et interprétation afin de garder un pipeline maintenable.",
         ],
         outcomes: [
             "Backtests reproductibles sur un horizon de 5 ans pour comparer stratégies et allocations.",
-            "Comparaison normalisée de métriques de risque/rendement: volatilité, drawdown, performance cumulée.",
-            "Visualisations exploitables pour arbitrer entre robustesse, rendement et diversification.",
+            "Comparaison normalisée de métriques de risque/rendement: performance annualisée, volatilité, drawdown, Sharpe et stabilité relative.",
+            "Ajout d’un module de simulation Monte Carlo pour visualiser des trajectoires probables et quantifier l’incertitude autour des résultats historiques.",
+            "Base d’analyse réutilisée dans le projet de suivi de patrimoine pour relier suivi opérationnel et décision d’allocation.",
         ],
         links: [
             {
-                label: "GitHub (profil)",
-                href: "https://github.com/MaximeFARRE",
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Suivie-patrimoine",
+            },
+            {
+                label: "Projet lié: suivi de patrimoine",
+                href: "/projets/suivi-patrimoine",
             },
             {
                 label: "Capture backtest",
                 href: "/images/projects/backtest_5ans.png",
             },
+            {
+                label: "Capture Monte Carlo",
+                href: "/images/projects/projection_montecarlo.png",
+            },
         ],
+        deepDive: {
+            summary:
+                "Ce module constitue la brique quantitative du suivi patrimonial: il backteste des allocations, mesure leur risque/rendement et ajoute des simulations Monte Carlo pour estimer la robustesse des trajectoires.",
+            scope: [
+                "Backtests multi-stratégies sur un univers d’actifs homogénéisé.",
+                "Comparaison de scénarios d’allocation et de fréquences de rebalancing.",
+                "Calcul de métriques de risque/rendement annualisées et drawdowns.",
+                "Simulation Monte Carlo pour distribution de trajectoires de portefeuille.",
+                "Restitution des résultats via graphiques orientés décision.",
+            ],
+            architecture: [
+                {
+                    title: "Couche données",
+                    detail:
+                        "Préparation des séries de prix/rendements, nettoyage des trous de cotation et alignement temporel pour garantir des comparaisons cohérentes.",
+                },
+                {
+                    title: "Moteur de backtest",
+                    detail:
+                        "Exécution de stratégies paramétrées (allocation initiale, règles de rebalancing, horizon, contraintes) avec journalisation des valeurs de portefeuille.",
+                },
+                {
+                    title: "Moteur simulation",
+                    detail:
+                        "Génération de trajectoires Monte Carlo à partir des rendements historiques pour évaluer l’éventail de scénarios possibles.",
+                },
+                {
+                    title: "Couche reporting",
+                    detail:
+                        "Production de KPI et de visualisations comparatives (performance cumulée, drawdown, dispersion des trajectoires) exploitables pour l’arbitrage.",
+                },
+            ],
+            dataFlow: [
+                "Chargement des séries marché et normalisation des timestamps.",
+                "Application des règles de stratégie et exécution des backtests.",
+                "Calcul des métriques portefeuille (rendement, risque, drawdown).",
+                "Lancement des simulations Monte Carlo sur l’horizon défini.",
+                "Consolidation des résultats dans des graphiques comparables.",
+                "Utilisation des conclusions pour orienter les choix d’allocation du projet de suivi patrimonial.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Cadre de comparaison unifié",
+                    detail:
+                        "Les stratégies sont évaluées avec la même base de données, les mêmes périodes et les mêmes conventions de calcul pour limiter les biais de comparaison.",
+                },
+                {
+                    title: "Lecture risque/rendement multi-métriques",
+                    detail:
+                        "L’évaluation combine performance et risque (volatilité, drawdown, Sharpe) pour éviter des conclusions basées uniquement sur le rendement brut.",
+                },
+                {
+                    title: "Monte Carlo comme test de robustesse",
+                    detail:
+                        "Les simulations servent à mesurer l’incertitude et la dispersion des issues possibles, pas à prédire précisément le futur.",
+                },
+                {
+                    title: "Intégration au suivi patrimonial",
+                    detail:
+                        "Les scénarios les plus robustes sont réinjectés dans la logique d’allocation du projet de suivi de patrimoine.",
+                },
+            ],
+            quality: [
+                "Paramètres de tests explicités (horizon, règles, hypothèses de base).",
+                "Pipeline séparable entre préparation des données, calcul et visualisation.",
+                "Contrôles de cohérence sur l’alignement temporel des séries utilisées.",
+            ],
+            limitations: [
+                "Résultats sensibles à la période historique choisie et au régime de marché.",
+                "Les simulations Monte Carlo restent dépendantes des hypothèses de distribution et de volatilité.",
+                "Pas de prise en compte exhaustive des frictions réelles (frais détaillés, slippage avancé, fiscalité complète).",
+            ],
+            nextSteps: [
+                "Ajouter des contraintes d’optimisation plus fines (bornes par classe d’actifs, budgets de risque).",
+                "Étendre les analyses de stress test (chocs de corrélation, baisses extrêmes, scénarios macro).",
+                "Automatiser l’échange de résultats entre module backtest et application de suivi patrimonial.",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/backtest_5ans.png",
+                    alt: "Comparaison des backtests sur 5 ans",
+                    caption: "Comparaison des trajectoires de performance de plusieurs stratégies sur 5 ans.",
+                },
+                {
+                    src: "/images/projects/projection_montecarlo.png",
+                    alt: "Simulation Monte Carlo d’un portefeuille",
+                    caption: "Projection Monte Carlo pour visualiser la dispersion des scénarios de portefeuille.",
+                },
+            ],
+        },
+    },
+    {
+        slug: "projet-finance-cpp",
+        title: "Pricing d’options en C++ (CRR, Black-Scholes, Monte Carlo)",
+        category: "Finance quantitative · C++ · Pricing",
+        shortDescription:
+            "Projet de groupe en C++ pour pricer plusieurs types d’options (européennes, américaines, asiatiques) avec CRR, Black-Scholes et Monte Carlo.",
+        longDescription:
+            "Projet académique de groupe orienté ingénierie financière en C++. L’objectif était de construire un socle de pricing d’options avec plusieurs approches complémentaires: modèle binomial CRR, formule fermée Black-Scholes (cas européen) et simulation Monte Carlo. Je me suis principalement concentré sur la brique Monte Carlo: amélioration de la précision numérique, gestion de gros volumes de trajectoires dans un temps limité et fiabilisation des calculs (payoffs, bornes, intervalles de confiance).",
+        technologies: ["C++", "Monte Carlo", "Black-Scholes", "CRR", "Mersenne Twister", "Visual Studio"],
+        image: "/images/projects/projection_montecarlo.png",
+        featured: true,
+
+        whatItShows:
+            "Capacité à implémenter des pricers quantitatifs en C++ avec une architecture orientée objets, et à optimiser une simulation Monte Carlo pour améliorer à la fois robustesse et performance.",
+        context:
+            "Le projet s’inscrit dans un cadre de finance de marché orienté pricing d’options. Le travail d’équipe portait sur la construction d’une base commune (options + pricers), puis sur l’approfondissement de modules spécifiques.",
+        objective:
+            "Comparer plusieurs méthodes de valorisation dans un même codebase, valider leur cohérence sur des cas standards et disposer d’une implémentation Monte Carlo utilisable avec un grand nombre de simulations.",
+        role:
+            "Projet de groupe. Ma contribution principale: développement et amélioration du pricer Monte Carlo (génération de trajectoires, stabilité numérique, intervalle de confiance 95 %, gestion d’un grand nombre de paths dans un temps imparti), ainsi que l’intégration du générateur aléatoire Mersenne Twister.",
+
+        challenges: [
+            "Concevoir une architecture option/pricer réutilisable pour des payoffs différents (vanille, digitale, asiatique, américaine).",
+            "Faire tourner un volume élevé de simulations Monte Carlo tout en gardant un code lisible et une latence raisonnable.",
+            "Limiter les dérives numériques (valeurs non finies, variances négatives dues aux arrondis, cas limites sur les intervalles de confiance).",
+            "Conserver une cohérence métier entre les différentes méthodes de pricing (CRR, Black-Scholes, Monte Carlo).",
+        ],
+        outcomes: [
+            "Mise en place d’un framework C++ de pricing couvrant options européennes, américaines et asiatiques.",
+            "Implémentation d’un pricer Monte Carlo avec accumulation statistique (moyenne, variance) et intervalle de confiance à 95 %.",
+            "Améliorations ciblées de performance Monte Carlo (réutilisation de structures en mémoire, génération de nombreuses trajectoires dans un temps contraint).",
+            "Intégration d’un singleton Mersenne Twister pour standardiser la génération aléatoire dans le projet.",
+        ],
+        links: [
+            {
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Projet-Finance-Cpp",
+            },
+            {
+                label: "Commit final (CRR/BS/MC)",
+                href: "https://github.com/MaximeFARRE/Projet-Finance-Cpp/commit/67d4baaefe57f4d162815cadd5b3677651f55ee8",
+            },
+            {
+                label: "Commit Monte Carlo pricer",
+                href: "https://github.com/MaximeFARRE/Projet-Finance-Cpp/commit/e9dfebc0ec42d7febe356593b128b795e385b019",
+            },
+            {
+                label: "Commit Mersenne Twister",
+                href: "https://github.com/MaximeFARRE/Projet-Finance-Cpp/commit/8894da12e0661f913967c7025709fe37b71233fd",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le projet assemble trois approches de pricing (CRR, Black-Scholes, Monte Carlo) dans une architecture C++ orientée objets. Ma partie principale concerne le moteur Monte Carlo et sa robustesse sous charge.",
+            scope: [
+                "Support de plusieurs familles d’options: vanille, digitale, asiatique et américaine.",
+                "Implémentation de plusieurs pricers pour comparaison: CRR, formule fermée Black-Scholes, simulation Monte Carlo.",
+                "Génération de trajectoires sous hypothèses Black-Scholes avec pas temporels dédiés.",
+                "Calcul de prix, statistiques agrégées et intervalle de confiance 95 %.",
+                "Sécurisation des cas limites numériques pour éviter des résultats incohérents.",
+            ],
+            architecture: [
+                {
+                    title: "Hiérarchie d’options",
+                    detail:
+                        "Classe abstraite `Option` et spécialisations pour options européennes, américaines et asiatiques, avec logique de payoff polymorphe.",
+                },
+                {
+                    title: "Couche pricers",
+                    detail:
+                        "Pricers séparés par méthode (`CRRPricer`, `BlackScholesPricer`, `BlackScholesMCPricer`) pour isoler clairement les hypothèses de valorisation.",
+                },
+                {
+                    title: "Moteur aléatoire",
+                    detail:
+                        "Générateur `MT` basé sur Mersenne Twister en singleton, utilisé comme source unifiée pour les tirages uniformes et normaux.",
+                },
+                {
+                    title: "Runner de tests de prix",
+                    detail:
+                        "Exécutable principal pour comparer les résultats des pricers selon des paramètres communs (spot, strike, volatilité, maturité, taux).",
+                },
+            ],
+            dataFlow: [
+                "Paramétrage de l’option (type, strike, maturité) et du modèle (S0, r, sigma).",
+                "Construction du pricer adapté (CRR, BS fermé ou Monte Carlo).",
+                "Pour Monte Carlo: génération de trajectoires avec tirages gaussiens via Mersenne Twister.",
+                "Évaluation des payoffs sur chaque trajectoire puis agrégation statistique.",
+                "Actualisation des payoffs moyens pour obtenir le prix estimé.",
+                "Calcul de l’intervalle de confiance pour qualifier l’incertitude statistique.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Réutilisation mémoire dans la simulation",
+                    detail:
+                        "Le moteur Monte Carlo réutilise des buffers de trajectoires afin de limiter les allocations répétées et tenir un grand nombre de simulations.",
+                },
+                {
+                    title: "Contrôles de robustesse numérique",
+                    detail:
+                        "Ajout de garde-fous sur les valeurs non finies/négatives et sur la variance pour éviter des sorties instables lors des fortes charges de calcul.",
+                },
+                {
+                    title: "Intervalle de confiance 95 %",
+                    detail:
+                        "Le pricer ne se limite pas à un prix point-estimé: il retourne aussi une borne statistique pour juger la précision de la simulation.",
+                },
+                {
+                    title: "Séparation claire par méthode de pricing",
+                    detail:
+                        "Le découpage CRR / BS / MC facilite la comparaison des approches et permet d’améliorer chaque moteur indépendamment.",
+                },
+            ],
+            quality: [
+                "Validation des entrées critiques (option nulle, échéances, tailles de trajectoires).",
+                "Gestion explicite des cas limites Monte Carlo (nombre de paths insuffisant, stabilité des bornes).",
+                "Approche modulaire qui simplifie les tests unitaires par composant (option, pricer, aléatoire).",
+            ],
+            limitations: [
+                "Le modèle reste basé sur les hypothèses Black-Scholes (volatilité constante, dynamique log-normale).",
+                "Les comparaisons de vitesse/performance ne sont pas encore outillées par un benchmark automatisé complet.",
+                "Le moteur ne couvre pas encore des modèles plus avancés (volatilité stochastique, sauts, calibration marché).",
+            ],
+            nextSteps: [
+                "Ajouter un protocole de benchmark reproductible (temps CPU, erreur statistique selon N paths).",
+                "Étendre le moteur à des réductions de variance (antithétiques, control variates) pour gagner en précision à coût constant.",
+                "Connecter les résultats de pricing à un module d’analyse portefeuille plus large (sensibilités, scénarios).",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/projection_montecarlo.png",
+                    alt: "Simulation Monte Carlo pour le pricing d’options en C++",
+                    caption: "Aperçu de la logique Monte Carlo utilisée pour estimer des prix d’options.",
+                },
+            ],
+        },
     },
     {
         slug: "occifloc",
@@ -269,6 +505,151 @@ export const projects: Project[] = [
                 href: "/contact",
             },
         ],
+    },
+    {
+        slug: "projet-machine-learning",
+        title: "Projet de machine learning appliqué à l’allocation",
+        category: "Finance quantitative · Data science · Machine Learning",
+        shortDescription:
+            "Pipeline Python de modélisation et backtest pour comparer des stratégies d’allocation (Equal Weight, Markowitz, Random Forest, Logistic Regression) sur des actifs financiers.",
+        longDescription:
+            "Ce projet est lié aux projets « Backtest et optimisation de portefeuille » et « Application de suivi de patrimoine »: il constitue la brique machine learning utilisée pour tester des signaux et comparer leur impact sur la performance portefeuille. Le repo structure un pipeline complet, de la préparation des données marché à la production de métriques test, avec une logique reproductible (scripts dédiés + orchestration run_all). L’approche combine des baselines classiques (Equal Weight, Markowitz Minimum Variance) et des modèles supervisés (Random Forest, Logistic Regression) pour prédire la direction des rendements journaliers et transformer ces probabilités en poids de portefeuille.",
+        technologies: ["Python", "Pandas", "NumPy", "scikit-learn", "Matplotlib", "Seaborn"],
+        image: "/images/projects/projection_montecarlo.png",
+        featured: true,
+
+        whatItShows:
+            "Capacité à transformer un sujet quantitatif en pipeline ML exploitable: ingénierie de features, sélection de variables, entraînement multi-modèles, comparaison à des baselines financières et restitution claire des résultats.",
+        context:
+            "L’objectif était de dépasser un simple notebook exploratoire pour produire une base de travail rigoureuse et collaborative: code modulaire, scripts dédiés, métriques exportées et graphes de comparaison directement utilisables.",
+        objective:
+            "Évaluer de manière structurée l’apport de modèles supervisés sur l’allocation de portefeuille, en conservant un point de référence financier robuste grâce aux baselines Equal Weight et Markowitz.",
+        role:
+            "Participation à la structuration du projet, à l’intégration des modules de comparaison de stratégies et à la formalisation d’un flux complet: préparation des données, entraînement, backtest et reporting.",
+
+        challenges: [
+            "Construire un pipeline temporel propre (train/test) pour limiter les biais de fuite d’information dans un contexte série temporelle.",
+            "Comparer des approches de nature différente (allocations statiques vs modèles supervisés) avec des métriques homogènes.",
+            "Maintenir une architecture lisible malgré la multiplication des briques (features, modèles, baselines, scripts d’orchestration).",
+        ],
+        outcomes: [
+            "Mise en place d’un enchaînement reproductible via scripts (`run_prepare.py`, `run_baselines.py`, `run_random_forest.py`, `run_logistic_regression.py`, `run_all.py`).",
+            "Production systématique de rapports de test (`metrics_test_*`) et de figures comparatives (`equity_*_vs_baselines_test.png`).",
+            "Intégration de Random Forest avec sélection ANOVA des variables et recherche d’hyperparamètres (`GridSearchCV`).",
+            "Ajout d’un benchmark supervisé Logistic Regression comparé aux stratégies financières classiques.",
+        ],
+        links: [
+            {
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Projet_final_ML",
+            },
+            {
+                label: "Projet lié: backtest portefeuille",
+                href: "/projets/backtest-optimisation-portefeuille",
+            },
+            {
+                label: "Projet lié: suivi de patrimoine",
+                href: "/projets/suivi-patrimoine",
+            },
+            {
+                label: "Commit Random Forest",
+                href: "https://github.com/MaximeFARRE/Projet_final_ML/commit/eba827df76afca95144b9db81a238e4d71ac0c1d",
+            },
+            {
+                label: "Commit Logistic Regression",
+                href: "https://github.com/MaximeFARRE/Projet_final_ML/commit/5c76815da29c2485d593eb278b7f08ccac8a9acf",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le projet suit une logique quant/ML complète: ingestion des prix, construction de features techniques, entraînement de modèles directionnels par actif, backtest de portefeuille, puis comparaison systématique aux baselines.",
+            scope: [
+                "Préparation des données et EDA (prix normalisés, distribution des rendements, corrélations, volatilité roulante).",
+                "Baselines financières: Equal Weight Buy & Hold et Markowitz Minimum Variance.",
+                "Modélisation supervisée par actif: Random Forest et Logistic Regression.",
+                "Backtest des stratégies ML sur la période test avec conversion des probabilités en poids portefeuille.",
+                "Export des métriques et figures pour lecture comparative.",
+            ],
+            architecture: [
+                {
+                    title: "Couche données",
+                    detail:
+                        "Modules `src/data/load_data.py` et `src/data/preprocess.py` pour charger les prix, calculer les rendements et séparer train/test de façon temporelle.",
+                },
+                {
+                    title: "Feature engineering",
+                    detail:
+                        "Construction d’indicateurs techniques (`src/features/technical_indicators.py`) et sélection ANOVA (`src/features/feature_selection.py`) sur les variables pertinentes.",
+                },
+                {
+                    title: "Modèles et stratégies",
+                    detail:
+                        "Implémentation de baselines financières (`src/baselines`) et modèles ML (`src/models/random_forest.py`, `src/models/logistic_regression.py`) avec logique de backtest.",
+                },
+                {
+                    title: "Orchestration et reporting",
+                    detail:
+                        "Scripts `scripts/run_*.py` + `run_all.py` pour exécuter le pipeline complet, générer les tables de métriques et les graphes d’equity curve.",
+                },
+            ],
+            dataFlow: [
+                "Chargement des séries de prix et calcul des rendements quotidiens.",
+                "Création des features techniques et sauvegarde de la table consolidée.",
+                "Séparation temporelle train/test et entraînement des modèles par actif.",
+                "Projection des signaux/probabilités en poids de portefeuille sur la période test.",
+                "Calcul des equity curves et des métriques de comparaison inter-stratégies.",
+                "Export des résultats (`reports/tables`, `reports/figures`) pour analyse décisionnelle.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Comparaison systématique aux baselines",
+                    detail:
+                        "Chaque stratégie ML est évaluée face à Equal Weight et Markowitz pour garder un référentiel financier stable, pas uniquement un score de classification.",
+                },
+                {
+                    title: "Découpage temporel explicite",
+                    detail:
+                        "Le split train/test suit la chronologie marché afin de limiter les biais de fuite d’information sur séries temporelles.",
+                },
+                {
+                    title: "Sélection ANOVA + GridSearchCV",
+                    detail:
+                        "Random Forest combine une réduction de dimension des features et un réglage d’hyperparamètres pour éviter une approche purement arbitraire.",
+                },
+                {
+                    title: "Modélisation par actif puis agrégation portefeuille",
+                    detail:
+                        "Les prédictions sont faites par ticker puis agrégées via une logique de pondération, ce qui rapproche le modèle du besoin allocation réel.",
+                },
+            ],
+            quality: [
+                "Scripts dédiés par étape pour reproductibilité et débogage ciblé.",
+                "Exports versionnables des métriques et visualisations de test.",
+                "Structure modulaire (`src/data`, `src/features`, `src/models`, `src/baselines`, `scripts`) compatible travail en équipe.",
+            ],
+            limitations: [
+                "Les performances restent dépendantes de la fenêtre historique et du régime de marché observé.",
+                "Les frictions de marché réelles sont simplifiées (coûts de transaction, liquidité, slippage avancé).",
+                "Validation encore perfectible (walk-forward robuste, stress tests plus systématiques).",
+            ],
+            nextSteps: [
+                "Ajouter une validation walk-forward et des protocoles de robustesse hors-échantillon plus stricts.",
+                "Étendre la bibliothèque de modèles (ex: gradient boosting) dans le même cadre de comparaison.",
+                "Relier automatiquement les sorties du pipeline ML aux modules de suivi patrimonial.",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/projection_montecarlo.png",
+                    alt: "Pipeline machine learning de comparaison de stratégies portefeuille",
+                    caption: "Vue synthétique du pipeline ML et des courbes de stratégies comparées.",
+                },
+                {
+                    src: "/images/projects/backtest_5ans.png",
+                    alt: "Comparaison Random Forest et baselines sur période test",
+                    caption: "Comparaison visuelle du modèle Random Forest face aux baselines financières.",
+                },
+            ],
+        },
     },
 ];
 
