@@ -743,6 +743,135 @@ export const projects: Project[] = [
         },
     },
     {
+        slug: "smallcaps-screener-fr",
+        title: "Moteur de screening small caps françaises (buy-side)",
+        category: "Finance quantitative · Data engineering · En cours",
+        shortDescription:
+            "Projet en cours: moteur propriétaire de screening des small caps françaises avec pipeline de données, scoring multi-facteurs, dashboard interactif et génération semi-automatique de notes d’analyse.",
+        longDescription:
+            "Ce projet est conçu comme un vrai outil d’analyste buy-side, pas comme un exercice Python isolé. L’objectif est de construire un moteur propriétaire capable de structurer un univers d’investissement small caps françaises, automatiser la collecte et la normalisation des données financières, calculer des scores multi-facteurs par style (quality, value, growth, recovery, holdings décotées), puis ressortir des idées investissables avec une explication exploitable en comité d’investissement.",
+        technologies: ["Python", "Pandas", "NumPy", "SQLite", "Streamlit", "Plotly", "pytest", "Docker (prévu)"],
+        image: "/images/projects/smallcaps_screener_fr.png",
+        featured: true,
+
+        whatItShows:
+            "Capacité à construire une chaîne analytique complète orientée buy-side: définition d’univers, data pipeline robuste, normalisation comptable, factor scoring, restitution analyste et industrialisation progressive.",
+        context:
+            "Le but est de passer d’une logique académique à une logique métier d’asset management: produire un outil réellement utilisable pour prioriser des dossiers small caps et accélérer la recherche fondamentale.",
+        objective:
+            "Obtenir une base de données propre des small caps françaises, un classement automatique par styles d’investissement, des filtres sectoriels/valorisation/qualité, et un top d’idées avec justification automatique.",
+        role:
+            "Conception et développement end-to-end du produit: cadrage de l’univers d’investissement, architecture data, règles de nettoyage, design des scores, implémentation dashboard, documentation méthodologique et plan de backtesting.",
+
+        challenges: [
+            "Définir un univers d’investissement cohérent (filtres de marché, taille, liquidité, exclusions sectorielles) sans introduire de biais grossiers.",
+            "Gérer des données financières imparfaites: valeurs manquantes, formats hétérogènes, années fiscales décalées, définitions comptables non uniformes.",
+            "Concevoir des ratios robustes face aux cas limites (résultats négatifs, EV atypique, dette nette incohérente, outliers extrêmes).",
+            "Construire un scoring multi-facteurs qui reste économiquement pertinent et interprétable par style d’investissement.",
+        ],
+        outcomes: [
+            "Spécification d’une architecture modulaire dédiée au screening buy-side (ingestion, cleaning, metrics, scoring, reporting).",
+            "Définition d’un framework de scores multi-styles: quality, value, growth, recovery, holdings décotées.",
+            "Plan de restitution orienté analyste: dashboard filtrable, ranking dynamique, fiches société et commentaire automatisé.",
+            "Roadmap de montée en puissance en 3 phases: MVP, version crédible recruteur, version premium (backtest + industrialisation).",
+        ],
+        links: [
+            {
+                label: "Projet lié: portfolio de ce site",
+                href: "/projets/site-stage",
+            },
+            {
+                label: "Échanger sur le projet",
+                href: "/contact",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le projet vise un standard buy-side: un moteur de sélection small caps exploitable, capable de passer de la donnée brute à des idées d’investissement argumentées.",
+            scope: [
+                "Construction d’un univers small caps françaises filtré (marché, capitalisation, liquidité, exclusions).",
+                "Pipeline automatisé de collecte (prix, market cap, états financiers, dette, cash, secteurs).",
+                "Normalisation et nettoyage comptable avec règles explicites de traitement des anomalies.",
+                "Calcul de ratios financiers et de risque/momentum comparables entre sociétés.",
+                "Scoring multi-facteurs + dashboard + génération semi-automatique de commentaires analyste.",
+            ],
+            architecture: [
+                {
+                    title: "Ingestion",
+                    detail:
+                        "Modules dédiés à la collecte multi-sources (prix, fundamentals, métadonnées) avec gestion des erreurs, retries et logs.",
+                },
+                {
+                    title: "Cleaning & normalization",
+                    detail:
+                        "Règles de nettoyage explicites: gestion des NA, exclusions contrôlées, harmonisation des libellés, winsorisation des extrêmes, alignement temporel.",
+                },
+                {
+                    title: "Metrics & scoring",
+                    detail:
+                        "Calcul des ratios (valorisation, rentabilité, croissance, bilan, momentum) puis transformation en scores bornés/percentiles avec pondérations par style.",
+                },
+                {
+                    title: "Reporting layer",
+                    detail:
+                        "Dashboard Streamlit pour filtrer/classer/rechercher et couche de génération de commentaires automatiques orientés analyste.",
+                },
+            ],
+            dataFlow: [
+                "Définition de l’univers investissable (périmètre France, bornes de taille, règles d’exclusion).",
+                "Collecte automatisée des données brutes et stockage dans une base locale.",
+                "Normalisation comptable et contrôles qualité des séries.",
+                "Calcul des ratios et sous-scores par axe (quality, value, growth, leverage, momentum).",
+                "Agrégation en score composite selon le style sélectionné.",
+                "Restitution des meilleures idées avec justification textuelle semi-automatique.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Univers d’abord, scoring ensuite",
+                    detail:
+                        "Le projet priorise la qualité de l’univers investissable avant toute logique de ranking pour éviter des sorties non exploitables.",
+                },
+                {
+                    title: "Scoring interprétable",
+                    detail:
+                        "Les scores sont construits avec variables explicites, normalisation contrôlée et pondérations lisibles afin de rester défendables en entretien.",
+                },
+                {
+                    title: "Restitution orientée décision",
+                    detail:
+                        "Le dashboard n’est pas un simple affichage de ratios: il sert à prioriser rapidement les dossiers et à formuler une hypothèse d’investissement.",
+                },
+                {
+                    title: "Industrialisation progressive",
+                    detail:
+                        "Stack pragmatique au départ (Python/SQLite/Streamlit), puis montée en puissance prévue (tests renforcés, Docker, backtest, CI/CD).",
+                },
+            ],
+            quality: [
+                "Règles de nettoyage documentées pour rendre les résultats auditables.",
+                "Séparation claire des modules (ingestion, cleaning, metrics, scoring, reporting).",
+                "Jeux de tests unitaires prévus sur les formules de ratios et les fonctions de scoring.",
+            ],
+            limitations: [
+                "Projet encore en phase de construction: toutes les briques ne sont pas finalisées en production.",
+                "Le backtest factoriel complet reste à consolider avec garde-fous biais (survivorship, point-in-time).",
+                "La qualité finale dépendra du niveau de couverture/fiabilité des sources financières retenues.",
+            ],
+            nextSteps: [
+                "Phase 1: MVP propre (univers, collecte, ratios, premier score, top 20).",
+                "Phase 2: version recruteur (scores multiples, dashboard complet, fiches société, commentaires automatiques).",
+                "Phase 3: version premium (backtest robuste, Docker, documentation méthodologique complète, pipeline automatisé).",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/smallcaps_screener_fr.png",
+                    alt: "Moteur de screening buy-side small caps françaises en construction",
+                    caption: "Produit en cours de création: sélection multi-facteurs, classement dynamique et restitution analyste.",
+                },
+            ],
+        },
+    },
+    {
         slug: "occifloc",
         title: "Occifloc",
         category: "Opérations · Pilotage · Automatisation",
