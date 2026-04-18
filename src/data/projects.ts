@@ -328,6 +328,421 @@ export const projects: Project[] = [
         },
     },
     {
+        slug: "projet-finance-cpp",
+        title: "Pricing d’options en C++ (CRR, Black-Scholes, Monte Carlo)",
+        category: "Finance quantitative · C++ · Pricing",
+        shortDescription:
+            "Projet de groupe en C++ pour pricer plusieurs types d’options (européennes, américaines, asiatiques) avec CRR, Black-Scholes et Monte Carlo.",
+        longDescription:
+            "Projet académique de groupe orienté ingénierie financière en C++. L’objectif était de construire un socle de pricing d’options avec plusieurs approches complémentaires: modèle binomial CRR, formule fermée Black-Scholes (cas européen) et simulation Monte Carlo. Je me suis principalement concentré sur la brique Monte Carlo: amélioration de la précision numérique, gestion de gros volumes de trajectoires dans un temps limité et fiabilisation des calculs (payoffs, bornes, intervalles de confiance).",
+        technologies: ["C++", "Monte Carlo", "Black-Scholes", "CRR", "Mersenne Twister", "Visual Studio"],
+        image: "/images/projects/monte_carlos_cpp.png",
+        featured: true,
+
+        whatItShows:
+            "Capacité à implémenter des pricers quantitatifs en C++ avec une architecture orientée objets, et à optimiser une simulation Monte Carlo pour améliorer à la fois robustesse et performance.",
+        context:
+            "Le projet s’inscrit dans un cadre de finance de marché orienté pricing d’options. Le travail d’équipe portait sur la construction d’une base commune (options + pricers), puis sur l’approfondissement de modules spécifiques.",
+        objective:
+            "Comparer plusieurs méthodes de valorisation dans un même codebase, valider leur cohérence sur des cas standards et disposer d’une implémentation Monte Carlo utilisable avec un grand nombre de simulations.",
+        role:
+            "Projet de groupe. Ma contribution principale: développement et amélioration du pricer Monte Carlo (génération de trajectoires, stabilité numérique, intervalle de confiance 95 %, gestion d’un grand nombre de paths dans un temps imparti), ainsi que l’intégration du générateur aléatoire Mersenne Twister.",
+
+        challenges: [
+            "Concevoir une architecture option/pricer réutilisable pour des payoffs différents (vanille, digitale, asiatique, américaine).",
+            "Faire tourner un volume élevé de simulations Monte Carlo tout en gardant un code lisible et une latence raisonnable.",
+            "Limiter les dérives numériques (valeurs non finies, variances négatives dues aux arrondis, cas limites sur les intervalles de confiance).",
+            "Conserver une cohérence métier entre les différentes méthodes de pricing (CRR, Black-Scholes, Monte Carlo).",
+        ],
+        outcomes: [
+            "Mise en place d’un framework C++ de pricing couvrant options européennes, américaines et asiatiques.",
+            "Implémentation d’un pricer Monte Carlo avec accumulation statistique (moyenne, variance) et intervalle de confiance à 95 %.",
+            "Améliorations ciblées de performance Monte Carlo (réutilisation de structures en mémoire, génération de nombreuses trajectoires dans un temps contraint).",
+            "Intégration d’un singleton Mersenne Twister pour standardiser la génération aléatoire dans le projet.",
+        ],
+        links: [
+            {
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Projet-Finance-Cpp",
+            },
+            {
+                label: "Commit final (CRR/BS/MC)",
+                href: "https://github.com/MaximeFARRE/Projet-Finance-Cpp/commit/67d4baaefe57f4d162815cadd5b3677651f55ee8",
+            },
+            {
+                label: "Commit Monte Carlo pricer",
+                href: "https://github.com/MaximeFARRE/Projet-Finance-Cpp/commit/e9dfebc0ec42d7febe356593b128b795e385b019",
+            },
+            {
+                label: "Commit Mersenne Twister",
+                href: "https://github.com/MaximeFARRE/Projet-Finance-Cpp/commit/8894da12e0661f913967c7025709fe37b71233fd",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le projet assemble trois approches de pricing (CRR, Black-Scholes, Monte Carlo) dans une architecture C++ orientée objets. Ma partie principale concerne le moteur Monte Carlo et sa robustesse sous charge.",
+            scope: [
+                "Support de plusieurs familles d’options: vanille, digitale, asiatique et américaine.",
+                "Implémentation de plusieurs pricers pour comparaison: CRR, formule fermée Black-Scholes, simulation Monte Carlo.",
+                "Génération de trajectoires sous hypothèses Black-Scholes avec pas temporels dédiés.",
+                "Calcul de prix, statistiques agrégées et intervalle de confiance 95 %.",
+                "Sécurisation des cas limites numériques pour éviter des résultats incohérents.",
+            ],
+            architecture: [
+                {
+                    title: "Hiérarchie d’options",
+                    detail:
+                        "Classe abstraite `Option` et spécialisations pour options européennes, américaines et asiatiques, avec logique de payoff polymorphe.",
+                },
+                {
+                    title: "Couche pricers",
+                    detail:
+                        "Pricers séparés par méthode (`CRRPricer`, `BlackScholesPricer`, `BlackScholesMCPricer`) pour isoler clairement les hypothèses de valorisation.",
+                },
+                {
+                    title: "Moteur aléatoire",
+                    detail:
+                        "Générateur `MT` basé sur Mersenne Twister en singleton, utilisé comme source unifiée pour les tirages uniformes et normaux.",
+                },
+                {
+                    title: "Runner de tests de prix",
+                    detail:
+                        "Exécutable principal pour comparer les résultats des pricers selon des paramètres communs (spot, strike, volatilité, maturité, taux).",
+                },
+            ],
+            dataFlow: [
+                "Paramétrage de l’option (type, strike, maturité) et du modèle (S0, r, sigma).",
+                "Construction du pricer adapté (CRR, BS fermé ou Monte Carlo).",
+                "Pour Monte Carlo: génération de trajectoires avec tirages gaussiens via Mersenne Twister.",
+                "Évaluation des payoffs sur chaque trajectoire puis agrégation statistique.",
+                "Actualisation des payoffs moyens pour obtenir le prix estimé.",
+                "Calcul de l’intervalle de confiance pour qualifier l’incertitude statistique.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Réutilisation mémoire dans la simulation",
+                    detail:
+                        "Le moteur Monte Carlo réutilise des buffers de trajectoires afin de limiter les allocations répétées et tenir un grand nombre de simulations.",
+                },
+                {
+                    title: "Contrôles de robustesse numérique",
+                    detail:
+                        "Ajout de garde-fous sur les valeurs non finies/négatives et sur la variance pour éviter des sorties instables lors des fortes charges de calcul.",
+                },
+                {
+                    title: "Intervalle de confiance 95 %",
+                    detail:
+                        "Le pricer ne se limite pas à un prix point-estimé: il retourne aussi une borne statistique pour juger la précision de la simulation.",
+                },
+                {
+                    title: "Séparation claire par méthode de pricing",
+                    detail:
+                        "Le découpage CRR / BS / MC facilite la comparaison des approches et permet d’améliorer chaque moteur indépendamment.",
+                },
+            ],
+            quality: [
+                "Validation des entrées critiques (option nulle, échéances, tailles de trajectoires).",
+                "Gestion explicite des cas limites Monte Carlo (nombre de paths insuffisant, stabilité des bornes).",
+                "Approche modulaire qui simplifie les tests unitaires par composant (option, pricer, aléatoire).",
+            ],
+            limitations: [
+                "Le modèle reste basé sur les hypothèses Black-Scholes (volatilité constante, dynamique log-normale).",
+                "Les comparaisons de vitesse/performance ne sont pas encore outillées par un benchmark automatisé complet.",
+                "Le moteur ne couvre pas encore des modèles plus avancés (volatilité stochastique, sauts, calibration marché).",
+            ],
+            nextSteps: [
+                "Ajouter un protocole de benchmark reproductible (temps CPU, erreur statistique selon N paths).",
+                "Étendre le moteur à des réductions de variance (antithétiques, control variates) pour gagner en précision à coût constant.",
+                "Connecter les résultats de pricing à un module d’analyse portefeuille plus large (sensibilités, scénarios).",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/projection_montecarlo.png",
+                    alt: "Simulation Monte Carlo pour le pricing d’options en C++",
+                    caption: "Aperçu de la logique Monte Carlo utilisée pour estimer des prix d’options.",
+                },
+            ],
+        },
+    },
+    {
+        slug: "projet-python-git-a4",
+        title: "Dashboard quantitatif Python/Git (Quant A & Quant B)",
+        category: "Finance quantitative · Python · Streamlit",
+        shortDescription:
+            "Projet de groupe en Python pour construire un dashboard financier interactif: module single-asset (Quant A) et module portefeuille multi-actifs (Quant B).",
+        longDescription:
+            "Projet réalisé dans le cadre du cours « Python, Git, Linux for Finance ». Le livrable est une application Streamlit unique qui simule le travail d’une équipe quantitative en gestion d’actifs: récupération de données marché via API, backtests de stratégies, analyse portefeuille multi-actifs, visualisations et métriques de risque/rendement. Le projet a été développé en binôme avec une séparation claire des responsabilités.",
+        technologies: ["Python", "Streamlit", "Pandas", "yfinance", "Plotly", "Git", "Linux"],
+        image: "/images/projects/projet_python_git_a4.png",
+        featured: true,
+
+        whatItShows:
+            "Capacité à livrer un outil quantitatif de bout en bout: ingestion de données financières, logique de stratégie, calcul de métriques, interface interactive et intégration collaborative par branches Git.",
+        context:
+            "Le cadre pédagogique imposait une organisation proche d’un workflow professionnel (division Quant A / Quant B, merge requests, intégration finale), avec un objectif de dashboard exploitable et pas uniquement un notebook de démonstration.",
+        objective:
+            "Construire une application financière interactive permettant d’analyser un actif, de backtester des stratégies, puis d’étendre l’analyse à un portefeuille multi-actifs avec mesures de diversification et de risque.",
+        role:
+            "Projet de groupe (2 personnes). Ma contribution principale: Quant A (single asset) avec chargement des données CAC40 via API, implémentation des stratégies Buy & Hold et Moving Average Crossover, calcul des métriques (rendement, volatilité, Sharpe, drawdown), et intégration des sorties dans l’interface Streamlit.",
+
+        challenges: [
+            "Structurer un codebase modulaire avec une frontière nette entre logique Quant A (actif unique) et Quant B (portefeuille).",
+            "Gérer des données de marché réelles (fréquences multiples, structures de colonnes, cas de données manquantes) sans casser le flux UI.",
+            "Maintenir des métriques cohérentes entre stratégies et périodes, tout en conservant un rendu lisible pour l’utilisateur final.",
+            "Intégrer les contributions en branche et garder une application unique stable après merges.",
+        ],
+        outcomes: [
+            "Mise en place d’un module Quant A complet: data loader CAC40, stratégies single-asset et affichage des performances dans Streamlit.",
+            "Intégration d’un module Quant B multi-actifs avec allocation, rebalancing, backtest portefeuille et indicateurs de diversification.",
+            "Application unifiée avec navigation claire, visualisations comparatives et tableaux de synthèse pour l’aide à la décision.",
+            "Workflow collaboratif Git/GitHub matérialisé par des branches dédiées et des merges structurés.",
+        ],
+        links: [
+            {
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4",
+            },
+            {
+                label: "Commit data loader Quant A",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4/commit/7e40ab6ee77b99a1c10483cfbd55821e57c36c69",
+            },
+            {
+                label: "Commit stratégies + métriques Quant A",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4/commit/25c0fd3a62683b9f17720f11bde514ae9151894f",
+            },
+            {
+                label: "Merge branche Quant A",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4/commit/6251c229c05e989b1731b3e74bd067f9c1fb41aa",
+            },
+            {
+                label: "Merge branche Quant B",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4/commit/e50c88d936152204ed9027a123803a92768716ba",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le projet est organisé comme un dashboard quantitatif modulaire: un module Quant A orienté single-asset et un module Quant B orienté portefeuille multi-actifs, réunis dans une interface Streamlit unique.",
+            scope: [
+                "Chargement de données marché via API publique (OHLCV, fréquences daily/intraday).",
+                "Backtests single-asset sur CAC40 avec stratégies quantitatives configurables.",
+                "Analyse portefeuille multi-actifs avec règles d’allocation et rebalancing.",
+                "Calcul de KPI risque/rendement et indicateurs de diversification.",
+                "Visualisation interactive (courbes, matrices corrélation/covariance, contributions au risque).",
+            ],
+            architecture: [
+                {
+                    title: "Module Quant A",
+                    detail:
+                        "Sous-dossier `app/quant_a` avec `data_loader.py`, `strategies.py`, `metrics.py`, `ui_quant_a.py` pour isoler collecte des données, logique de stratégie et rendu UI.",
+                },
+                {
+                    title: "Module Quant B",
+                    detail:
+                        "Sous-dossier `app/quant_b` avec moteur portefeuille (`portfolio.py`, `backtest.py`, `metrics.py`) et page Streamlit dédiée pour la configuration multi-actifs.",
+                },
+                {
+                    title: "Couche intégration",
+                    detail:
+                        "Point d’entrée `main.py` qui orchestre la navigation entre modules et garde une expérience utilisateur cohérente.",
+                },
+                {
+                    title: "Workflow collaboratif",
+                    detail:
+                        "Développement en branches (`quant_a`, `quant_b`) puis merges sur `main`, avec séparation explicite des responsabilités d’équipe.",
+                },
+            ],
+            dataFlow: [
+                "Sélection utilisateur (actifs, période, fréquence, paramètres de stratégie).",
+                "Chargement des prix via API et nettoyage/alignement des séries.",
+                "Exécution des stratégies et calcul des rendements/courbes d’équité.",
+                "Agrégation portefeuille (poids, rebalancing, métriques de risque).",
+                "Calcul des indicateurs (Sharpe, drawdown, corrélations, contributions au risque).",
+                "Rendu des résultats en graphiques et tables dans Streamlit.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Séparation Quant A / Quant B",
+                    detail:
+                        "Le découpage modulaire réduit les collisions de développement et facilite la maintenance des briques single-asset vs portefeuille.",
+                },
+                {
+                    title: "Uniformisation des séries",
+                    detail:
+                        "Le module de stratégie force des structures de données homogènes (Series/DataFrame) pour éviter des erreurs silencieuses d’alignement.",
+                },
+                {
+                    title: "KPI orientés décision",
+                    detail:
+                        "Les sorties privilégient des métriques financières directement interprétables (annualisé, Sharpe, max drawdown, diversification ratio).",
+                },
+                {
+                    title: "UI Streamlit pilotable",
+                    detail:
+                        "Les paramètres de stratégie/allocation sont exposés en contrôles interactifs pour tester rapidement plusieurs hypothèses.",
+                },
+            ],
+            quality: [
+                "Responsabilités d’équipe explicites et intégration par branches Git.",
+                "Modules métiers séparés (données, stratégie, métriques, UI) pour limiter les régressions.",
+                "Gestion des cas invalides côté interface (dates incohérentes, données absentes, paramètres incompatibles).",
+            ],
+            limitations: [
+                "Dépendance à la qualité et à la disponibilité des APIs de données publiques.",
+                "Hypothèses de backtest simplifiées (frais réels, slippage avancé, contraintes de liquidité non exhaustives).",
+                "Le déploiement Linux est présent dans le cadre projet mais pas encore industrialisé comme une chaîne CI/CD complète.",
+            ],
+            nextSteps: [
+                "Ajouter des scénarios de stress test et des hypothèses de coûts de transaction plus réalistes.",
+                "Étendre la bibliothèque de stratégies (momentum/carry/volatility targeting) dans le même cadre de comparaison.",
+                "Renforcer l’observabilité et l’automatisation de déploiement (tests + pipeline CI).",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/projet_python_git_a4.png",
+                    alt: "Dashboard quantitatif Python Git A4",
+                    caption: "Vue du projet de dashboard quantitatif regroupant analyse single-asset et portefeuille.",
+                },
+            ],
+        },
+    },
+    {
+        slug: "site-stage",
+        title: "Site portfolio carrière (ce site)",
+        category: "Web · Next.js · Product Design",
+        shortDescription:
+            "Conception et développement d’un site portfolio orienté finance + technologie, avec une architecture de contenu centralisée et des pages projet détaillées.",
+        longDescription:
+            "Ce projet correspond au site que vous consultez actuellement. L’objectif est de construire un portfolio crédible pour des recruteurs finance/tech, avec un niveau de finition professionnel sur le fond (contenu, cohérence narrative, structure des projets) et sur la forme (UX, responsive, SEO de base, maintenabilité). Le site suit une architecture App Router avec séparation stricte entre données et composants pour accélérer les itérations sans casser l’interface.",
+        technologies: ["Next.js App Router", "TypeScript", "Tailwind CSS", "Vercel", "ESLint"],
+        image: "/images/profile/photo de profil.jpeg",
+        featured: true,
+
+        whatItShows:
+            "Capacité à transformer un simple site vitrine en produit éditorial structuré: contenu piloté par données, pages projet techniques, cohérence UX et workflow d’amélioration continue.",
+        context:
+            "Le besoin était de remplacer un portfolio trop générique par une version plus exigeante, crédible et orientée résultats pour des recruteurs en finance quantitative, asset management et environnements tech.",
+        objective:
+            "Créer un site lisible et convaincant, capable de présenter des projets techniques en profondeur tout en conservant une navigation claire et une expérience fluide sur mobile/desktop.",
+        role:
+            "Conception de l’architecture du site, structuration des données (`src/data`), création des pages projet détaillées, amélioration de la qualité du copywriting technique, corrections UX/SEO et itérations continues sur la crédibilité du rendu final.",
+
+        challenges: [
+            "Maintenir une cohérence de ton et de niveau technique entre toutes les pages (home, à propos, projets, détails).",
+            "Éviter l’effet template en renforçant la densité des contenus projet sans surcharger la lecture.",
+            "Garantir la maintenabilité: tout le contenu doit rester centralisé dans `src/data` et non dispersé dans les composants.",
+            "Garder un responsive robuste avec des blocs de texte longs et des cartes riches en informations.",
+        ],
+        outcomes: [
+            "Mise en place d’une base de données front-end claire pour piloter le contenu (projets, expériences, navigation, profils).",
+            "Ajout de pages projet approfondies avec architecture, choix techniques, limites et prochaines étapes.",
+            "Amélioration de la crédibilité globale du site via un ton plus concret et des preuves techniques (liens commits/repositories).",
+            "Workflow itératif de correction continue (UX, contenu, structure) pour converger vers un rendu prêt pour candidatures.",
+        ],
+        links: [
+            {
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Site_stage",
+            },
+            {
+                label: "Commit ajout projets détaillés",
+                href: "https://github.com/MaximeFARRE/Site_stage/commit/5a33191",
+            },
+            {
+                label: "Commit page suivi patrimoine",
+                href: "https://github.com/MaximeFARRE/Site_stage/commit/d5f5b5b",
+            },
+            {
+                label: "Commit correction bugs",
+                href: "https://github.com/MaximeFARRE/Site_stage/commit/51cf4d3",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le site est structuré comme un produit éditorial maintenable: données centralisées, composants réutilisables, pages détaillées et logique d’amélioration incrémentale.",
+            scope: [
+                "Pages clés: accueil, à propos, expériences, projets, détails projet, CV, contact.",
+                "Centralisation du contenu dans `src/data` pour éviter la duplication et faciliter les mises à jour.",
+                "Génération de pages projet dynamiques via slug avec routes dédiées par projet clé.",
+                "Design system léger basé sur Tailwind + variables de thème.",
+                "Déploiement Vercel avec vérifications lint/type-check avant livraison.",
+            ],
+            architecture: [
+                {
+                    title: "Couche données",
+                    detail:
+                        "Toutes les entités éditoriales (projets, expériences, navigation, profil) sont regroupées dans `src/data` pour séparer clairement contenu et présentation.",
+                },
+                {
+                    title: "Couche pages",
+                    detail:
+                        "App Router (`src/app`) avec routes statiques + route dynamique `/projets/[slug]` pour supporter des fiches projet riches et scalables.",
+                },
+                {
+                    title: "Couche composants",
+                    detail:
+                        "Composants UI réutilisables (layout, sections, cards) afin de garder une cohérence visuelle et limiter la dette front-end.",
+                },
+                {
+                    title: "Qualité de livraison",
+                    detail:
+                        "Validation systématique via ESLint et TypeScript (`tsc --noEmit`) pour sécuriser les itérations rapides.",
+                },
+            ],
+            dataFlow: [
+                "Écriture/mise à jour du contenu dans `src/data/*.ts`.",
+                "Lecture des données par les pages et sections concernées.",
+                "Résolution des pages projet via slug (`getProjectBySlug`).",
+                "Rendu des sections techniques (architecture, pipeline, limites, résultats).",
+                "Vérification qualité (lint + type-check) avant déploiement.",
+                "Publication sur Vercel et validation fonctionnelle des routes critiques.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Content-first architecture",
+                    detail:
+                        "La priorité est donnée à la robustesse éditoriale: les contenus sont traités comme des données versionnées, pas comme du texte inline dans les composants.",
+                },
+                {
+                    title: "Route dynamique projet",
+                    detail:
+                        "L’usage de `/projets/[slug]` permet de faire évoluer le volume de projets sans complexifier la structure applicative.",
+                },
+                {
+                    title: "Itération pilotée par feedback",
+                    detail:
+                        "Le site évolue par corrections successives (crédibilité, UX, précision technique) pour converger vers un niveau attendu en contexte recrutement.",
+                },
+                {
+                    title: "Simplicité maîtrisée",
+                    detail:
+                        "Le projet reste volontairement sans backend complexe pour garder une maintenance faible et un time-to-update rapide.",
+                },
+            ],
+            quality: [
+                "Lint et type-check lancés à chaque itération significative.",
+                "Structure de fichiers stable et lisible pour faciliter les contributions futures.",
+                "Contrôle manuel régulier des routes projets et des liens critiques.",
+            ],
+            limitations: [
+                "Le site reste statique: pas de CMS ni d’interface d’édition dédiée.",
+                "La preuve visuelle des projets dépend encore de la qualité/volume des captures disponibles.",
+                "Certaines améliorations SEO avancées (schema détaillé par projet) peuvent être renforcées.",
+            ],
+            nextSteps: [
+                "Ajouter des captures écran plus spécifiques par projet pour renforcer la preuve visuelle.",
+                "Compléter les métadonnées Open Graph par page projet avec images dédiées.",
+                "Finaliser les derniers ajustements de copywriting orientés recruteurs finance/tech.",
+            ],
+            gallery: [
+                {
+                    src: "/images/profile/photo de profil.jpeg",
+                    alt: "Projet de site portfolio professionnel en cours de construction",
+                    caption: "Ce site est développé comme un projet produit à part entière, avec itérations techniques et éditoriales.",
+                },
+            ],
+        },
+    },
+    {
         slug: "occifloc",
         title: "Occifloc",
         category: "Opérations · Pilotage · Automatisation",
