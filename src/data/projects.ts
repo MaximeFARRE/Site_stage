@@ -336,7 +336,7 @@ export const projects: Project[] = [
         longDescription:
             "Projet académique de groupe orienté ingénierie financière en C++. L’objectif était de construire un socle de pricing d’options avec plusieurs approches complémentaires: modèle binomial CRR, formule fermée Black-Scholes (cas européen) et simulation Monte Carlo. Je me suis principalement concentré sur la brique Monte Carlo: amélioration de la précision numérique, gestion de gros volumes de trajectoires dans un temps limité et fiabilisation des calculs (payoffs, bornes, intervalles de confiance).",
         technologies: ["C++", "Monte Carlo", "Black-Scholes", "CRR", "Mersenne Twister", "Visual Studio"],
-        image: "/images/projects/projection_montecarlo.png",
+        image: "/images/projects/monte_carlos_cpp.png",
         featured: true,
 
         whatItShows:
@@ -460,6 +460,284 @@ export const projects: Project[] = [
                     src: "/images/projects/projection_montecarlo.png",
                     alt: "Simulation Monte Carlo pour le pricing d’options en C++",
                     caption: "Aperçu de la logique Monte Carlo utilisée pour estimer des prix d’options.",
+                },
+            ],
+        },
+    },
+    {
+        slug: "projet-python-git-a4",
+        title: "Dashboard quantitatif Python/Git (Quant A & Quant B)",
+        category: "Finance quantitative · Python · Streamlit",
+        shortDescription:
+            "Projet de groupe en Python pour construire un dashboard financier interactif: module single-asset (Quant A) et module portefeuille multi-actifs (Quant B).",
+        longDescription:
+            "Projet réalisé dans le cadre du cours « Python, Git, Linux for Finance ». Le livrable est une application Streamlit unique qui simule le travail d’une équipe quantitative en gestion d’actifs: récupération de données marché via API, backtests de stratégies, analyse portefeuille multi-actifs, visualisations et métriques de risque/rendement. Le projet a été développé en binôme avec une séparation claire des responsabilités.",
+        technologies: ["Python", "Streamlit", "Pandas", "yfinance", "Plotly", "Git", "Linux"],
+        image: "/images/projects/projet_python_git_a4.png",
+        featured: true,
+
+        whatItShows:
+            "Capacité à livrer un outil quantitatif de bout en bout: ingestion de données financières, logique de stratégie, calcul de métriques, interface interactive et intégration collaborative par branches Git.",
+        context:
+            "Le cadre pédagogique imposait une organisation proche d’un workflow professionnel (division Quant A / Quant B, merge requests, intégration finale), avec un objectif de dashboard exploitable et pas uniquement un notebook de démonstration.",
+        objective:
+            "Construire une application financière interactive permettant d’analyser un actif, de backtester des stratégies, puis d’étendre l’analyse à un portefeuille multi-actifs avec mesures de diversification et de risque.",
+        role:
+            "Projet de groupe (2 personnes). Ma contribution principale: Quant A (single asset) avec chargement des données CAC40 via API, implémentation des stratégies Buy & Hold et Moving Average Crossover, calcul des métriques (rendement, volatilité, Sharpe, drawdown), et intégration des sorties dans l’interface Streamlit.",
+
+        challenges: [
+            "Structurer un codebase modulaire avec une frontière nette entre logique Quant A (actif unique) et Quant B (portefeuille).",
+            "Gérer des données de marché réelles (fréquences multiples, structures de colonnes, cas de données manquantes) sans casser le flux UI.",
+            "Maintenir des métriques cohérentes entre stratégies et périodes, tout en conservant un rendu lisible pour l’utilisateur final.",
+            "Intégrer les contributions en branche et garder une application unique stable après merges.",
+        ],
+        outcomes: [
+            "Mise en place d’un module Quant A complet: data loader CAC40, stratégies single-asset et affichage des performances dans Streamlit.",
+            "Intégration d’un module Quant B multi-actifs avec allocation, rebalancing, backtest portefeuille et indicateurs de diversification.",
+            "Application unifiée avec navigation claire, visualisations comparatives et tableaux de synthèse pour l’aide à la décision.",
+            "Workflow collaboratif Git/GitHub matérialisé par des branches dédiées et des merges structurés.",
+        ],
+        links: [
+            {
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4",
+            },
+            {
+                label: "Commit data loader Quant A",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4/commit/7e40ab6ee77b99a1c10483cfbd55821e57c36c69",
+            },
+            {
+                label: "Commit stratégies + métriques Quant A",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4/commit/25c0fd3a62683b9f17720f11bde514ae9151894f",
+            },
+            {
+                label: "Merge branche Quant A",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4/commit/6251c229c05e989b1731b3e74bd067f9c1fb41aa",
+            },
+            {
+                label: "Merge branche Quant B",
+                href: "https://github.com/MaximeFARRE/Projet-Python-Git-A4/commit/e50c88d936152204ed9027a123803a92768716ba",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le projet est organisé comme un dashboard quantitatif modulaire: un module Quant A orienté single-asset et un module Quant B orienté portefeuille multi-actifs, réunis dans une interface Streamlit unique.",
+            scope: [
+                "Chargement de données marché via API publique (OHLCV, fréquences daily/intraday).",
+                "Backtests single-asset sur CAC40 avec stratégies quantitatives configurables.",
+                "Analyse portefeuille multi-actifs avec règles d’allocation et rebalancing.",
+                "Calcul de KPI risque/rendement et indicateurs de diversification.",
+                "Visualisation interactive (courbes, matrices corrélation/covariance, contributions au risque).",
+            ],
+            architecture: [
+                {
+                    title: "Module Quant A",
+                    detail:
+                        "Sous-dossier `app/quant_a` avec `data_loader.py`, `strategies.py`, `metrics.py`, `ui_quant_a.py` pour isoler collecte des données, logique de stratégie et rendu UI.",
+                },
+                {
+                    title: "Module Quant B",
+                    detail:
+                        "Sous-dossier `app/quant_b` avec moteur portefeuille (`portfolio.py`, `backtest.py`, `metrics.py`) et page Streamlit dédiée pour la configuration multi-actifs.",
+                },
+                {
+                    title: "Couche intégration",
+                    detail:
+                        "Point d’entrée `main.py` qui orchestre la navigation entre modules et garde une expérience utilisateur cohérente.",
+                },
+                {
+                    title: "Workflow collaboratif",
+                    detail:
+                        "Développement en branches (`quant_a`, `quant_b`) puis merges sur `main`, avec séparation explicite des responsabilités d’équipe.",
+                },
+            ],
+            dataFlow: [
+                "Sélection utilisateur (actifs, période, fréquence, paramètres de stratégie).",
+                "Chargement des prix via API et nettoyage/alignement des séries.",
+                "Exécution des stratégies et calcul des rendements/courbes d’équité.",
+                "Agrégation portefeuille (poids, rebalancing, métriques de risque).",
+                "Calcul des indicateurs (Sharpe, drawdown, corrélations, contributions au risque).",
+                "Rendu des résultats en graphiques et tables dans Streamlit.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Séparation Quant A / Quant B",
+                    detail:
+                        "Le découpage modulaire réduit les collisions de développement et facilite la maintenance des briques single-asset vs portefeuille.",
+                },
+                {
+                    title: "Uniformisation des séries",
+                    detail:
+                        "Le module de stratégie force des structures de données homogènes (Series/DataFrame) pour éviter des erreurs silencieuses d’alignement.",
+                },
+                {
+                    title: "KPI orientés décision",
+                    detail:
+                        "Les sorties privilégient des métriques financières directement interprétables (annualisé, Sharpe, max drawdown, diversification ratio).",
+                },
+                {
+                    title: "UI Streamlit pilotable",
+                    detail:
+                        "Les paramètres de stratégie/allocation sont exposés en contrôles interactifs pour tester rapidement plusieurs hypothèses.",
+                },
+            ],
+            quality: [
+                "Responsabilités d’équipe explicites et intégration par branches Git.",
+                "Modules métiers séparés (données, stratégie, métriques, UI) pour limiter les régressions.",
+                "Gestion des cas invalides côté interface (dates incohérentes, données absentes, paramètres incompatibles).",
+            ],
+            limitations: [
+                "Dépendance à la qualité et à la disponibilité des APIs de données publiques.",
+                "Hypothèses de backtest simplifiées (frais réels, slippage avancé, contraintes de liquidité non exhaustives).",
+                "Le déploiement Linux est présent dans le cadre projet mais pas encore industrialisé comme une chaîne CI/CD complète.",
+            ],
+            nextSteps: [
+                "Ajouter des scénarios de stress test et des hypothèses de coûts de transaction plus réalistes.",
+                "Étendre la bibliothèque de stratégies (momentum/carry/volatility targeting) dans le même cadre de comparaison.",
+                "Renforcer l’observabilité et l’automatisation de déploiement (tests + pipeline CI).",
+            ],
+            gallery: [
+                {
+                    src: "/images/projects/projet_python_git_a4.png",
+                    alt: "Dashboard quantitatif Python Git A4",
+                    caption: "Vue du projet de dashboard quantitatif regroupant analyse single-asset et portefeuille.",
+                },
+            ],
+        },
+    },
+    {
+        slug: "site-stage",
+        title: "Site portfolio carrière (ce site)",
+        category: "Web · Next.js · Product Design",
+        shortDescription:
+            "Conception et développement d’un site portfolio orienté finance + technologie, avec une architecture de contenu centralisée et des pages projet détaillées.",
+        longDescription:
+            "Ce projet correspond au site que vous consultez actuellement. L’objectif est de construire un portfolio crédible pour des recruteurs finance/tech, avec un niveau de finition professionnel sur le fond (contenu, cohérence narrative, structure des projets) et sur la forme (UX, responsive, SEO de base, maintenabilité). Le site suit une architecture App Router avec séparation stricte entre données et composants pour accélérer les itérations sans casser l’interface.",
+        technologies: ["Next.js App Router", "TypeScript", "Tailwind CSS", "Vercel", "ESLint"],
+        image: "/images/profile/photo de profil.jpeg",
+        featured: true,
+
+        whatItShows:
+            "Capacité à transformer un simple site vitrine en produit éditorial structuré: contenu piloté par données, pages projet techniques, cohérence UX et workflow d’amélioration continue.",
+        context:
+            "Le besoin était de remplacer un portfolio trop générique par une version plus exigeante, crédible et orientée résultats pour des recruteurs en finance quantitative, asset management et environnements tech.",
+        objective:
+            "Créer un site lisible et convaincant, capable de présenter des projets techniques en profondeur tout en conservant une navigation claire et une expérience fluide sur mobile/desktop.",
+        role:
+            "Conception de l’architecture du site, structuration des données (`src/data`), création des pages projet détaillées, amélioration de la qualité du copywriting technique, corrections UX/SEO et itérations continues sur la crédibilité du rendu final.",
+
+        challenges: [
+            "Maintenir une cohérence de ton et de niveau technique entre toutes les pages (home, à propos, projets, détails).",
+            "Éviter l’effet template en renforçant la densité des contenus projet sans surcharger la lecture.",
+            "Garantir la maintenabilité: tout le contenu doit rester centralisé dans `src/data` et non dispersé dans les composants.",
+            "Garder un responsive robuste avec des blocs de texte longs et des cartes riches en informations.",
+        ],
+        outcomes: [
+            "Mise en place d’une base de données front-end claire pour piloter le contenu (projets, expériences, navigation, profils).",
+            "Ajout de pages projet approfondies avec architecture, choix techniques, limites et prochaines étapes.",
+            "Amélioration de la crédibilité globale du site via un ton plus concret et des preuves techniques (liens commits/repositories).",
+            "Workflow itératif de correction continue (UX, contenu, structure) pour converger vers un rendu prêt pour candidatures.",
+        ],
+        links: [
+            {
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/Site_stage",
+            },
+            {
+                label: "Commit ajout projets détaillés",
+                href: "https://github.com/MaximeFARRE/Site_stage/commit/5a33191",
+            },
+            {
+                label: "Commit page suivi patrimoine",
+                href: "https://github.com/MaximeFARRE/Site_stage/commit/d5f5b5b",
+            },
+            {
+                label: "Commit correction bugs",
+                href: "https://github.com/MaximeFARRE/Site_stage/commit/51cf4d3",
+            },
+        ],
+        deepDive: {
+            summary:
+                "Le site est structuré comme un produit éditorial maintenable: données centralisées, composants réutilisables, pages détaillées et logique d’amélioration incrémentale.",
+            scope: [
+                "Pages clés: accueil, à propos, expériences, projets, détails projet, CV, contact.",
+                "Centralisation du contenu dans `src/data` pour éviter la duplication et faciliter les mises à jour.",
+                "Génération de pages projet dynamiques via slug avec routes dédiées par projet clé.",
+                "Design system léger basé sur Tailwind + variables de thème.",
+                "Déploiement Vercel avec vérifications lint/type-check avant livraison.",
+            ],
+            architecture: [
+                {
+                    title: "Couche données",
+                    detail:
+                        "Toutes les entités éditoriales (projets, expériences, navigation, profil) sont regroupées dans `src/data` pour séparer clairement contenu et présentation.",
+                },
+                {
+                    title: "Couche pages",
+                    detail:
+                        "App Router (`src/app`) avec routes statiques + route dynamique `/projets/[slug]` pour supporter des fiches projet riches et scalables.",
+                },
+                {
+                    title: "Couche composants",
+                    detail:
+                        "Composants UI réutilisables (layout, sections, cards) afin de garder une cohérence visuelle et limiter la dette front-end.",
+                },
+                {
+                    title: "Qualité de livraison",
+                    detail:
+                        "Validation systématique via ESLint et TypeScript (`tsc --noEmit`) pour sécuriser les itérations rapides.",
+                },
+            ],
+            dataFlow: [
+                "Écriture/mise à jour du contenu dans `src/data/*.ts`.",
+                "Lecture des données par les pages et sections concernées.",
+                "Résolution des pages projet via slug (`getProjectBySlug`).",
+                "Rendu des sections techniques (architecture, pipeline, limites, résultats).",
+                "Vérification qualité (lint + type-check) avant déploiement.",
+                "Publication sur Vercel et validation fonctionnelle des routes critiques.",
+            ],
+            technicalChoices: [
+                {
+                    title: "Content-first architecture",
+                    detail:
+                        "La priorité est donnée à la robustesse éditoriale: les contenus sont traités comme des données versionnées, pas comme du texte inline dans les composants.",
+                },
+                {
+                    title: "Route dynamique projet",
+                    detail:
+                        "L’usage de `/projets/[slug]` permet de faire évoluer le volume de projets sans complexifier la structure applicative.",
+                },
+                {
+                    title: "Itération pilotée par feedback",
+                    detail:
+                        "Le site évolue par corrections successives (crédibilité, UX, précision technique) pour converger vers un niveau attendu en contexte recrutement.",
+                },
+                {
+                    title: "Simplicité maîtrisée",
+                    detail:
+                        "Le projet reste volontairement sans backend complexe pour garder une maintenance faible et un time-to-update rapide.",
+                },
+            ],
+            quality: [
+                "Lint et type-check lancés à chaque itération significative.",
+                "Structure de fichiers stable et lisible pour faciliter les contributions futures.",
+                "Contrôle manuel régulier des routes projets et des liens critiques.",
+            ],
+            limitations: [
+                "Le site reste statique: pas de CMS ni d’interface d’édition dédiée.",
+                "La preuve visuelle des projets dépend encore de la qualité/volume des captures disponibles.",
+                "Certaines améliorations SEO avancées (schema détaillé par projet) peuvent être renforcées.",
+            ],
+            nextSteps: [
+                "Ajouter des captures écran plus spécifiques par projet pour renforcer la preuve visuelle.",
+                "Compléter les métadonnées Open Graph par page projet avec images dédiées.",
+                "Finaliser les derniers ajustements de copywriting orientés recruteurs finance/tech.",
+            ],
+            gallery: [
+                {
+                    src: "/images/profile/photo de profil.jpeg",
+                    alt: "Projet de site portfolio professionnel en cours de construction",
+                    caption: "Ce site est développé comme un projet produit à part entière, avec itérations techniques et éditoriales.",
                 },
             ],
         },
