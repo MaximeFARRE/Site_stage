@@ -6,7 +6,7 @@ export type SkillGroup = {
 export const aboutToolsGroups: SkillGroup[] = [
   {
     title: "Finance & analyse",
-    items: ["Bloomberg Terminal", "Excel avancé", "SQL", "Python", "Backtesting"],
+    items: ["Bloomberg Terminal", "VBA", "SQL", "Python", "Yfinance"],
   },
   {
     title: "Développement",
@@ -14,11 +14,11 @@ export const aboutToolsGroups: SkillGroup[] = [
   },
   {
     title: "Automatisation & productivité",
-    items: ["Python scripting", "SQL", "automatisation de tâches", "documentation", "contrôle qualité"],
+    items: ["Python", "SQL", "n8n", "OPENCLAW", "Claude CoWork"],
   },
   {
     title: "Exécution & workflows",
-    items: ["n8n", "structuration de process", "reporting", "outils no-code / low-code"],
+    items: ["n8n", "RAG", "Agentic", "outils no-code / low-code"],
   },
 ];
 

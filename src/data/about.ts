@@ -42,14 +42,14 @@ export const aboutPillars: AboutPillar[] = [
 export const aboutKeyNumbers: KeyNumber[] = [
   {
     value: "2023",
-    label: "Début de l’aventure Occifloc",
+    label: "Création de l'entreprise Occifloc",
   },
   {
     value: "35k€",
     label: "Chiffre d’affaires atteint en 2025",
   },
   {
-    value: "3",
+    value: "5",
     label: "Projets financiers détaillés",
   },
   {

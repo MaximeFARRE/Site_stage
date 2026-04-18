@@ -614,7 +614,7 @@ export const projects: Project[] = [
         longDescription:
             "Ce projet correspond au site que vous consultez actuellement. L’objectif est de construire un portfolio crédible pour des recruteurs finance/tech, avec un niveau de finition professionnel sur le fond (contenu, cohérence narrative, structure des projets) et sur la forme (UX, responsive, SEO de base, maintenabilité). Le site suit une architecture App Router avec séparation stricte entre données et composants pour accélérer les itérations sans casser l’interface.",
         technologies: ["Next.js App Router", "TypeScript", "Tailwind CSS", "Vercel", "ESLint"],
-        image: "/images/profile/site.png",
+        image: "/images/projects/site.png",
         featured: true,
 
         whatItShows:
