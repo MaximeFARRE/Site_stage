@@ -278,34 +278,31 @@ export default function CvPage() {
         <section className="card bg-[var(--foreground)] text-[var(--background)]">
           <div className="space-y-5">
             <p className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--background)]/70">
-              Contact
+              Aller plus loin
             </p>
             <h2 className="max-w-3xl text-3xl font-semibold md:text-4xl">
-              Vous recherchez un profil capable d’analyser, d’exécuter et de
-              construire ?
+              Le CV résume. Les projets et les expériences détaillent.
             </h2>
             <p className="max-w-2xl text-sm leading-7 text-[var(--background)]/75 md:text-base">
-              Je suis ouvert aux échanges autour d’un stage ou d’une opportunité
-              en finance de marché, asset management, private equity, analyse
-              financière, recherche quantitative ou développement d’outils.
+              Chaque projet du site est documenté avec son contexte, ses choix
+              techniques, ses limites et ses résultats. Une lecture plus complète
+              que ce que tient un CV d’une page.
             </p>
 
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/contact"
+                href="/projets"
                 className="rounded-full bg-[var(--background)] px-5 py-3 text-sm font-medium text-[var(--foreground)] transition hover:opacity-90"
               >
-                Aller à la page contact
+                Voir mes projets
               </Link>
 
-              <a
-                href="/files/cv_maxime_farre.pdf"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href="/experiences"
                 className="rounded-full border border-[var(--background)]/20 px-5 py-3 text-sm font-medium text-[var(--background)] transition hover:bg-[var(--background)]/10"
               >
-                Télécharger le CV
-              </a>
+                Voir mes expériences
+              </Link>
             </div>
           </div>
         </section>

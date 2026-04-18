@@ -1,3 +1,5 @@
+import { personalInfo } from "./personal-info";
+
 export type AboutPillar = {
   title: string;
   description: string;
@@ -106,4 +108,3 @@ export const aboutFaqItems: FaqItem[] = [
       "Je recherche un stage ou une opportunité en finance de marché, asset management, private equity, analyse financière ou recherche quantitative, avec des sujets concrets et une vraie exigence sur la qualité du travail.",
   },
 ];
-import { personalInfo } from "./personal-info";

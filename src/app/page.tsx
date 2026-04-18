@@ -3,7 +3,6 @@ import Hero from "@/components/home/hero";
 import FeaturedProjects from "@/components/home/featured-projects";
 import Container from "@/components/layout/container";
 import Link from "next/link";
-import { quickNavigation } from "@/data/navigation";
 
 const pillars = [
   {
@@ -39,33 +38,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-
-      <section className="section border-t border-[var(--border)]">
-        <Container>
-          <div className="mb-8 max-w-2xl">
-            <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
-              Navigation rapide
-            </span>
-            <h2 className="mb-3">Accéder directement aux sections clés</h2>
-            <p className="text-base text-[var(--muted)]">
-              Vous pouvez consulter rapidement mon profil, mes projets, mon CV,
-              mes expériences et ma page de contact.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {quickNavigation.map((item, index) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={index === 0 ? "button-primary" : "button-secondary"}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* Pillars */}
       <section className="section border-t border-[var(--border)]">
