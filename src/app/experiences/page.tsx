@@ -162,18 +162,18 @@ export default function ExperiencesPage() {
                   Ce que j’essaie de développer
                 </p>
 
-                <h2 className="section-title">Un profil solide et utile</h2>
+                <h2 className="section-title">Un profil ancré dans la pratique</h2>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  À travers ces expériences, je cherche à construire un profil
-                  capable de combiner analyse financière, maîtrise technique,
-                  sens opérationnel et capacité à produire des livrables utiles.
+                  Ces expériences m’ont donné des réflexes concrets : cadrer un
+                  besoin, choisir les bons indicateurs, produire quelque chose
+                  qu’on peut vérifier et corriger.
                 </p>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  L’objectif est simple : être précis dans l’analyse, fiable
-                  dans l’exécution et capable de transformer un besoin en outil
-                  ou en décision exploitable.
+                  Ce que je cherche maintenant, c’est appliquer cette méthode à
+                  des sujets financiers plus complexes — portefeuille, risque,
+                  marchés — avec un niveau d’exigence élevé.
                 </p>
               </div>
             </div>

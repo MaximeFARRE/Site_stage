@@ -74,10 +74,11 @@ export default function AboutPage() {
                 </div>
 
                 <p className="text-base leading-8 text-[var(--muted)]">
-                  Au-delà du cadre académique, je garde une approche très
-                  opérationnelle. J’avance par itérations, avec des livrables
-                  concrets : base de données propre, dashboard exploitable,
-                  analyse documentée ou process mieux structuré.
+                  Au-delà du cadre académique, je cherche à produire des choses
+                  concrètes et vérifiables : une base qui tient dans la durée,
+                  un dashboard qu’on peut vraiment utiliser, une analyse qu’on
+                  peut relire et corriger. La qualité du livrable compte autant
+                  que le raisonnement.
                 </p>
               </div>
             </div>
@@ -106,7 +107,7 @@ export default function AboutPage() {
 
                 <ul className="mt-5 space-y-3 text-sm leading-7 text-[var(--muted)]">
                   <li>• Rigueur analytique et goût des sujets exigeants</li>
-                  <li>• Maîtrise progressive de Python, SQL, Linux et Git</li>
+                  <li>• Python, SQL, Linux et Git utilisés dans mes projets</li>
                   <li>• Capacité à produire des outils lisibles et utilisables</li>
                   <li>• Autonomie, organisation et attention aux détails</li>
                 </ul>
@@ -202,21 +203,22 @@ export default function AboutPage() {
                 </p>
 
                 <h2 className="section-title">
-                  Comprendre, structurer, exécuter
+                  Finance, données, rigueur
                 </h2>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  Je suis attiré par les environnements où il faut comprendre
-                  vite, structurer l’information et produire un travail propre.
-                  Les sujets qui me motivent combinent analyse financière,
-                  données, méthode et exécution.
+                  Ce qui me motive, c’est travailler sur des sujets où la
+                  qualité de l’analyse change vraiment le résultat : pricing,
+                  gestion de portefeuille, risque, données financières. Des
+                  environnements où on est attendu sur la précision, pas
+                  seulement sur l’intention.
                 </p>
 
                 <p className="leading-8 text-[var(--muted)]">
-                  À long terme, je veux développer une expertise solide en
-                  gestion d’actifs, analyse quantitative et développement
-                  d’outils financiers. Je recherche des environnements où les
-                  responsabilités progressent avec le niveau de rigueur fourni.
+                  À terme, je veux construire une expertise solide en gestion
+                  d’actifs et analyse quantitative. Je cherche des contextes où
+                  la courbe d’apprentissage est raide et où les responsabilités
+                  suivent le niveau de travail fourni.
                 </p>
               </div>
             </div>

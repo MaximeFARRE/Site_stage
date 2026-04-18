@@ -24,3 +24,26 @@ export const navigation = [
     href: "/contact",
   },
 ];
+
+export const quickNavigation = [
+  {
+    label: "Qui suis-je",
+    href: "/a-propos",
+  },
+  {
+    label: "Mes projets",
+    href: "/projets",
+  },
+  {
+    label: "Mon CV",
+    href: "/cv",
+  },
+  {
+    label: "Mes expériences",
+    href: "/experiences",
+  },
+  {
+    label: "Me contacter",
+    href: "/contact",
+  },
+];
