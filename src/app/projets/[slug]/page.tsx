@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import Container from "@/components/layout/container";
+import YoutubeEmbed from "@/components/ui/youtube-embed";
 import { getProjectBySlug, projects } from "@/data/projects";
 
 type ProjectPageProps = {
@@ -175,6 +176,18 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </p>
             </div>
           </div>
+
+          {project.videoUrl && (
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">
+                  Démonstration
+                </p>
+                <h2 className="section-title">Le projet en action</h2>
+              </div>
+              <YoutubeEmbed url={project.videoUrl} title={project.title} />
+            </div>
+          )}
 
           {deepDive && (
             <div className="space-y-10">
