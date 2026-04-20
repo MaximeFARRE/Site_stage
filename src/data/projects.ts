@@ -44,6 +44,7 @@ export type Project = {
     challenges: string[];
     outcomes: string[];
     links?: ProjectLink[];
+    videoUrl?: string;
     deepDive?: ProjectDeepDive;
 };
 
@@ -95,6 +96,7 @@ export const projects: Project[] = [
                 href: "https://github.com/MaximeFARRE/Suivie-patrimoine/commit/91d35ca87e5a29c2db1076602204f9890abdfddf",
             },
         ],
+        videoUrl: "https://youtu.be/O6zkd1R-e9E",
         deepDive: {
             summary:
                 "Le projet fonctionne comme un moteur de suivi patrimonial: ingestion de transactions, normalisation comptable, snapshots hebdomadaires et analytics portefeuille orientée décision.",
@@ -236,6 +238,7 @@ export const projects: Project[] = [
                 href: "/images/projects/projection_montecarlo.png",
             },
         ],
+        videoUrl: "https://youtu.be/kIr2grnY5Vw",
         deepDive: {
             summary:
                 "Ce module constitue la brique quantitative du suivi patrimonial: il backteste des allocations, mesure leur risque/rendement et ajoute des simulations Monte Carlo pour estimer la robustesse des trajectoires.",
