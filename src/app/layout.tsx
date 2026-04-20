@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { personalInfo } from "@/data/personal-info";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
 
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
