@@ -1,80 +1,61 @@
-import Image from "next/image";
-import Link from "next/link";
+﻿import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 import Container from "@/components/layout/container";
 import { personalInfo } from "@/data/personal-info";
 import { socialLinks } from "@/data/social-links";
+import { Link } from "@/i18n/navigation";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section className="section">
       <Container>
         <div className="grid gap-16 lg:grid-cols-[1fr_320px] lg:gap-24">
-          {/* Left column */}
           <div className="flex flex-col gap-8">
-            {/* Badge */}
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-1.5 text-xs font-medium text-[var(--muted)]">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--primary)]" />
               {personalInfo.location} · {personalInfo.school}
             </span>
 
-            {/* Heading */}
             <div className="flex flex-col gap-4">
-              <h1 className="max-w-2xl">
-                {personalInfo.headline}
-              </h1>
-              <p className="max-w-xl text-lg leading-relaxed text-[var(--muted)]">
-                {personalInfo.shortBio}
-              </p>
+              <h1 className="max-w-2xl">{t("headline")}</h1>
+              <p className="max-w-xl text-lg leading-relaxed text-[var(--muted)]">{t("shortBio")}</p>
             </div>
 
-            {/* CTAs */}
             <div className="flex flex-wrap gap-3">
-              <Link href="/projets" className="button-primary">
-                Voir mes projets
+              <Link href="/projects" className="button-primary">
+                {t("viewProjects")}
               </Link>
-              <Link
-                href={socialLinks.cv}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button-secondary"
-              >
-                Télécharger mon CV
-              </Link>
+              <a href={socialLinks.cv} target="_blank" rel="noopener noreferrer" className="button-secondary">
+                {t("downloadCv")}
+              </a>
             </div>
 
-            {/* Meta */}
             <div className="flex flex-wrap gap-6 border-t border-[var(--border)] pt-6 text-sm text-[var(--muted)]">
               <div>
                 <span className="block text-xs font-medium uppercase tracking-widest text-[var(--muted)] opacity-60">
-                  Formation
+                  {t("education")}
                 </span>
-                <span className="mt-1 block font-medium text-[var(--foreground)]">
-                  {personalInfo.degree}
-                </span>
+                <span className="mt-1 block font-medium text-[var(--foreground)]">{personalInfo.degree}</span>
               </div>
               <div>
                 <span className="block text-xs font-medium uppercase tracking-widest text-[var(--muted)] opacity-60">
-                  Localisation
+                  {t("location")}
                 </span>
-                <span className="mt-1 block font-medium text-[var(--foreground)]">
-                  {personalInfo.location}
-                </span>
+                <span className="mt-1 block font-medium text-[var(--foreground)]">{personalInfo.location}</span>
               </div>
               <div>
                 <span className="block text-xs font-medium uppercase tracking-widest text-[var(--muted)] opacity-60">
-                  Disponibilité
+                  {t("availability")}
                 </span>
-                <span className="mt-1 block font-medium text-[var(--foreground)]">
-                  Ouvert aux opportunités
-                </span>
+                <span className="mt-1 block font-medium text-[var(--foreground)]">{t("availabilityValue")}</span>
               </div>
             </div>
           </div>
 
-          {/* Right column — currently block + placeholder photo */}
           <div className="flex flex-col gap-4">
-            {/* Photo de profil */}
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--secondary)]">
               <Image
                 src="/images/profile/photo de profil.jpeg"
@@ -85,16 +66,11 @@ export default function Hero() {
               />
             </div>
 
-            {/* Currently */}
             <div className="card flex flex-col gap-3">
-              <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
-                Actuellement
-              </span>
-              <p className="text-sm leading-relaxed text-[var(--muted)]">
-                {personalInfo.currentGoal}
-              </p>
+              <span className="text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">{t("currently")}</span>
+              <p className="text-sm leading-relaxed text-[var(--muted)]">{t("currentGoal")}</p>
               <p className="text-xs text-[var(--muted)] opacity-60">
-                Objectif · {personalInfo.longTermGoal}
+                {t("objective")} · {personalInfo.longTermGoal}
               </p>
             </div>
           </div>
