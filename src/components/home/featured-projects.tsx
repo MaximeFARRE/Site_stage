@@ -1,13 +1,16 @@
 ﻿import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import Container from "@/components/layout/container";
+import { localizeProject } from "@/data/project-i18n";
 import { projects } from "@/data/projects";
 import { Link } from "@/i18n/navigation";
+import { type Locale } from "@/i18n/routing";
 
 export default function FeaturedProjects() {
+  const locale = useLocale() as Locale;
   const t = useTranslations("FeaturedProjects");
-  const featured = projects.filter((p) => p.featured);
+  const featured = projects.filter((p) => p.featured).map((project) => localizeProject(project, locale));
 
   return (
     <section className="section border-t border-[var(--border)]">
@@ -35,7 +38,7 @@ export default function FeaturedProjects() {
               <div className="relative h-40 w-full overflow-hidden rounded-lg bg-[var(--secondary)]">
                 <Image
                   src={project.image}
-                  alt={`${project.title} - apercu du projet`}
+                  alt={`${project.title} - project preview`}
                   fill
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />

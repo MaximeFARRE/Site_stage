@@ -8,7 +8,7 @@ import {
   aboutKeyNumbers,
   aboutPillars
 } from "@/data/about";
-import { personalInfo } from "@/data/personal-info";
+import { getPersonalInfo } from "@/data/personal-info";
 import { aboutToolsGroups } from "@/data/skills";
 import { resolveLocale } from "@/lib/locale";
 import { getPageAlternates } from "@/lib/seo";
@@ -34,6 +34,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
   const locale = resolveLocale(localeCandidate);
   const t = await getTranslations({ locale, namespace: "AboutPage" });
   const traits = t.raw("traits") as string[];
+  const personalInfo = getPersonalInfo(locale);
 
   return (
     <section className="section">

@@ -1,13 +1,16 @@
 ﻿import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import Container from "@/components/layout/container";
-import { personalInfo } from "@/data/personal-info";
+import { getPersonalInfo } from "@/data/personal-info";
 import { socialLinks } from "@/data/social-links";
 import { Link } from "@/i18n/navigation";
+import { type Locale } from "@/i18n/routing";
 
 export default function Hero() {
+  const locale = useLocale() as Locale;
   const t = useTranslations("Hero");
+  const personalInfo = getPersonalInfo(locale);
 
   return (
     <section className="section">

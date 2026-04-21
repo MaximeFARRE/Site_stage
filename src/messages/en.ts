@@ -218,6 +218,143 @@ const en: Messages = {
     nextDescription:
       "The site presents my background, experience, and projects that illustrate how I analyze, structure, and build.",
     viewProjects: "View my projects"
+  },
+  ExperiencesPage: {
+    metadataTitle: "Experience",
+    metadataDescription:
+      "Academic and operational experience in finance, investment, business operations, and execution.",
+    badge: "Experience",
+    heroTitle: "A path built on rigor, data, and execution.",
+    heroDescription:
+      "My path combines financial engineering studies, quantitative projects, investment analysis, operational responsibilities, and field experience. I aim to build a profile able to analyze, structure, and deliver.",
+    featuredBadge: "Key experiences",
+    featuredTitle: "The experiences that shaped my method the most",
+    featuredDescription:
+      "These are the experiences that strengthened my way of working the most: tracking indicators, analyzing a case, coordinating a team, and delivering consistently.",
+    learningCardTitle: "What it taught me",
+    timelineBadge: "Education and progression",
+    timelineTitle: "The milestones that built my working method",
+    narrativeBadge: "What this path shows",
+    narrativeTitle: "A coherent progression",
+    narrativeParagraph1:
+      "When I look at my path, I see clear progression: field work, demanding scientific training, then projects focused on finance, data, and organization. Each step strengthened my method.",
+    narrativeParagraph2:
+      "This path taught me that strong results depend on a clear framework, high-quality data, execution consistency, and the ability to iterate quickly.",
+    developmentBadge: "What I am building",
+    developmentTitle: "A practice-grounded profile",
+    developmentParagraph1:
+      "These experiences built practical reflexes: frame a need, select the right indicators, and produce outputs that can be checked and improved.",
+    developmentParagraph2:
+      "My current goal is to apply this method to more complex financial topics with high standards.",
+    toolsBadge: "Tools and working methods",
+    toolsTitle: "Tools I use in my projects",
+    toolsDescription:
+      "Beyond academic tools, I use development, automation, and workflow structuring tools. They help me accelerate repetitive work, improve analysis reliability, document steps, and deliver cleaner outputs.",
+    earlyBadge: "Early experiences",
+    earlyTitle: "Field work first",
+    earlyDescription:
+      "These experiences are older but still important. They taught me discipline, consistency, respect for instructions, and execution reliability early on."
+  },
+  CvPage: {
+    metadataTitle: "Resume",
+    metadataDescription:
+      "Resume of Maxime Farre: financial engineering education, experience, quantitative finance skills, and data tooling.",
+    badge: "Resume · Profile · Path",
+    heroTitle:
+      "A profile focused on quantitative finance, portfolio analysis, and financial tooling development.",
+    heroDescription:
+      "I am an ESILV financial engineering student, strongly interested in markets, asset management, private equity, financial analysis, and quantitative research.",
+    downloadCv: "Download resume",
+    contact: "Contact me",
+    quickOverview: "Quick overview",
+    quickAvailabilityLine1: "4 to 6 month internship",
+    quickAvailabilityLine2: "Available now",
+    pdfBadge: "Resume PDF",
+    download: "Download",
+    positioningBadge: "Positioning",
+    positioningTitle: "What my profile brings",
+    positioningDescription:
+      "A strong academic base in finance, real operational experience, and the ability to build actionable tools. I do not stop at analysis: I also focus on producing reliable, testable, and useful outputs.",
+    summaryBadge: "Summary",
+    summary: {
+      finance: {
+        title: "Finance",
+        description:
+          "Option pricing, risk measurement, portfolio optimization, market understanding, and first practical work in quantitative finance."
+      },
+      technology: {
+        title: "Technology",
+        description:
+          "Tool development in Python, data structuring, automation, and use of Linux, Git, SQL, and Streamlit."
+      },
+      operations: {
+        title: "Operations",
+        description:
+          "Operational management, margin tracking, cash management, KPI monitoring, decision-making under constraints, and accountability."
+      },
+      mindset: {
+        title: "Mindset",
+        description:
+          "Rigor, autonomy, documentation, adaptability, and consistency on projects that require precision."
+      }
+    },
+    experienceBadge: "Path",
+    experienceTitle: "Main experiences",
+    educationBadge: "Education",
+    educationTitle: "Education and academic foundation",
+    skillsBadge: "Skills",
+    skillsTitle: "Core skills",
+    pdfTitle: "Open the full resume version",
+    pdfDescription:
+      "This page presents a concise version of my path. The PDF version offers a more direct and classic format for recruiters.",
+    openPdf: "Open resume PDF",
+    ctaBadge: "Go further",
+    ctaTitle: "The resume summarizes. Projects and experience provide depth.",
+    ctaDescription:
+      "Each project on the site is documented with context, technical choices, limitations, and outcomes. A fuller view than what fits in a one-page resume.",
+    viewProjects: "View my projects",
+    viewExperiences: "View my experience"
+  },
+  ProjectDetailPage: {
+    notFoundTitle: "Project not found",
+    notFoundDescription: "The requested project does not exist or is no longer available.",
+    backToProjects: "Back to projects",
+    whatItShows: "What this project demonstrates",
+    myRole: "My role",
+    links: "Links",
+    context: "Context",
+    objective: "Objective",
+    demoBadge: "Demo",
+    demoTitle: "Project in action",
+    deepDiveBadge: "Deep dive",
+    deepDiveTitle: "Technical reading of the project",
+    galleryBadge: "Gallery",
+    galleryTitle: "Key screens and visualizations",
+    architectureBadge: "Architecture",
+    architectureTitle: "Technical organization",
+    pipelineBadge: "Pipeline",
+    pipelineTitle: "Data flow",
+    technicalChoicesBadge: "Technical choices",
+    technicalChoicesTitle: "Structuring decisions",
+    reliabilityBadge: "Reliability",
+    reliabilityTitle: "Quality and controls",
+    limitationsBadge: "Limitations",
+    limitationsTitle: "Current attention points",
+    nextStepsBadge: "Roadmap",
+    nextStepsTitle: "Next steps",
+    challengesBadge: "Challenges",
+    challengesTitle: "Main project challenges",
+    outcomesBadge: "Outcomes and learnings",
+    outcomesTitle: "What I take away",
+    otherProjectsBadge: "Other projects",
+    otherProjectsTitle: "Continue exploring",
+    seeProject: "View this project",
+    ctaBadge: "Discuss",
+    ctaTitle: "I can detail technical choices and outcomes during an interview.",
+    ctaDescription:
+      "If this project is relevant for you, I can detail the initial need, data structure, assumptions, challenges encountered, and analysis limitations.",
+    ctaContact: "Contact me",
+    ctaProjects: "View all projects"
   }
 };
 

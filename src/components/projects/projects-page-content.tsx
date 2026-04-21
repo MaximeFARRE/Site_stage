@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import Container from "@/components/layout/container";
+import { localizeProject } from "@/data/project-i18n";
 import { projects } from "@/data/projects";
 import { Link } from "@/i18n/navigation";
+import { type Locale } from "@/i18n/routing";
 
 type CategoryId = "all" | "finance" | "data" | "automation" | "operations";
 
@@ -19,24 +21,30 @@ const categories: Array<{ id: CategoryId; matches: string[] }> = [
 ];
 
 export default function ProjectsPageContent() {
+  const locale = useLocale() as Locale;
   const t = useTranslations("ProjectsPage");
   const [activeCategory, setActiveCategory] = useState<CategoryId>("all");
 
+  const localizedProjects = useMemo(
+    () => projects.map((project) => localizeProject(project, locale)),
+    [locale]
+  );
+
   const filteredProjects = useMemo(() => {
     if (activeCategory === "all") {
-      return projects;
+      return localizedProjects;
     }
 
     const currentCategory = categories.find((category) => category.id === activeCategory);
     if (!currentCategory) {
-      return projects;
+      return localizedProjects;
     }
 
-    return projects.filter((project) => {
+    return localizedProjects.filter((project) => {
       const normalizedCategory = project.category.toLowerCase();
       return currentCategory.matches.some((term) => normalizedCategory.includes(term));
     });
-  }, [activeCategory]);
+  }, [activeCategory, localizedProjects]);
 
   const featuredProjects = filteredProjects.filter((project) => project.featured);
 

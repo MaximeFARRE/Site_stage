@@ -216,8 +216,145 @@
     nextDescription:
       "Le site presente mon parcours, mes experiences et les projets qui illustrent ma maniere d'analyser, structurer et construire.",
     viewProjects: "Voir mes projets"
+  },
+  ExperiencesPage: {
+    metadataTitle: "Experiences",
+    metadataDescription:
+      "Experiences academiques et operationnelles en finance, investissement, pilotage d'activite et execution.",
+    badge: "Experiences",
+    heroTitle: "Un parcours construit par la rigueur, les donnees et l'execution.",
+    heroDescription:
+      "Mon parcours combine formation en ingenierie financiere, projets quantitatifs, analyse d'investissement, responsabilites operationnelles et experiences de terrain. Je cherche a construire un profil capable d'analyser, structurer et livrer.",
+    featuredBadge: "Experiences cles",
+    featuredTitle: "Les experiences qui structurent le plus ma methode",
+    featuredDescription:
+      "Ce sont les experiences qui ont le plus renforce ma maniere de travailler : suivre des indicateurs, analyser un dossier, organiser une equipe et livrer avec regularite.",
+    learningCardTitle: "Ce que cela m'a apporte",
+    timelineBadge: "Formation et progression",
+    timelineTitle: "Les etapes qui ont construit ma methode de travail",
+    narrativeBadge: "Ce que raconte ce parcours",
+    narrativeTitle: "Une progression logique",
+    narrativeParagraph1:
+      "Quand je regarde mon parcours, je vois une progression claire : des experiences de terrain, une formation scientifique exigeante, puis des projets orientes finance, donnees et organisation. Chaque etape a renforce ma methode.",
+    narrativeParagraph2:
+      "Ce chemin m'a appris qu'un bon resultat depend surtout de la clarte du cadre, de la qualite des donnees, de la regularite d'execution et de la capacite a corriger rapidement.",
+    developmentBadge: "Ce que j'essaie de developper",
+    developmentTitle: "Un profil ancre dans la pratique",
+    developmentParagraph1:
+      "Ces experiences m'ont donne des reflexes concrets : cadrer un besoin, choisir les bons indicateurs, produire quelque chose qu'on peut verifier et corriger.",
+    developmentParagraph2:
+      "Ce que je cherche maintenant, c'est appliquer cette methode a des sujets financiers plus complexes, avec un niveau d'exigence eleve.",
+    toolsBadge: "Outils et methodes de travail",
+    toolsTitle: "Les outils que je mobilise dans mes projets",
+    toolsDescription:
+      "Au-dela des outils academiques, j'utilise des outils de developpement, d'automatisation et de structuration de workflows. Ils me servent a accelerer les taches repetitives, fiabiliser les analyses, documenter les etapes et produire des supports plus propres.",
+    earlyBadge: "Premieres experiences",
+    earlyTitle: "Le terrain avant tout",
+    earlyDescription:
+      "Ces experiences sont plus anciennes, mais elles comptent. Elles m'ont appris tot la discipline, la regularite, le respect des consignes et la fiabilite dans l'execution."
+  },
+  CvPage: {
+    metadataTitle: "CV",
+    metadataDescription:
+      "CV de Maxime Farre: formation en ingenierie financiere, experiences, competences en finance quantitative et outils data.",
+    badge: "CV · Profil · Parcours",
+    heroTitle:
+      "Un profil oriente finance quantitative, analyse de portefeuille et developpement d'outils financiers.",
+    heroDescription:
+      "Je suis etudiant a l'ESILV en ingenierie financiere, avec un interet marque pour les marches, l'asset management, le private equity, l'analyse financiere et la recherche quantitative.",
+    downloadCv: "Telecharger le CV",
+    contact: "Me contacter",
+    quickOverview: "Apercu rapide",
+    quickAvailabilityLine1: "Stage de 4 a 6 mois",
+    quickAvailabilityLine2: "Disponible des maintenant",
+    pdfBadge: "CV PDF",
+    download: "Telecharger",
+    positioningBadge: "Positionnement",
+    positioningTitle: "Ce que mon profil apporte",
+    positioningDescription:
+      "Une base academique serieuse en finance, une vraie experience operationnelle, et une capacite a construire des outils exploitables. Je ne me limite pas a l'analyse : je cherche aussi a produire des supports fiables, testables et utiles.",
+    summaryBadge: "Resume",
+    summary: {
+      finance: {
+        title: "Finance",
+        description:
+          "Pricing d'options, mesure du risque, optimisation de portefeuille, comprehension des marches et premiers travaux en finance quantitative."
+      },
+      technology: {
+        title: "Technologie",
+        description:
+          "Developpement d'outils en Python, structuration de donnees, automatisation, utilisation de Linux, Git, SQL et Streamlit."
+      },
+      operations: {
+        title: "Pilotage",
+        description:
+          "Pilotage d'activite, suivi des marges, tresorerie, indicateurs, prise de decision sous contrainte et sens des responsabilites."
+      },
+      mindset: {
+        title: "Mentalite",
+        description:
+          "Rigueur, autonomie, documentation, capacite d'adaptation et regularite dans les projets qui demandent de la precision."
+      }
+    },
+    experienceBadge: "Parcours",
+    experienceTitle: "Experiences principales",
+    educationBadge: "Formation",
+    educationTitle: "Formation et socle academique",
+    skillsBadge: "Competences",
+    skillsTitle: "Competences cles",
+    pdfTitle: "Consulter la version complete de mon CV",
+    pdfDescription:
+      "Cette page presente une version synthetique de mon parcours. La version PDF permet d'avoir une lecture plus directe et plus classique pour un recruteur.",
+    openPdf: "Ouvrir le CV PDF",
+    ctaBadge: "Aller plus loin",
+    ctaTitle: "Le CV resume. Les projets et les experiences detaillent.",
+    ctaDescription:
+      "Chaque projet du site est documente avec son contexte, ses choix techniques, ses limites et ses resultats. Une lecture plus complete que ce que tient un CV d'une page.",
+    viewProjects: "Voir mes projets",
+    viewExperiences: "Voir mes experiences"
+  },
+  ProjectDetailPage: {
+    notFoundTitle: "Projet introuvable",
+    notFoundDescription: "Le projet demande n'existe pas ou n'est plus disponible.",
+    backToProjects: "Retour aux projets",
+    whatItShows: "Ce que ce projet demontre",
+    myRole: "Mon role",
+    links: "Liens",
+    context: "Contexte",
+    objective: "Objectif",
+    demoBadge: "Demonstration",
+    demoTitle: "Le projet en action",
+    deepDiveBadge: "Deep dive",
+    deepDiveTitle: "Lecture technique du projet",
+    galleryBadge: "Captures",
+    galleryTitle: "Ecrans et visualisations cles",
+    architectureBadge: "Architecture",
+    architectureTitle: "Organisation technique",
+    pipelineBadge: "Pipeline",
+    pipelineTitle: "Flux de donnees",
+    technicalChoicesBadge: "Choix techniques",
+    technicalChoicesTitle: "Decisions structurantes",
+    reliabilityBadge: "Fiabilite",
+    reliabilityTitle: "Qualite et controles",
+    limitationsBadge: "Limites",
+    limitationsTitle: "Points d'attention actuels",
+    nextStepsBadge: "Evolutions",
+    nextStepsTitle: "Prochaines etapes",
+    challengesBadge: "Difficultes rencontrees",
+    challengesTitle: "Les principaux enjeux du projet",
+    outcomesBadge: "Resultats et apprentissages",
+    outcomesTitle: "Ce que j'en retiens",
+    otherProjectsBadge: "Autres projets",
+    otherProjectsTitle: "Continuer la visite",
+    seeProject: "Voir ce projet",
+    ctaBadge: "Echanger",
+    ctaTitle: "Je peux detailler les choix techniques et les resultats en entretien.",
+    ctaDescription:
+      "Si ce projet vous interesse, je peux revenir plus precisement sur le besoin initial, la structure des donnees, les hypotheses, les difficultes rencontrees et les limites de l'analyse.",
+    ctaContact: "Me contacter",
+    ctaProjects: "Voir tous les projets"
   }
-} as const;
+};
 
 export type Messages = typeof fr;
 
