@@ -1,9 +1,12 @@
-import Container from "./container";
+﻿import { useTranslations } from "next-intl";
 
+import Container from "./container";
 import { personalInfo } from "@/data/personal-info";
 import { socialLinks } from "@/data/social-links";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+
   return (
     <footer className="border-t border-gray-200 bg-white">
       <Container className="flex flex-col gap-4 py-8 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
@@ -12,11 +15,8 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a
-            href={`mailto:${socialLinks.email}`}
-            className="transition hover:text-blue-700"
-          >
-            Email
+          <a href={`mailto:${socialLinks.email}`} className="transition hover:text-blue-700">
+            {t("email")}
           </a>
 
           <a
@@ -25,7 +25,7 @@ export default function Footer() {
             rel="noreferrer"
             className="transition hover:text-blue-700"
           >
-            LinkedIn
+            {t("linkedin")}
           </a>
 
           <a
@@ -34,7 +34,7 @@ export default function Footer() {
             rel="noreferrer"
             className="transition hover:text-blue-700"
           >
-            GitHub
+            {t("github")}
           </a>
         </div>
       </Container>

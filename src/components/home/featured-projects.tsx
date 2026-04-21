@@ -1,77 +1,67 @@
-import Image from "next/image";
-import Link from "next/link";
+﻿import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 
 import Container from "@/components/layout/container";
+import { localizeProject } from "@/data/project-i18n";
 import { projects } from "@/data/projects";
+import { Link } from "@/i18n/navigation";
+import { type Locale } from "@/i18n/routing";
 
 export default function FeaturedProjects() {
-  const featured = projects.filter((p) => p.featured);
+  const locale = useLocale() as Locale;
+  const t = useTranslations("FeaturedProjects");
+  const featured = projects.filter((p) => p.featured).map((project) => localizeProject(project, locale));
 
   return (
     <section className="section border-t border-[var(--border)]">
       <Container>
-        {/* Header */}
         <div className="mb-12 flex items-end justify-between gap-6">
           <div className="max-w-xl">
             <span className="mb-3 block text-xs font-semibold uppercase tracking-widest text-[var(--primary)]">
-              Projets sélectionnés
+              {t("badge")}
             </span>
-            <h2 className="mb-3">Outils et analyses construits</h2>
-            <p className="text-base text-[var(--muted)]">
-              Des projets centrés sur la finance quantitative, la structuration
-              de données, le backtesting et le suivi d’indicateurs.
-            </p>
+            <h2 className="mb-3">{t("title")}</h2>
+            <p className="text-base text-[var(--muted)]">{t("description")}</p>
           </div>
 
           <Link
-            href="/projets"
+            href="/projects"
             className="hidden shrink-0 text-sm font-medium text-[var(--primary)] underline-offset-4 hover:underline md:block"
           >
-            Tous les projets →
+            {t("allProjects")} →
           </Link>
         </div>
 
-        {/* Grid */}
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((project, i) => (
-            <Link
-              key={project.slug}
-              href={`/projets/${project.slug}`}
-              className="group card flex flex-col gap-5 no-underline"
-            >
-              {/* Image projet */}
+            <Link key={project.slug} href={`/projects/${project.slug}`} className="group card flex flex-col gap-5 no-underline">
               <div className="relative h-40 w-full overflow-hidden rounded-lg bg-[var(--secondary)]">
                 <Image
                   src={project.image}
-                  alt={`${project.title} - aperçu du projet`}
+                  alt={`${project.title} - project preview`}
                   fill
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />
               </div>
 
-              {/* Category */}
               <div className="flex items-center justify-between">
                 <span className="rounded-full border border-[var(--border)] px-3 py-1 text-xs font-medium text-[var(--muted)]">
                   {project.category}
                 </span>
                 {i === 0 && (
                   <span className="rounded-full bg-[var(--primary)] px-3 py-1 text-xs font-medium text-white">
-                    Sélection
+                    {t("selected")}
                   </span>
                 )}
               </div>
 
-              {/* Title + description */}
               <div className="flex flex-col gap-2">
                 <h3 className="text-lg font-semibold text-[var(--foreground)] transition group-hover:text-[var(--primary)]">
                   {project.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[var(--muted)]">
-                  {project.shortDescription}
-                </p>
+                <p className="text-sm leading-relaxed text-[var(--muted)]">{project.shortDescription}</p>
               </div>
 
-              {/* Stack */}
               <div className="mt-auto flex flex-wrap gap-2 border-t border-[var(--border)] pt-4">
                 {project.technologies.slice(0, 3).map((tech) => (
                   <span
@@ -91,10 +81,9 @@ export default function FeaturedProjects() {
           ))}
         </div>
 
-        {/* Mobile CTA */}
         <div className="mt-8 text-center md:hidden">
-          <Link href="/projets" className="button-secondary">
-            Voir tous les projets
+          <Link href="/projects" className="button-secondary">
+            {t("viewAllMobile")}
           </Link>
         </div>
       </Container>

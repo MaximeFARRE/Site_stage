@@ -1,4 +1,23 @@
-export const personalInfo = {
+import type { Locale } from "@/i18n/routing";
+
+export type PersonalInfo = {
+  firstName: string;
+  lastName: string;
+  fullName: string;
+  title: string;
+  headline: string;
+  shortBio: string;
+  longBio: string;
+  location: string;
+  school: string;
+  degree: string;
+  currentGoal: string;
+  longTermGoal: string;
+  email: string;
+  availability: string;
+};
+
+const personalInfoFr: PersonalInfo = {
   firstName: "Maxime",
   lastName: "Farré",
 
@@ -37,3 +56,49 @@ Mon expérience avec Occifloc reste un marqueur d’exécution : suivi de marges
 
   availability: "Disponible pour échanger sur des opportunités en finance, analyse ou développement d’outils financiers.",
 };
+
+const personalInfoEn: PersonalInfo = {
+  firstName: "Maxime",
+  lastName: "Farre",
+
+  fullName: "Maxime Farre",
+
+  title: "Financial Engineering student at ESILV",
+
+  headline:
+    "Quantitative finance, portfolio analysis, and development of financial tools.",
+
+  shortBio:
+    "Financial engineering student at ESILV, focused on capital markets, asset management, and financial tools. I use Python, SQL, Linux, and Streamlit to analyze data, backtest strategies, and structure decision-ready dashboards.",
+
+  longBio: `
+I am a financial engineering student at ESILV, with strong interest in capital markets, asset management, private equity, and quantitative research.
+I work on projects combining financial analysis, data structuring, and tool development: backtests, portfolio monitoring, dashboards, workflow automation, and financial data processing.
+
+I mainly use Python, SQL, Linux, Git, Streamlit, advanced Excel, and Bloomberg Terminal to build analyses that are readable, reproducible, and useful for decision-making.
+
+My experience with Occifloc remains a strong execution marker: margin tracking, client relationship, cash management, prioritization, and organization. It complements my profile without being its center.
+  `,
+
+  location: "Paris, France",
+
+  school: "ESILV - Leonard de Vinci Graduate School of Engineering",
+
+  degree: "Financial Engineering",
+
+  currentGoal:
+    "I am looking for an internship or opportunity in capital markets, asset management, private equity, financial analysis, or quantitative research.",
+
+  longTermGoal:
+    "Build strong expertise in asset management, quantitative analysis, and financial tool development.",
+
+  email: "maxime.farre8@gmail.com",
+
+  availability: "Available to discuss opportunities in finance, analysis, or financial tooling.",
+};
+
+export const personalInfo = personalInfoFr;
+
+export function getPersonalInfo(locale: Locale): PersonalInfo {
+  return locale === "en" ? personalInfoEn : personalInfoFr;
+}
