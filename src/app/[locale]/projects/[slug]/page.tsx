@@ -202,6 +202,26 @@ export default async function LocalizedProjectDetailPage({ params }: LocalizedPr
                 </div>
               </div>
 
+              {deepDive.customSections?.map((section) => (
+                <div key={section.title} className="space-y-6">
+                  <h2 className="section-title">{section.title}</h2>
+
+                  <div className="card p-8 sm:p-10">
+                    <div className="space-y-5">
+                      {section.summary && <p className="leading-8 text-[var(--muted)]">{section.summary}</p>}
+
+                      {section.points && section.points.length > 0 && (
+                        <ul className="space-y-3 text-sm leading-7 text-[var(--muted)]">
+                          {section.points.map((item) => (
+                            <li key={item}>• {item}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
               {deepDive.gallery && deepDive.gallery.length > 0 && (
                 <div className="space-y-6">
                   <div className="space-y-3">
