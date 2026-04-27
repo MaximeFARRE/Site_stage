@@ -14,6 +14,12 @@ export type ProjectDeepDiveBlock = {
     detail: string;
 };
 
+export type ProjectDeepDiveSection = {
+    title: string;
+    summary?: string;
+    points?: string[];
+};
+
 export type ProjectDeepDive = {
     summary: string;
     scope: string[];
@@ -23,6 +29,7 @@ export type ProjectDeepDive = {
     quality: string[];
     limitations: string[];
     nextSteps: string[];
+    customSections?: ProjectDeepDiveSection[];
     gallery?: ProjectGalleryItem[];
 };
 
@@ -748,23 +755,23 @@ export const projects: Project[] = [
     {
         slug: "smallcaps-screener-fr",
         title: "Moteur de screening small caps françaises (buy-side)",
-        category: "Finance quantitative · Data engineering · En cours",
+        category: "Analyse fondamentale · Outil buy-side · Python desktop",
         shortDescription:
-            "Projet en cours: moteur propriétaire de screening des small caps françaises avec pipeline de données, scoring multi-facteurs, dashboard interactif et génération semi-automatique de notes d’analyse.",
+            "Outil desktop de screening fondamental des small caps françaises pour constituer un univers investissable, calculer des ratios interprétables et prioriser une watchlist buy-side.",
         longDescription:
-            "Ce projet est conçu comme un vrai outil d’analyste buy-side, pas comme un exercice Python isolé. L’objectif est de construire un moteur propriétaire capable de structurer un univers d’investissement small caps françaises, automatiser la collecte et la normalisation des données financières, calculer des scores multi-facteurs par style (quality, value, growth, recovery, holdings décotées), puis ressortir des idées investissables avec une explication exploitable en comité d’investissement.",
-        technologies: ["Python", "Pandas", "NumPy", "SQLite", "Streamlit", "Plotly", "pytest", "Docker (prévu)"],
+            "Ce projet est un outil desktop de screening fondamental des small caps françaises. L’objectif est de construire une chaîne complète d’analyse buy-side : constitution d’un univers investissable, collecte et stockage des données financières, calcul de ratios fondamentaux, scoring multi-facteurs interprétable et restitution des meilleures idées sous forme de watchlist exploitable. Le projet vise moins à prédire mécaniquement le marché qu’à reproduire une première couche de travail d’analyste : filtrer, comparer, prioriser et documenter les sociétés à étudier.",
+        technologies: ["Python", "PySide6", "SQLAlchemy", "SQLite", "pandas", "numpy", "pytest", "ruff / black", "pre-commit"],
         image: "/images/projects/smallcaps_screener_fr.png",
         featured: true,
 
         whatItShows:
-            "Capacité à construire une chaîne analytique complète orientée buy-side: définition d’univers, data pipeline robuste, normalisation comptable, factor scoring, restitution analyste et industrialisation progressive.",
+            "Capacité à transformer une problématique d’investissement en outil concret : construction d’un univers small caps françaises, structuration des données financières, calcul de ratios fondamentaux, scoring multi-facteurs interprétable, persistance en base locale et restitution exploitable pour prioriser des dossiers d’analyse.",
         context:
-            "Le but est de passer d’une logique académique à une logique métier d’asset management: produire un outil réellement utilisable pour prioriser des dossiers small caps et accélérer la recherche fondamentale.",
+            "Le projet part d’un besoin très simple côté buy-side : réduire un univers large à une liste de sociétés réellement regardables, avec une lecture homogène des ratios, des points d’attention et des premiers éléments de comparaison.",
         objective:
-            "Obtenir une base de données propre des small caps françaises, un classement automatique par styles d’investissement, des filtres sectoriels/valorisation/qualité, et un top d’idées avec justification automatique.",
+            "Construire un outil de pré-sélection buy-side capable de filtrer, comparer et prioriser les small caps françaises, tout en gardant des ratios interprétables, une base locale exploitable et une watchlist utile pour formuler une première hypothèse d’investissement.",
         role:
-            "Conception et développement end-to-end du produit: cadrage de l’univers d’investissement, architecture data, règles de nettoyage, design des scores, implémentation dashboard, documentation méthodologique et plan de backtesting.",
+            "Je cadre l’univers d’investissement, conçois l’architecture, modélise les données, implémente les repositories, développe les services de ratios, définis la logique de scoring, écris les tests et documente la méthodologie de screening.",
 
         challenges: [
             "Définir un univers d’investissement cohérent (filtres de marché, taille, liquidité, exclusions sectorielles) sans introduire de biais grossiers.",
@@ -773,15 +780,15 @@ export const projects: Project[] = [
             "Construire un scoring multi-facteurs qui reste économiquement pertinent et interprétable par style d’investissement.",
         ],
         outcomes: [
-            "Spécification d’une architecture modulaire dédiée au screening buy-side (ingestion, cleaning, metrics, scoring, reporting).",
-            "Définition d’un framework de scores multi-styles: quality, value, growth, recovery, holdings décotées.",
-            "Plan de restitution orienté analyste: dashboard filtrable, ranking dynamique, fiches société et commentaire automatisé.",
-            "Roadmap de montée en puissance en 3 phases: MVP, version crédible recruteur, version premium (backtest + industrialisation).",
+            "Architecture stricte UI → Services → Repositories appliquée pour séparer l’affichage, la logique métier et l’accès aux données.",
+            "Modélisation d’une base locale avec Company, FinancialStatement, PriceHistory et ScreeningSnapshot.",
+            "Services déjà en place pour les ratios financiers, le scoring multi-facteurs et le screening / filtrage.",
+            "Base de travail crédible pour produire une watchlist et documenter les premiers dossiers à creuser en analyse fondamentale.",
         ],
         links: [
             {
-                label: "Projet lié: portfolio de ce site",
-                href: "/projets/site-stage",
+                label: "Repository GitHub",
+                href: "https://github.com/MaximeFARRE/small-cap-screener",
             },
             {
                 label: "Échanger sur le projet",
@@ -790,86 +797,126 @@ export const projects: Project[] = [
         ],
         deepDive: {
             summary:
-                "Le projet vise un standard buy-side: un moteur de sélection small caps exploitable, capable de passer de la donnée brute à des idées d’investissement argumentées.",
+                "Le projet est déjà avancé sur la couche data et la logique métier. L’enjeu n’est pas seulement de calculer des ratios, mais de produire un outil de pré-sélection exploitable par un analyste buy-side pour passer plus vite d’un univers large à une watchlist argumentée.",
             scope: [
-                "Construction d’un univers small caps françaises filtré (marché, capitalisation, liquidité, exclusions).",
-                "Pipeline automatisé de collecte (prix, market cap, états financiers, dette, cash, secteurs).",
-                "Normalisation et nettoyage comptable avec règles explicites de traitement des anomalies.",
-                "Calcul de ratios financiers et de risque/momentum comparables entre sociétés.",
-                "Scoring multi-facteurs + dashboard + génération semi-automatique de commentaires analyste.",
+                "Constitution d’un univers investissable de small caps françaises avec règles de filtre explicites.",
+                "Stockage local des données sociétés, états financiers, historiques de prix et snapshots de screening.",
+                "Calcul de ratios fondamentaux pour comparer valorisation, qualité, croissance et solidité bilancielle.",
+                "Scoring multi-facteurs interprétable pour prioriser les dossiers à analyser.",
+                "Restitution sous forme de watchlist et de résultats exploitables pour la recherche fondamentale.",
             ],
             architecture: [
                 {
-                    title: "Ingestion",
+                    title: "UI / PySide6",
                     detail:
-                        "Modules dédiés à la collecte multi-sources (prix, fundamentals, métadonnées) avec gestion des erreurs, retries et logs.",
+                        "La couche interface gère l’affichage, les filtres et les interactions utilisateur. Elle reste volontairement mince et ne porte pas la logique métier.",
                 },
                 {
-                    title: "Cleaning & normalization",
+                    title: "Services",
                     detail:
-                        "Règles de nettoyage explicites: gestion des NA, exclusions contrôlées, harmonisation des libellés, winsorisation des extrêmes, alignement temporel.",
+                        "Les services concentrent les calculs de ratios, le scoring, le screening et les règles métier. C’est la couche qui transforme la donnée brute en résultats de pré-sélection exploitables.",
                 },
                 {
-                    title: "Metrics & scoring",
+                    title: "Repositories",
                     detail:
-                        "Calcul des ratios (valorisation, rentabilité, croissance, bilan, momentum) puis transformation en scores bornés/percentiles avec pondérations par style.",
+                        "Les repositories encapsulent les accès base, fichiers et providers externes. Ils isolent la persistance et l’ingestion pour garder le reste du code testable et maintenable.",
                 },
                 {
-                    title: "Reporting layer",
+                    title: "Database",
                     detail:
-                        "Dashboard Streamlit pour filtrer/classer/rechercher et couche de génération de commentaires automatiques orientés analyste.",
+                        "SQLite sert de base locale et SQLAlchemy de couche d’accès structurée. L’objectif est d’avoir une persistance simple, traçable et adaptée à un usage desktop local-first.",
                 },
             ],
             dataFlow: [
                 "Définition de l’univers investissable (périmètre France, bornes de taille, règles d’exclusion).",
-                "Collecte automatisée des données brutes et stockage dans une base locale.",
-                "Normalisation comptable et contrôles qualité des séries.",
-                "Calcul des ratios et sous-scores par axe (quality, value, growth, leverage, momentum).",
-                "Agrégation en score composite selon le style sélectionné.",
-                "Restitution des meilleures idées avec justification textuelle semi-automatique.",
+                "Collecte des données financières et de marché via des sources externes, puis contrôle de leur cohérence.",
+                "Pipeline fetch → parse → store pour fiabiliser l’ingestion et l’écriture en base locale.",
+                "Calcul des ratios fondamentaux et des sous-scores par axe d’analyse.",
+                "Agrégation en score composite interprétable selon les critères retenus.",
+                "Restitution des meilleures sociétés sous forme de watchlist, snapshots et exports exploitables.",
             ],
             technicalChoices: [
                 {
                     title: "Univers d’abord, scoring ensuite",
                     detail:
-                        "Le projet priorise la qualité de l’univers investissable avant toute logique de ranking pour éviter des sorties non exploitables.",
+                        "Le projet priorise d’abord la définition d’un univers réellement investissable. Un bon classement n’a aucune valeur si le périmètre de départ est mal cadré.",
                 },
                 {
                     title: "Scoring interprétable",
                     detail:
-                        "Les scores sont construits avec variables explicites, normalisation contrôlée et pondérations lisibles afin de rester défendables en entretien.",
+                        "Les ratios et pondérations restent explicites pour que chaque score puisse être relu, discuté et remis en question comme le ferait un analyste buy-side.",
                 },
                 {
-                    title: "Restitution orientée décision",
+                    title: "Architecture local-first testable",
                     detail:
-                        "Le dashboard n’est pas un simple affichage de ratios: il sert à prioriser rapidement les dossiers et à formuler une hypothèse d’investissement.",
+                        "Le découpage UI → Services → Repositories facilite les tests unitaires, limite les effets de bord et permet de faire évoluer l’outil sans dépendre d’une infrastructure lourde.",
                 },
                 {
-                    title: "Industrialisation progressive",
+                    title: "Pré-sélection, pas recommandation",
                     detail:
-                        "Stack pragmatique au départ (Python/SQLite/Streamlit), puis montée en puissance prévue (tests renforcés, Docker, backtest, CI/CD).",
+                        "L’outil est conçu pour aider à filtrer et prioriser. Il ne remplace ni la lecture des comptes ni la construction complète d’une thèse d’investissement.",
                 },
             ],
             quality: [
-                "Règles de nettoyage documentées pour rendre les résultats auditables.",
-                "Séparation claire des modules (ingestion, cleaning, metrics, scoring, reporting).",
-                "Jeux de tests unitaires prévus sur les formules de ratios et les fonctions de scoring.",
+                "Tests unitaires présents sur les repositories et les services.",
+                "Séparation stricte entre affichage, logique métier et accès aux données.",
+                "Outillage qualité intégré avec pytest, ruff / black et pre-commit.",
             ],
             limitations: [
-                "Projet encore en phase de construction: toutes les briques ne sont pas finalisées en production.",
-                "Le backtest factoriel complet reste à consolider avec garde-fous biais (survivorship, point-in-time).",
-                "La qualité finale dépendra du niveau de couverture/fiabilité des sources financières retenues.",
+                "La couverture des données reste dépendante des sources gratuites.",
+                "L’ingestion externe est encore en cours de consolidation.",
+                "Le backtest factoriel n’est pas encore finalisé.",
+                "Le risque de survivorship bias doit encore être traité proprement.",
+                "Certaines données fondamentales nécessitent encore des contrôles manuels.",
+                "L’outil ne remplace pas une analyse fondamentale complète ; il sert d’abord à prioriser les dossiers.",
             ],
             nextSteps: [
-                "Phase 1: MVP propre (univers, collecte, ratios, premier score, top 20).",
-                "Phase 2: version recruteur (scores multiples, dashboard complet, fiches société, commentaires automatiques).",
-                "Phase 3: version premium (backtest robuste, Docker, documentation méthodologique complète, pipeline automatisé).",
+                "Phase actuelle : data layer + business logic largement avancés.",
+                "Prochaine étape 1 : ingestion externe via provider financier.",
+                "Prochaine étape 2 : pipeline fetch → parse → store.",
+                "Prochaine étape 3 : interface desktop PySide6 complète.",
+                "Prochaine étape 4 : export CSV / Excel.",
+                "Prochaine étape 5 : backtest et contrôles contre les biais : survivorship bias, données point-in-time, qualité des sources.",
+            ],
+            customSections: [
+                {
+                    title: "Analyse fondamentale intégrée",
+                    summary:
+                        "Le projet ne se limite pas à classer des sociétés avec des ratios. Il cherche à reproduire une première étape de travail d’analyste fondamental : comprendre la qualité du business, la valorisation, la solidité du bilan, la croissance, le risque financier et la cohérence du profil d’investissement.",
+                    points: [
+                        "Valorisation : P/E, P/B, EV/EBITDA.",
+                        "Qualité : marges, rentabilité, génération de cash.",
+                        "Croissance : chiffre d’affaires, résultat, dynamique historique.",
+                        "Bilan : dette nette, trésorerie, levier.",
+                        "Profil société : secteur, industrie, site web, business summary.",
+                        "Données analystes : recommandations, target price, upside éventuel.",
+                    ],
+                },
+                {
+                    title: "Travail déjà réalisé",
+                    summary:
+                        "Le projet ne part pas d’une idée théorique. La couche data et la logique métier sont déjà bien avancées.",
+                    points: [
+                        "Modèles de données : Company, FinancialStatement, PriceHistory, ScreeningSnapshot.",
+                        "Repositories CRUD avec tests.",
+                        "Services de ratios financiers.",
+                        "Service de scoring multi-facteurs.",
+                        "Service de screening / filtrage.",
+                        "Architecture stricte UI → Services → Repositories.",
+                        "Tests unitaires sur repositories et services.",
+                    ],
+                },
+                {
+                    title: "Pourquoi c’est buy-side",
+                    summary:
+                        "Le but n’est pas de prédire mécaniquement la performance boursière, mais d’aider un analyste à réduire un univers large à une watchlist exploitable, puis à identifier les dossiers qui méritent une analyse fondamentale plus poussée.",
+                },
             ],
             gallery: [
                 {
                     src: "/images/projects/smallcaps_screener_fr.png",
                     alt: "Moteur de screening buy-side small caps françaises en construction",
-                    caption: "Produit en cours de création: sélection multi-facteurs, classement dynamique et restitution analyste.",
+                    caption: "Aperçu du screener desktop : restitution des ratios, priorisation des sociétés et logique de watchlist orientée analyste.",
                 },
             ],
         },

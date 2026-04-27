@@ -158,28 +158,28 @@ const projectTranslationsEn: Record<string, ProjectTranslation> = {
   },
   "smallcaps-screener-fr": {
     title: "French Small Caps Screener",
-    category: "Equity Research · Screening · Data",
+    category: "Fundamental Analysis · Buy-Side Tool · Python Desktop",
     shortDescription:
-      "Buy-side style screening framework for French small caps with multi-factor ranking and analyst-oriented outputs.",
+      "Desktop screening tool for French small caps built to prioritize an investable watchlist with interpretable fundamental ratios.",
     longDescription:
-      "A project focused on building an investable universe, cleaning financial datasets, computing robust ratios, and generating interpretable rankings.",
+      "This project is a desktop tool for fundamental screening on French small caps. The goal is to build a buy-side analysis chain: define an investable universe, store financial data locally, compute interpretable ratios, rank companies with transparent multi-factor scoring, and surface the most relevant names for further analyst work.",
     whatItShows:
-      "Ability to connect raw financial data to actionable stock selection workflows.",
+      "Ability to turn an investment problem into a concrete tool: universe construction, financial data structuring, fundamental ratio calculation, interpretable multi-factor scoring, and usable outputs for analyst prioritization.",
     context:
-      "Designed to move from exploratory analysis to a repeatable and auditable screening process.",
+      "The project is designed to support a buy-side first pass: reduce a broad universe to a credible watchlist with a consistent reading of valuation, quality, growth, and balance-sheet risk.",
     objective:
-      "Prioritize high-potential small-cap profiles through transparent and finance-grounded scoring logic.",
+      "Build a pre-selection tool that helps filter, compare, and prioritize French small caps before deeper fundamental work.",
     role:
-      "I designed the scoring logic, data pipeline structure, and reporting approach.",
+      "I frame the investment universe, design the architecture, model the data, implement repositories, build ratio and scoring services, write tests, and document the methodology.",
+    outcomes: [
+      "Strict UI → Services → Repositories architecture applied across the project.",
+      "Local data model covering Company, FinancialStatement, PriceHistory, and ScreeningSnapshot.",
+      "Services already implemented for ratios, multi-factor scoring, and screening logic."
+    ],
     challenges: [
       "Handle inconsistent fundamental datasets and accounting edge cases.",
       "Keep scoring interpretable for analyst-level discussion.",
       "Avoid fragile conclusions from noisy data."
-    ],
-    outcomes: [
-      "Structured blueprint for a small-cap screening engine.",
-      "Multi-factor scoring approach by investment style.",
-      "Clear roadmap from MVP to production-ready iteration."
     ],
     deepDive: undefined
   },
