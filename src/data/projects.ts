@@ -760,7 +760,7 @@ export const projects: Project[] = [
             "Outil desktop de screening fondamental des small caps françaises pour constituer un univers investissable, calculer des ratios interprétables et prioriser une watchlist buy-side.",
         longDescription:
             "Ce projet est un outil desktop de screening fondamental des small caps françaises. L’objectif est de construire une chaîne complète d’analyse buy-side : constitution d’un univers investissable, collecte et stockage des données financières, calcul de ratios fondamentaux, scoring multi-facteurs interprétable et restitution des meilleures idées sous forme de watchlist exploitable. Le projet vise moins à prédire mécaniquement le marché qu’à reproduire une première couche de travail d’analyste : filtrer, comparer, prioriser et documenter les sociétés à étudier.",
-        technologies: ["Python", "PySide6", "SQLAlchemy", "SQLite", "pandas", "numpy", "pytest", "ruff / black", "pre-commit"],
+        technologies: ["Python", "Analyse fondamentale", "PySide6", "SQLAlchemy", "SQLite", "pandas", "numpy", "pytest", "ruff / black", "pre-commit"],
         image: "/images/projects/smallcaps_screener_fr.png",
         featured: true,
 
@@ -1116,4 +1116,19 @@ export function getFeaturedProjects() {
 
 export function getProjectBySlug(slug: string) {
     return projects.find((project) => project.slug === slug);
+}
+
+const projectDisplayPriority: Record<string, number> = {
+    "suivi-patrimoine": 0,
+    "smallcaps-screener-fr": 1,
+    "backtest-optimisation-portefeuille": 2,
+};
+
+export function sortProjectsForDisplay(items: Project[]) {
+    return [...items].sort((a, b) => {
+        const aPriority = projectDisplayPriority[a.slug] ?? Number.MAX_SAFE_INTEGER;
+        const bPriority = projectDisplayPriority[b.slug] ?? Number.MAX_SAFE_INTEGER;
+
+        return aPriority - bPriority;
+    });
 }
