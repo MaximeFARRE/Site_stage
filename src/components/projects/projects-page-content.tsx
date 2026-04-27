@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 import Container from "@/components/layout/container";
 import { localizeProject } from "@/data/project-i18n";
-import { projects } from "@/data/projects";
+import { projects, sortProjectsForDisplay } from "@/data/projects";
 import { Link } from "@/i18n/navigation";
 import { type Locale } from "@/i18n/routing";
 
@@ -26,7 +26,7 @@ export default function ProjectsPageContent() {
   const [activeCategory, setActiveCategory] = useState<CategoryId>("all");
 
   const localizedProjects = useMemo(
-    () => projects.map((project) => localizeProject(project, locale)),
+    () => sortProjectsForDisplay(projects).map((project) => localizeProject(project, locale)),
     [locale]
   );
 

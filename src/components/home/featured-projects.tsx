@@ -3,14 +3,16 @@ import { useLocale, useTranslations } from "next-intl";
 
 import Container from "@/components/layout/container";
 import { localizeProject } from "@/data/project-i18n";
-import { projects } from "@/data/projects";
+import { projects, sortProjectsForDisplay } from "@/data/projects";
 import { Link } from "@/i18n/navigation";
 import { type Locale } from "@/i18n/routing";
 
 export default function FeaturedProjects() {
   const locale = useLocale() as Locale;
   const t = useTranslations("FeaturedProjects");
-  const featured = projects.filter((p) => p.featured).map((project) => localizeProject(project, locale));
+  const featured = sortProjectsForDisplay(projects.filter((p) => p.featured)).map((project) =>
+    localizeProject(project, locale)
+  );
 
   return (
     <section className="section border-t border-[var(--border)]">
